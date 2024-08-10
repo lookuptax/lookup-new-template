@@ -28,27 +28,25 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Try Free',
+        text: 'Get Started Free',
         id: 'openModalBtn',
         icon: 'tabler:download',
       },
-      { text: 'Learn more', href: '#features' },
+      { text: 'Demo', href: './demo' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    image={{ src: '~/assets/images/official-sources.png', alt: 'Supported Official sources', style:"width: auto; height: auto; max-width: 100%; max-height: 100%;",class:"hidden xl:inline", }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white highlight"> Astro</span> + Tailwind CSS
+      Tax ID Validation <span class="hidden xl:inline">across the world !!</span>
+      <span class="text-accent dark:text-white highlight"> 100+ countries</span> supported
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">Lookuptax</span> is a free, customizable and production-ready template for Astro 4.0
-        + Tailwind CSS.</span
+        <span class="font-semibold">VAT number, ABN, GSTIN</span></span
       >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
+     <!-- <span class="block mb-1 sm:hidden font-bold text-blue-600">Validate these and more</span>-->
+     Validate these and more using our free, secure and refreshingly easy to use APIs.
     </Fragment>
   </Hero>
 
@@ -96,45 +94,34 @@ const metadata = {
   <Features
     id="features"
     tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022."
+    title="One API for Tax ID validation across the globe"
+    subtitle="Leave the hassle of bringing together multiple Tax ID sources in one place to us. Focus your energy on building your core product."
     items={[
       {
-        title: 'Astro + Tailwind CSS Integration',
+        title: '#1 Global coverage',
         description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
+          'Multiple national databases under one roof',
         icon: 'tabler:brand-tailwind',
       },
       {
-        title: 'Ready-to-use Components',
+        title: 'Validate in Bulk',
         description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
+          'Upload Tax IDs in bulk and instantly validate their authenticity',
         icon: 'tabler:components',
       },
       {
-        title: 'Best Practices',
+        title: 'Single API',
         description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
+          'Easily switch Tax ID validation between countries with a single API integration',
         icon: 'tabler:list-check',
       },
       {
-        title: 'Excellent Page Speed',
+        title: 'Audit trails',
         description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
+          'Refer to validation history anytime',
         icon: 'tabler:rocket',
       },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
-      },
+      
     ]}
   />
 
@@ -142,23 +129,28 @@ const metadata = {
 
   <Content
     isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    tagline="The Lookup Promise"
+    title="We take care of Tax ID validation."
     items={[
       {
-        title: 'Built on top of Astro 4.0',
+        title: 'Fast Performance',
         description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+          'UK, Europe, Australia. No matter the country, call our API\'s and instantly see the results. You don\'t deserve to wait.',
       },
       {
-        title: 'Styled using Tailwind CSS',
+        title: 'Free subscription for small businesses',
         description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
+          'If you are a freelancer or a startup, get started with our free plan with 100 Tax ID validations per month. You only have to pay as you grow.',
       },
       {
-        title: 'Cross-browser compatibility',
+        title: 'Partner with us',
         description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
+          'We want to seamlessly integrate with your Billing, CRM and any other tools where you want to validate Tax IDs. Drop a request if you want us to build an integration with the tool you use. If you are a platform where your customers need to validate Tax IDs partner with us.',
+      },
+      {
+        title: 'Take control',
+        description:
+          'Self hosting option for enhanced privacy. Open source community support to extend Tax ID validation to all countries you sell to.',
       },
     ]}
     image={{
@@ -167,8 +159,8 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Focus on other parts of your business operations. </h3>
+      Integrate once and forget about it. That's how reliable we are.
     </Fragment>
 
     <Fragment slot="bg">
@@ -177,7 +169,7 @@ const metadata = {
   </Content>
 
   <!-- Content Widget **************** -->
-
+<!-- 
   <Content
     isAfterContent
     items={[
@@ -212,9 +204,9 @@ const metadata = {
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
-
+-->
   <!-- Content Widget **************** -->
-
+<!-- 
   <Content
     isReversed
     isAfterContent
@@ -250,9 +242,9 @@ const metadata = {
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
-
+-->
   <!-- Steps Widget ****************** -->
-
+<!-- 
   <Steps
     title="Get your dream website up and running in no time with AstroWind."
     items={[
@@ -284,9 +276,9 @@ const metadata = {
       alt: 'Steps image',
     }}
   />
-
+-->
   <!-- Features2 Widget ************** -->
-
+<!-- 
   <Features2
     title="Most used widgets"
     subtitle="Provides frequently used components for building websites using Tailwind CSS"
@@ -348,9 +340,9 @@ const metadata = {
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Features2>
-
+-->
   <!-- HighlightedPosts Widget ******* -->
-
+<!-- 
   <BlogLatestPosts
     title="Find out more content in our Blog"
     information={`The blog is used to display AstroWind documentation.
@@ -358,44 +350,24 @@ const metadata = {
                         Astro is a very interesting technology. Thanks.
                 `}
   />
-
+-->
   <!-- FAQs Widget ******************* -->
 
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
+    subtitle="Dive into the following questions to gain insights into the powerful features that Lookuptax offers and how it can elevate your revenue operations"
     tagline="FAQs"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'Why AstroWind?',
+        title: 'What countries do you support for Tax ID validation?',
         description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+          "We make use of national databases to support Tax ID validation. Currently support exists for EU through VIES, UK through HMRC, India through GST portal, Australia through Australian Business Register. We understand that you might be selling globally in other countries too and we plan to expland our support ourselves and with the help of the community.",
       },
       {
-        title: 'What do I need to start?',
+        title: 'What do I do if I am facing trouble integrating or having any other questions?',
         description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+          'You can reach out to support@lookuptax.com for all questions. We promise to give you a response as soon as possible. You might sometimes see a delay in getting a response but please do bear with us as we are a very small team now.',
       },
     ]}
   />
@@ -412,7 +384,7 @@ const metadata = {
   />
 
   <!-- CallToAction Widget *********** -->
-
+<!-- 
   <CallToAction
     actions={[
       {
@@ -433,4 +405,5 @@ const metadata = {
       waste more time! :P
     </Fragment>
   </CallToAction>
+  -->
 </Layout>

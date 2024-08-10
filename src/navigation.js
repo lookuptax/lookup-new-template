@@ -2,7 +2,7 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
-    {
+  /*  {
       text: 'Homes',
       links: [
         {
@@ -109,13 +109,31 @@ export const headerData = {
           href: getPermalink('astro', 'tag'),
         },
       ],
+    }, 
+
+    */
+    {
+      text: 'Features',
+      href: './#features',
     },
     {
-      text: 'Widgets',
-      href: '#',
+      text: 'Pricing',
+      href: '/pricing',
+    },
+    {
+      text: 'Demo',
+      href: '/demo',
+    },
+    {
+      text: 'Guides',
+      href: 'https://lookuptax.com/docs/category/verify-tax-ids',
+    },
+    {
+      text: 'Countries',
+      href: '/countries',
     },
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
+  /*actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],*/
 };
 
 export const footerData = {
@@ -174,10 +192,9 @@ export const footerData = {
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/onwidget/astrowind' },
+    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: '#' },
   ],
   footNote: `
-    <img class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm" src="https://onwidget.com/favicon/favicon-32x32.png" alt="onWidget logo" loading="lazy"></img>
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
+    Made by <a class="text-blue-600 underline dark:text-muted" href="https://lookuptax.com/"> Lookuptax</a> · All rights reserved.
   `,
 };

@@ -1,9 +1,13 @@
 ---
 import { SITE } from 'astrowind:config';
+import favIcon from '~/assets/favicons/favicon.ico';
 ---
 
-<span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
->
-  🚀 {SITE?.name}
+<span class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white flex items-center">
+  <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="20" height="23.636" viewBox="0 0 15 17.727" class="mr-2">
+    <path d="M12.818 4.6c-0.127 0.082 -1.682 1.6 -3.455 3.364 -2.418 2.409 -3.291 3.218 -3.446 3.218s-0.572 -0.346 -1.454 -1.218c-1.018 -1.001 -1.3 -1.237 -1.581 -1.282 -0.991 -0.191 -1.727 0.8 -1.291 1.718 0.082 0.164 0.927 1.082 1.891 2.028 1.355 1.346 1.819 1.754 2.081 1.827 0.736 0.2 0.709 0.227 4.918 -3.964 2.146 -2.136 3.955 -3.991 4.027 -4.127 0.282 -0.536 0.082 -1.318 -0.418 -1.573 -0.346 -0.182 -0.991 -0.173 -1.273 0.009m0.945 0.728a0.465 0.465 0 0 1 0.146 0.291c0 0.2 -7.627 7.827 -7.9 7.9 -0.182 0.046 -0.445 -0.191 -1.937 -1.663 -0.945 -0.945 -1.764 -1.791 -1.809 -1.882 -0.137 -0.236 0.055 -0.519 0.346 -0.519 0.2 0 0.555 0.3 1.709 1.454 0.809 0.8 1.527 1.454 1.6 1.454 0.064 0 1.745 -1.618 3.718 -3.591 2.5 -2.5 3.655 -3.591 3.791 -3.591 0.109 0 0.264 0.064 0.336 0.146"/>
+  </svg>
+  {SITE?.name}
 </span>
+
+
