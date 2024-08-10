@@ -1,0 +1,35 @@
+---
+const { portalId, formId, onSubmit, onReady, loading } = Astro.props;
+---
+
+<div id="hubspotForm"></div>
+
+<script define:vars={{ portalId, formId, onSubmit, onReady, loading }}>
+  function loadHubspotForm() {
+    if (window.hbspt) {
+      window.hbspt.forms.create({
+        portalId: portalId,
+        formId: formId,
+        target: '#hubspotForm',
+        onFormSubmit: onSubmit,
+        onFormReady: onReady,
+      });
+    } else {
+      setTimeout(loadHubspotForm, 100);
+    }
+  }
+
+  loadHubspotForm();
+</script>
+
+<script>
+  (function(d,s,i,r) {
+    if (d.getElementById(i)){return;}
+    var n=d.createElement(s),e=d.getElementsByTagName(s)[0];
+    n.id=i;n.src='//js.hsforms.net/forms/embed/v2.js';
+    n.type='text/javascript';n.async=true;n.defer=true;n.addEventListener('load', function() {
+      r.forEach(function(fn) { fn(); });
+    });
+    e.parentNode.insertBefore(n, e);
+  })(document, 'script', 'hs-forms-script', []);
+</script>

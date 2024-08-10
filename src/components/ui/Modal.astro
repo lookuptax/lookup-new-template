@@ -1,0 +1,20 @@
+---
+const { id } = Astro.props;
+---
+
+<div id={id} class="fixed inset-0 z-50 overflow-auto bg-smoke-light flex hidden">
+  <div class="relative p-8 bg-white w-full max-w-md m-auto flex-col flex rounded-lg">
+    <button
+      class="absolute top-0 right-0 mt-4 mr-4 text-black close-modal"
+    >
+      &times;
+    </button>
+    <slot />
+  </div>
+</div>
+
+<style>
+  .bg-smoke-light {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+</style>

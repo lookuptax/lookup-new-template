@@ -1,0 +1,136 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+
+  <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
+    <form id="taxIdForm" class="grid sm:grid-cols-12 gap-4 py-4">
+        <div class="sm:col-span-3">
+          <label for="countryCode" class="block text-sm font-medium">
+            Country Code:
+          </label>
+          <select
+            id="countryCode"
+            name="countryCode"
+            class="px-4 py-3 w-full bg-neutral-50 dark:bg-neutral-700 outline-none rounded-md border border-neutral-200 dark:border-neutral-600"
+          >
+            <option value="GB">GB</option>
+            <!-- Add more country options here -->
+          </select>
+        </div>
+        <div class="sm:col-span-9">
+          <label for="targetTaxID" class="block text-sm font-medium">
+            Tax ID Number:
+          </label>
+          <input
+            type="text"
+            id="targetTaxID"
+            name="targetTaxID"
+            class="px-4 py-3 w-full bg-neutral-50 dark:bg-neutral-700 outline-none rounded-md border border-neutral-200 dark:border-neutral-600"
+          />
+        </div>
+        <div class="sm:col-span-12 text-right">
+          <button type="submit" class="btn btn-primary sm:mb-0">
+            Submit
+          </button>
+        </div>
+      </form>
+    <div id="responseContainer" class="mt-4 hidden">
+      <!-- Response will be inserted here -->
+    </div>
+  </div>
+</WidgetWrapper>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('taxIdForm');
+      const responseContainer = document.getElementById('responseContainer');
+  
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const countryCode = document.getElementById('countryCode').value;
+        const targetTaxID = document.getElementById('targetTaxID').value;
+  
+        try {
+          const response = await fetch(`http://localhost:3000/validate?country_iso=${countryCode}&tin=${targetTaxID}`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+  
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+  
+          const data = await response.json();
+          displayResponse(data);
+        } catch (error) {
+          console.error('Error:', error);
+          let errorMessage = 'Failed to fetch data. ';
+          if (error instanceof TypeError && error.message === 'Failed to fetch') {
+            errorMessage += 'This might be due to the local server not running or not accessible. Please ensure your local server is running on port 3000.';
+          } else {
+            errorMessage += error.message;
+          }
+          displayError(errorMessage);
+        }
+      });
+  
+      function displayResponse(data) {
+        responseContainer.innerHTML = '';
+        responseContainer.classList.remove('hidden');
+  
+        if (data.valid) {
+          responseContainer.innerHTML = `
+            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
+              <p class="font-bold">Valid Tax ID Number</p>
+            </div>
+            <dl class="grid grid-cols-2 gap-x-4 gap-y-2">
+              ${createResponseItem('Valid', data.valid.toString())}
+              ${createResponseItem('Name', data.name)}
+              ${createResponseItem('VAT Number', data.vatNumber)}
+              ${createResponseItem('Address', data.address)}
+              ${createResponseItem('Country Code', data.countryCode)}
+              ${createResponseItem('Request Date', data.requestDate)}
+            </dl>
+          `;
+        } else {
+          responseContainer.innerHTML = `
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+              <p class="font-bold">Invalid Tax ID Number</p>
+            </div>
+          `;
+        }
+      }
+  
+      function displayError(message) {
+        responseContainer.innerHTML = `
+          <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+            <p class="font-bold">Error</p>
+            <p>${message}</p>
+          </div>
+        `;
+        responseContainer.classList.remove('hidden');
+      }
+  
+      function createResponseItem(label, value) {
+        return `
+          <dt class="font-medium text-gray-700 dark:text-gray-300">${label}:</dt>
+          <dd class="text-gray-900 dark:text-gray-100">${value || 'N/A'}</dd>
+        `;
+      }
+    });
+  </script>

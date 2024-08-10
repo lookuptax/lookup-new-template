@@ -11,9 +11,12 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import TaxIdValidationWidget from '~/components/widgets/TaxIdValidationWidget.astro';
+import Modal from '~/components/ui/Modal.astro';
+import HubspotForm from '~/components/widgets/HubspotForm.astro';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: 'Lookuptax Free tax ID validation across the world',
   ignoreTitleTemplate: true,
 };
 ---
@@ -25,9 +28,8 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
+        text: 'Try Free',
+        id: 'openModalBtn',
         icon: 'tabler:download',
       },
       { text: 'Learn more', href: '#features' },
@@ -41,7 +43,7 @@ const metadata = {
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 4.0
+        <span class="font-semibold">Lookuptax</span> is a free, customizable and production-ready template for Astro 4.0
         + Tailwind CSS.</span
       >
       <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
@@ -50,8 +52,43 @@ const metadata = {
     </Fragment>
   </Hero>
 
-  <!-- Note Widget ******************* -->
 
+  <Modal id="hubspotModal">
+    <HubspotForm
+      portalId="22529954"
+      formId="a16f7dad-52b2-4450-8d85-fac6da7562e0"
+      onSubmit={() => console.log("Submit!")}
+      onReady={() => console.log("Form ready!")}
+    />
+  </Modal>
+  
+
+<script>
+  const openModalBtn = document.getElementById('openModalBtn');
+  const modal = document.getElementById('hubspotModal');
+  const closeModalBtn = modal.querySelector('.close-modal');
+
+  openModalBtn.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+  });
+
+  closeModalBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+  });
+
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.classList.add('hidden');
+    }
+  });
+</script>
+
+  <!-- Note Widget ******************* -->
+  <TaxIdValidationWidget
+  title="Tax ID Validation"
+  subtitle="Validate your tax identification number"
+  tagline="Quick and easy verification"
+/>
   <Note />
 
   <!-- Features Widget *************** -->
