@@ -12,6 +12,7 @@ import compress from 'astro-compress';
 
 import astrowind from './vendor/integration';
 
+
 import {
   readingTimeRemarkPlugin,
   responsiveTablesRehypePlugin,
@@ -90,5 +91,6 @@ export default defineConfig({
         '~': path.resolve(__dirname, './src'),
       },
     },
+   
   },
 });
