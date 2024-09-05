@@ -8,8 +8,18 @@ import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'Services',
-};
+}
+
+
+
+
+const isDraft = true; // Use environment variables or other flags as needed
 ---
+
+{isDraft ? (
+  <meta name="draft" content="true" />
+) : (
+  
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
@@ -222,3 +232,4 @@ const metadata = {
     subtitle="Whether you're in business, design, or education, our templates are here to elevate your projects."
   />
 </Layout>
+)}

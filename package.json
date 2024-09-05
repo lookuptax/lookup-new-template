@@ -10,11 +10,14 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node filter-drafts.js",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier -w .",
     "lint:eslint": "eslint ."
+  
+
+
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.7",
