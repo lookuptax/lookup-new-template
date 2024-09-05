@@ -4,6 +4,7 @@ import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import TaxIdValidationWidget from '~/components/widgets/TaxIdValidationWidget.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Tax ID Validation',
@@ -22,7 +23,7 @@ const metadata = {
 />
 
   <!-- Features2 Widget ************** -->
-
+<!--
   <Features2
     title="We are here to help!"
     items={[
@@ -47,7 +48,7 @@ const metadata = {
       },
       {
         title: 'Email',
-        description: 'contact@support.com',
+        description: 'support@lookuptax.com',
         icon: 'tabler:mail',
       },
       {
@@ -57,4 +58,16 @@ const metadata = {
       },
     ]}
   />
+   -->
+  <CallToAction
+  title="Ready to automate Tax ID validation?"
+  subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Get started now',
+      href: '/',
+    },
+  ]}
+/>
 </Layout>

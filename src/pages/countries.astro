@@ -1,6 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Supported Countries for VAT Validation',
@@ -196,10 +197,82 @@ const metadata = {
           <td class="border border-gray-300 p-2"></td>
           <td class="border border-gray-300 p-2 text-green-600">✅</td>
         </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Colombia</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Mexico</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Indonesia</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Singapore</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Taiwan</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Vietnam</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Albania</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Kenya</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Moldova</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Russia</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Serbia</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Turkey</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+
       </tbody>
     </table>
   </section>
 
   <!-- Additional Information (optional) -->
+  <CallToAction
+  title="Ready to automate Tax ID validation?"
+  subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Get started now',
+      href: '/',
+    },
+  ]}
+/>
 
 </Layout>

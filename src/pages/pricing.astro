@@ -6,6 +6,8 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import HubspotForm from '~/components/widgets/HubspotForm.astro';
+import Modal from '~/components/ui/Modal.astro';
 
 const metadata = {
   title: 'Pricing',
@@ -49,7 +51,7 @@ const metadata = {
         callToAction: {
           target: '_blank',
           text: 'Get started',
-          href: '#',
+          href: '#',id: 'openModalBtn',
         },
       },
       {
@@ -85,7 +87,7 @@ const metadata = {
       {
         title: 'Self Hosting',
         subtitle: 'For Enterprises',
-        price: 199,
+        price: 'Custom',
         period: 'Per Month',
         items: [
           {
@@ -114,7 +116,7 @@ const metadata = {
   />
 
   <!-- Features3 Widget ************** -->
-
+<!--
   <Features3
     title="Price-related features"
     subtitle="Discover the advantages of choosing our plans"
@@ -153,9 +155,9 @@ const metadata = {
     ]}
     classes={{ container: 'max-w-5xl' }}
   />
-
+ -->
   <!-- Steps Widget ****************** -->
-
+<!--
   <Steps
     title="A guided journey from plans to creativity"
     tagline="simplified process"
@@ -196,6 +198,8 @@ const metadata = {
     }}
   />
 
+   -->
+
   <!-- FAQs Widget ******************* -->
 
   <FAQs
@@ -206,12 +210,12 @@ const metadata = {
       {
         title: 'Do the plans come with customer support?',
         description:
-          'Absolutely, all plans include access to our dedicated customer support to assist you with any queries or concerns.',
+          'Absolutely, all paid plans include access to our dedicated customer support to assist you with any queries or concerns.',
       },
       {
         title: 'Is there a trial period for the different plans?',
         description:
-          "Unfortunately, we don't offer trial periods for the plans. However, you can check out our demo section to preview the quality of our templates.",
+          "Yes, All plan include a trial where you get upto 25 free validations",
       },
       {
         title: 'Can I switch between plans?',
@@ -226,7 +230,7 @@ const metadata = {
       {
         title: 'Are there any hidden fees beyond the displayed cost?',
         description:
-          'No, the subscription cost covers all the features and templates listed under each plan. There are no hidden fees or extra charges.',
+          'No, the subscription cost covers all the features offered by lookuptax under each plan. There are no hidden fees or extra charges.',
       },
     ]}
   />
@@ -234,8 +238,8 @@ const metadata = {
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
-    title="Ready to boost your projects?"
-    subtitle="Join our community of satisfied customers who have transformed their work with our templates."
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
     actions={[
       {
         variant: 'primary',

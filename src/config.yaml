@@ -11,7 +11,7 @@ metadata:
   title:
     default: Lookuptax
     template: '%s — Lookuptax.com'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+  description: "Streamline VAT ID Validation Worldwide with Lookuptax. Access a single API for hassle-free validation in over 100 countries. Ensure accuracy and compliance."
   robots:
     index: true
     follow: true
