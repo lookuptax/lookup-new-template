@@ -141,16 +141,14 @@ export const footerData = {
     {
       title: 'Product',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
+        { text: 'Features', href: '/#features' },
+        { text: 'Free Demo', href: '/demo' },
+        { text: 'List of countries', href: '/countries' },
+        { text: 'Pricing', href: '/pricing' },
+        { text: 'Resources', href: 'https://lookuptax.com/docs/category/verify-tax-ids' },
       ],
     },
-    {
+    /*{
       title: 'Platform',
       links: [
         { text: 'Developer API', href: '#' },
@@ -160,26 +158,27 @@ export const footerData = {
         { text: 'AstroWind Desktop', href: '#' },
       ],
     },
+    */
     {
       title: 'Support',
       links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
+        { text: 'Docs', href: 'https://demo.lookuptax.com/api/' },
+        { text: 'Country guides', href: 'https://lookuptax.com/docs/category/tax-identification-number' },
+        { text: 'Explainer', href: 'https://lookuptax.com/docs/category/explainers' },
+        { text: 'National databases', href: 'https://lookuptax.com/docs/category/verify-tax-ids' },
         { text: 'Status', href: '#' },
       ],
     },
     {
       title: 'Company',
       links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
+        { text: 'About', href: '/about' },
+        { text: 'Blog', href: '/blog' },
+        /*{ text: 'Careers', href: '#' },
         { text: 'Press', href: '#' },
         { text: 'Inclusion', href: '#' },
         { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
+        { text: 'Shop', href: '#' },*/
       ],
     },
   ],
@@ -188,11 +187,12 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
+    { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/lookuptax' },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/lookuptax/' },
+   /* { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },*/
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: '#' },
+   /* { ariaLabel: 'Github', icon: 'tabler:brand-github', href: '#' },*/
   ],
   footNote: `
     Made by <a class="text-blue-600 underline dark:text-muted" href="https://lookuptax.com/"> Lookuptax</a> · All rights reserved.
