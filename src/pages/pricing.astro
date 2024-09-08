@@ -52,7 +52,7 @@ const metadata = {
         callToAction: {
           target: '_blank',
           text: 'Get started',
-          href: '#',
+          href: '/',
           id: 'openModalBtn-free',
         },
       },
@@ -81,7 +81,7 @@ const metadata = {
         callToAction: {
           target: '_blank',
           text: 'Get started',
-          href: '#',
+          href: '/',
           id: 'openModalBtn-pro',
         },
         hasRibbon: true,
@@ -112,7 +112,7 @@ const metadata = {
         callToAction: {
           target: '_blank',
           text: 'Get started',
-          href: '#',
+          href: '/',
           id: 'openModalBtn-enterprise',
         },
       },
@@ -252,35 +252,5 @@ const metadata = {
       },
     ]}
   />
-  <Modal id="hubspotModal">
-    <HubspotForm
-      portalId="22529954"
-      formId="a16f7dad-52b2-4450-8d85-fac6da7562e0"
-      onSubmit={() => console.log("Submit!")}
-      onReady={() => console.log("Form ready!")}
-    />
-  </Modal>
+ 
 </Layout>
-
-<script>
-  const modal = document.getElementById('hubspotModal');
-  const closeModalBtn = modal.querySelector('.close-modal');
-  const openModalBtns = document.querySelectorAll('[id^="openModalBtn"]');
-
-  openModalBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      modal.classList.remove('hidden');
-    });
-  });
-
-  closeModalBtn.addEventListener('click', () => {
-    modal.classList.add('hidden');
-  });
-
-  window.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      modal.classList.add('hidden');
-    }
-  });
-</script>
