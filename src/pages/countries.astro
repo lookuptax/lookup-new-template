@@ -1,0 +1,278 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Supported Countries for VAT Validation',
+  description: 'A comprehensive list of countries supported for VAT number validation. Ensure your business compliance with accurate VAT checks.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+   <HeroText
+    title="Countries Supported for VAT Validation"
+  /> 
+
+  <!-- Country List Table *************** -->
+  <section class="max-w-5xl mx-auto my-12">
+    <!--<h2 class="text-3xl font-bold mb-8">List of Supported Countries</h2>-->
+    <table class="table-auto w-full border-collapse border border-gray-300">
+      <thead>
+        <tr>
+          <th class="border border-gray-300 p-2 text-left bg-gray-100">Country</th>
+          <th class="border border-gray-300 p-2 text-left bg-gray-100">DB validation</th>
+          <th class="border border-gray-300 p-2 text-left bg-gray-100">Syntax Validation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 p-2">Australia</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">New Zealand</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Austria</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Belarus</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Belgium</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Bulgaria</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Cyprus</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Czech Republic</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Denmark</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Estonia</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Finland</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">France</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Germany</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Greece</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Hungary</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Ireland</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Italy</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Latvia</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Lithuania</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Luxembourg</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Malta</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Netherlands</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Norway</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Poland</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Portugal</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Romania</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Slovakia</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Spain</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Sweden</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Switzerland</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">United Kingdom</td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+          <td class="border border-gray-300 p-2"></td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">India</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Bahrain</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Chile</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Colombia</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Mexico</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Indonesia</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Singapore</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Taiwan</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Vietnam</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Albania</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Kenya</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Moldova</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Russia</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Serbia</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-2">Turkey</td>
+          <td class="border border-gray-300 p-2"></td>
+          <td class="border border-gray-300 p-2 text-green-600">✅</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Additional Information (optional) -->
+  <CallToAction
+  title="Ready to automate Tax ID validation?"
+  subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Get started now',
+      href: '/',
+    },
+  ]}
+/>
+
+</Layout>

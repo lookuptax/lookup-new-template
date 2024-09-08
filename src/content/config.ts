@@ -5,18 +5,14 @@ const metadataDefinition = () =>
     .object({
       title: z.string().optional(),
       ignoreTitleTemplate: z.boolean().optional(),
-
       canonical: z.string().url().optional(),
-
       robots: z
         .object({
           index: z.boolean().optional(),
           follow: z.boolean().optional(),
         })
         .optional(),
-
       description: z.string().optional(),
-
       openGraph: z
         .object({
           url: z.string().optional(),
@@ -34,7 +30,6 @@ const metadataDefinition = () =>
           type: z.string().optional(),
         })
         .optional(),
-
       twitter: z
         .object({
           handle: z.string().optional(),
@@ -45,24 +40,31 @@ const metadataDefinition = () =>
     })
     .optional();
 
+const baseSchema = z.object({
+  draft: z.boolean().optional().default(false),
+  title: z.string(),
+  excerpt: z.string().optional(),
+  image: z.string().optional(),
+  metadata: metadataDefinition(),
+});
+
 const postCollection = defineCollection({
-  schema: z.object({
+  schema: baseSchema.extend({
     publishDate: z.date().optional(),
     updateDate: z.date().optional(),
-    draft: z.boolean().optional(),
-
-    title: z.string(),
-    excerpt: z.string().optional(),
-    image: z.string().optional(),
-
     category: z.string().optional(),
     tags: z.array(z.string()).optional(),
     author: z.string().optional(),
+  }),
+});
 
-    metadata: metadataDefinition(),
+const pageCollection = defineCollection({
+  schema: baseSchema.extend({
+    order: z.number().optional(),
   }),
 });
 
 export const collections = {
   post: postCollection,
+  pages: pageCollection,
 };

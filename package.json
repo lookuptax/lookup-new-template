@@ -7,14 +7,17 @@
   "engines": {
     "node": "^18.17.1 || ^20.3.0 || >= 21.0.0"
   },
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "format": "prettier -w .",
-    "lint:eslint": "eslint ."
+  
+      "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build --mode production",
+        "build:with-drafts": "astro build --drafts",
+        "serve": "npm run build && npm run preview",
+        "preview": "astro preview",
+        "astro": "astro",
+        "format": "prettier -w .",
+        "lint:eslint": "eslint ."
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.7",
