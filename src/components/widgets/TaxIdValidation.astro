@@ -13,6 +13,7 @@ const {
 } = Astro.props;
 ---
 
+<tax-id-validation>
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
@@ -93,7 +94,7 @@ const {
           />
         </div>
         <div class="sm:col-span-12 text-right">
-          <button type="button" id="submitButton" class="btn btn-primary sm:mb-0">
+          <button type="button" id="submitButton" class="btn btn-primary sm:mb-0 submitButton">
             Submit
           </button>
         </div>
@@ -103,18 +104,40 @@ const {
     </div>
   </div>
 </WidgetWrapper>
+</tax-id-validation>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const submitButton = document.getElementById('submitButton');
-      const responseContainer = document.getElementById('responseContainer');
+  class TaxIdValidation extends HTMLElement {
+    connectedCallback() {
+    // document.addEventListener('DOMContentLoaded', () => {
+      const submitButton = this.querySelector('#submitButton');
+      const responseContainer = this.querySelector('#responseContainer');
+      console.log("submitButton", submitButton);
   
       if (submitButton && responseContainer) {
+        console.log("EventListeners registered");
         submitButton.addEventListener('click', async () => {
+          console.log("button clicked!");
           const countryCode = document.getElementById('countryCode').value;
-          const targetTaxID = document.getElementById('targetTaxID').value;
-  
+          let targetTaxID = document.getElementById('targetTaxID').value.trim();
+          console.log("countrycode, taxID", countryCode, targetTaxID);
+          if (!targetTaxID || targetTaxID.length < 4) {
+            let errorMessage = "Invalid tax ID number. Please enter a valid tax ID Number."
+            displayError(errorMessage);
+            return
+          }
+          // check if country code is part of the input
+          const regex = /^[a-zA-Z]{2}/; // Matches the first two alphabets
+          const result = targetTaxID.match(regex);
+
+          if (result) {
+            const taxIDPart = targetTaxID.substr(2);
+            console.log(taxIDPart);
+            targetTaxID = taxIDPart;
+          }
           try {
-            const response = await fetch(`http://localhost:3000/validate?country_iso=${countryCode}&tin=${targetTaxID}`, {
+            // const baseUrl = 'http://localhost:3030'
+            const baseUrl = 'https://demo.lookuptax.com'
+            const response = await fetch(`${baseUrl}/validate?country_iso=${countryCode}&tin=${targetTaxID}`, {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -192,5 +215,8 @@ const {
           <dd class="text-gray-900 dark:text-gray-100">${value}</dd>
         ` : '';
       }
-    });
+    }
+  }
+
+  customElements.define('tax-id-validation', TaxIdValidation);
   </script>
