@@ -135,8 +135,8 @@ const {
             targetTaxID = taxIDPart;
           }
           try {
-            // const baseUrl = 'http://localhost:3030'
-            const baseUrl = 'https://demo.lookuptax.com'
+           const baseUrl = 'http://localhost:3000'
+           // const baseUrl = 'https://demo.lookuptax.com'
             const response = await fetch(`${baseUrl}/validate?country_iso=${countryCode}&tin=${targetTaxID}`, {
               method: 'GET',
               headers: {
