@@ -67,6 +67,8 @@ analytics:
   vendors:
     googleAnalytics:
       id: "G-D5YNWHF9Q3" # or "G-XXXXXXXXXX"
-
+    googleTagManager: 
+      id: 'GTM-KLGV623' #// Your Google Tag Manager ID
+    
 ui:
   theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
