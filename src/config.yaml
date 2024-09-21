@@ -1,5 +1,5 @@
 site:
-  name: Lookuptax - Tax ID Validation
+  name: Lookuptax
   site: 'https://lookuptax.com/'
   base: '/'
   trailingSlash: false
