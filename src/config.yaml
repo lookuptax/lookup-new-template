@@ -1,5 +1,5 @@
 site:
-  name: Lookuptax
+  name: Lookuptax - Tax ID Validation
   site: 'https://lookuptax.com/'
   base: '/'
   trailingSlash: false
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Lookuptax
+    default: Lookuptax - Tax ID Validation
     template: '%s — Lookuptax.com'
   description: "Streamline VAT ID Validation Worldwide with Lookuptax. Access a single API for hassle-free validation in over 100 countries. Ensure accuracy and compliance."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Lookupax
+    site_name: Lookupax - Tax ID Validation
     images:
       - url: '~/assets/images/default.png'
         width: 1200
