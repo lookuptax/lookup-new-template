@@ -75,7 +75,6 @@ const {
           <option value="SK">SK</option>
           <option value="TR">TR</option>
           <option value="TW">TW</option>
-          <option value="UK">UK</option>
           <option value="VN">VN</option>
           <option value="XI">XI</option>
           
@@ -91,7 +90,8 @@ const {
             id="targetTaxID"
             name="targetTaxID"
             class="px-4 py-3 w-full bg-neutral-50 dark:bg-neutral-700 outline-none rounded-md border border-neutral-200 dark:border-neutral-600"
-          />
+            placeholder="Enter Tax ID without any special characters and the country prefix"
+            />
         </div>
         <div class="sm:col-span-12 text-right">
           <button type="button" id="submitButton" class="btn btn-primary sm:mb-0 submitButton">
@@ -152,9 +152,9 @@ const {
             displayResponse(data);
           } catch (error) {
             console.error('Error:', error);
-            let errorMessage = 'Failed to fetch data. ';
+            let errorMessage = 'Not found';
             if (error instanceof TypeError && error.message === 'Failed to fetch') {
-              errorMessage += 'This might be due to the local server not running or not accessible. Please ensure your local server is running on port 3000.';
+              errorMessage += 'The Tax id could not be found. Please ensure that the ID submitted is without the any special characters and the country prefix';
             } else {
               errorMessage += error.message;
             }
