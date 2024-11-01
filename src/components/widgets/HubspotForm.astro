@@ -18,7 +18,9 @@ const { portalId, formId, onSubmit, onReady, loading } = Astro.props;
       setTimeout(loadHubspotForm, 100);
     }
   }
-
+  // render this form when there are swaps
+  document.addEventListener("astro:after-swap", loadHubspotForm);
+  // render the form in the background
   loadHubspotForm();
 </script>
 
