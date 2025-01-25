@@ -33,6 +33,9 @@ Indemnification
 
 You agree to indemnify and hold us harmless from any claim or demand, including reasonable attorneys' fees, made by any third party due to or arising out of your use of our VAT validation software or your violation of these terms and conditions.
 
+Refund Policy
+We are committed to ensuring customer satisfaction with our tax ID validation services. If you experience technical issues or discrepancies with our service that remain unresolved after troubleshooting, you may request a refund within 14 days of your purchase. Refunds will be processed on a case-by-case basis, subject to verification of the issue, and may not apply to services already utilized. Please note that refunds are not provided for user errors, incomplete usage of purchased credits, or dissatisfaction with results derived from incorrect inputs. To initiate a refund request, contact our support team with your transaction details and a description of the issue.
+
 Privacy Policy
 
 We collect, use, and protect personal information in accordance with our privacy policy. By using our software, you agree to our collection and use of personal information as described in our privacy policy.
