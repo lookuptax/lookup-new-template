@@ -11,7 +11,7 @@ metadata:
   title:
     default: Lookuptax - Tax ID Validation
     template: '%s — Lookuptax.com'
-  description: "Streamline VAT ID Validation Worldwide with Lookuptax. Access a single API for hassle-free validation in over 100 countries. Ensure accuracy and compliance."
+  description: "Automate global Tax ID validation with Lookuptax's easy-to-use API. Validate VAT, ABN, GSTIN, EIN, and more in over 100 countries. Ensure compliance and accuracy today"
   robots:
     index: true
     follow: true
