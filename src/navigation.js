@@ -133,7 +133,7 @@ export const headerData = {
       href: '/countries',
     },
   ],
-  /*actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],*/
+  actions: [{ text: 'Sign In', href: 'https://platform.lookuptax.com/auth', target: '_blank' }],
 };
 
 export const footerData = {
