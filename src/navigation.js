@@ -132,6 +132,10 @@ export const headerData = {
       text: 'Countries',
       href: '/countries',
     },
+     {
+      text: 'API',
+      href: 'https://demo.lookuptax.com/api/',
+    },
   ],
   actions: [{ text: 'Sign In', href: 'https://platform.lookuptax.com/auth', target: '_blank' }],
 };
