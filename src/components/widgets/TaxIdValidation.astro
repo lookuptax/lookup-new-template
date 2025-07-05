@@ -94,10 +94,12 @@ const {
             placeholder="Enter Tax ID without special characters and the country prefix"
             />
         </div>
-        <div class="sm:col-span-12 text-right">
-          <button type="button" id="submitButton" class="btn btn-primary sm:mb-0 submitButton">
-            Submit
-          </button>
+        <div class="sm:col-span-12 justify-center">
+          <div class="sm:col-span-4">
+            <button type="button" id="submitButton" class="btn btn-primary w-full sm:mb-0 submitButton">
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     <div id="responseContainer" class="mt-4 hidden">
@@ -127,17 +129,22 @@ const {
             return
           }
           // check if country code is part of the input
-          const regex = /^[a-zA-Z]{2}/; // Matches the first two alphabets
+          const regex = /^[a-zA-Z]{2,3}/; // Matches the first two alphabets
           const result = targetTaxID.match(regex);
 
           if (result) {
-            const taxIDPart = targetTaxID.substr(2);
+            const prefix_length = result[0].length
+            const taxIDPart = targetTaxID.substr(prefix_length);
             console.log(taxIDPart);
             targetTaxID = taxIDPart;
           }
           try {
-           // const baseUrl = 'http://localhost:3100'
-           const baseUrl = 'https://demo.lookuptax.com'
+            // const baseUrl = 'http://localhost:3030'
+            const baseUrl = 'https://demo.lookuptax.com'
+            // Temp fix for switzerland
+            if (countryCode == "CH") {
+              targetTaxID = `CHE${targetTaxID}`;
+            }
             const response = await fetch(`${baseUrl}/validate?country_iso=${countryCode}&tin=${targetTaxID}`, {
               method: 'GET',
               headers: {
