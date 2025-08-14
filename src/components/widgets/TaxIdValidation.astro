@@ -28,27 +28,38 @@ const {
             name="countryCode"
             class="px-4 py-3 w-full bg-neutral-50 dark:bg-neutral-700 outline-none rounded-md border border-neutral-200 dark:border-neutral-600"
           >
+          <option value="AE">AE</option>
           <option value="AL">AL</option>
+          <option value="AM">AM</option>
+          <option value="AR">AR</option>
           <option value="AT">AT</option>
           <option value="AU">AU</option>
+          <option value="AZ">AZ</option>
           <option value="BE">BE</option>
           <option value="BG">BG</option>
           <option value="BH">BH</option>
+          <option value="BR">BR</option>
           <option value="BY">BY</option>
+          <option value="BZ">BZ</option>
           <option value="CA">CA</option>
           <option value="CH">CH</option>
           <option value="CL">CL</option>
           <option value="CO">CO</option>
+          <option value="CR">CR</option>
           <option value="CY">CY</option>
           <option value="CZ">CZ</option>
           <option value="DE">DE</option>
           <option value="DK">DK</option>
+          <option value="EC">EC</option>
           <option value="EE">EE</option>
+          <option value="EG">EG</option>
           <option value="EL">EL</option>
           <option value="ES">ES</option>
+          <option value="ET">ET</option>
           <option value="FI">FI</option>
           <option value="FR">FR</option>
           <option value="GB">GB</option>
+          <option value="GR">GR</option>
           <option value="HR">HR</option>
           <option value="HU">HU</option>
           <option value="ID">ID</option>
@@ -70,14 +81,19 @@ const {
           <option value="RO">RO</option>
           <option value="RS">RS</option>
           <option value="RU">RU</option>
+          <option value="SA">SA</option>
           <option value="SE">SE</option>
           <option value="SG">SG</option>
           <option value="SI">SI</option>
           <option value="SK">SK</option>
+          <option value="TH">TH</option>
           <option value="TR">TR</option>
           <option value="TW">TW</option>
+          <option value="US">US</option>
+          <option value="UY">UY</option>
           <option value="VN">VN</option>
           <option value="XI">XI</option>
+          <option value="ZA">ZA</option>
           
             <!-- Add more country options here -->
           </select>
@@ -482,7 +498,6 @@ const {
               ${createResponseItem('Format Valid', formatValid?.toString())}
               ${createResponseItem('Source Valid', sourceAttempted ? sourceValid?.toString() : 'Not Attempted')}
               ${createResponseItem('Request Date', new Date(data.requestDate).toLocaleString())}
-              ${createResponseItem('Processing Time', data.metadata?.processingTime ? `${data.metadata.processingTime}ms` : '')}
               ${data.metadata?.sources && data.metadata.sources.length > 0 ? createResponseItem('Sources', data.metadata.sources.join(', ')) : ''}
               ${data.additionalInfo ? Object.entries(data.additionalInfo).map(([key, value]) => 
                 createResponseItem(key.replace(/_/g, ' '), value)
