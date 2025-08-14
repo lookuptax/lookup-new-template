@@ -177,24 +177,77 @@ const {
         responseContainer.innerHTML = '';
         responseContainer.classList.remove('hidden');
   
-        const isValid = data.valid !== undefined ? data.valid : data.isFormatValid;
+        // Check for errors first (legacy format and new errors array)
+        if (data.error || data.message || (data.errors && data.errors.length > 0)) {
+          const errorMessage = data.error || data.message || 
+            data.errors.map(err => `${err.code}: ${err.message}`).join('<br>');
+          
+          responseContainer.innerHTML = `
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+              <p class="font-bold">Error</p>
+              <p>${errorMessage}</p>
+            </div>
+          `;
+          return;
+        }
+
+        // Check for format validation errors
+        if (data.validation?.format?.error) {
+          const formatError = data.validation.format.error;
+          responseContainer.innerHTML = `
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+              <p class="font-bold">Format Validation Error</p>
+              <p><strong>${formatError.code}:</strong> ${formatError.message}</p>
+            </div>
+          `;
+          return;
+        }
+  
+        const isValid = data.validation?.overall?.isValid;
+        const formatValid = data.validation?.format?.isValid;
+        const sourceValid = data.validation?.source?.isValid;
+        const sourceAttempted = data.validation?.source?.attempted;
   
         if (isValid) {
+          let statusClass = 'bg-green-100 border-green-500 text-green-700';
+          let statusTitle = 'Valid Tax ID Number';
+          
+          // Show warning if only format validation was performed
+          if (formatValid && !sourceAttempted) {
+            statusClass = 'bg-yellow-100 border-yellow-500 text-yellow-700';
+            statusTitle = 'Valid Tax ID Number (Format Only)';
+          }
+
           responseContainer.innerHTML = `
-            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
-              <p class="font-bold">Valid Tax ID Number</p>
+            <div class="${statusClass} border-l-4 p-4 mb-4" role="alert">
+              <p class="font-bold">${statusTitle}</p>
+              ${!sourceAttempted ? '<p class="text-sm mt-1">Only format validation performed - no external source validation available</p>' : ''}
             </div>
+            
+            ${data.warnings && data.warnings.length > 0 ? `
+              <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
+                <p class="font-bold">Warnings</p>
+                ${data.warnings.map(warning => `<p class="text-sm"><strong>${warning.code}:</strong> ${warning.message}</p>`).join('')}
+              </div>
+            ` : ''}
+            
             <dl class="grid grid-cols-2 gap-x-4 gap-y-2">
               ${createResponseItem('Valid', isValid.toString())}
               ${createResponseItem('TIN', data.tin)}
-              ${createResponseItem('TIN Label', data.tinLabel)}
-              ${createResponseItem('TIN Name', data.tinName)}
-              ${createResponseItem('Name', data.name)}
-              ${createResponseItem('Address', data.address)}
+              ${createResponseItem('TIN Label', data.tinInfo?.label)}
+              ${createResponseItem('TIN Name', data.tinInfo?.name)}
+              ${createResponseItem('Formatted TIN', data.tinInfo?.formattedTin)}
+              ${createResponseItem('Name', data.entity?.name)}
+              ${createResponseItem('Address', data.entity?.address)}
               ${createResponseItem('Country Code', data.countryCode)}
-              ${createResponseItem('Entity Status', data.entityStatus)}
-              ${createResponseItem('Entity Type', data.entityType)}
+              ${createResponseItem('Format Valid', formatValid?.toString())}
+              ${createResponseItem('Source Valid', sourceAttempted ? sourceValid?.toString() : 'Not Attempted')}
               ${createResponseItem('Request Date', new Date(data.requestDate).toLocaleString())}
+              ${createResponseItem('Processing Time', data.metadata?.processingTime ? `${data.metadata.processingTime}ms` : '')}
+              ${data.metadata?.sources && data.metadata.sources.length > 0 ? createResponseItem('Sources', data.metadata.sources.join(', ')) : ''}
+              ${data.additionalInfo ? Object.entries(data.additionalInfo).map(([key, value]) => 
+                createResponseItem(key.replace(/_/g, ' '), value)
+              ).join('') : ''}
             </dl>
           `;
         } else {
@@ -202,6 +255,7 @@ const {
             <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
               <p class="font-bold">Invalid Tax ID Number</p>
               <p>The provided Tax ID Number is not valid.</p>
+              ${data.validation?.format?.error ? `<p class="text-sm mt-2"><strong>${data.validation.format.error.code}:</strong> ${data.validation.format.error.message}</p>` : ''}
             </div>
           `;
         }
