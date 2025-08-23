@@ -28,27 +28,38 @@ const {
             name="countryCode"
             class="px-4 py-3 w-full bg-neutral-50 dark:bg-neutral-700 outline-none rounded-md border border-neutral-200 dark:border-neutral-600"
           >
+          <option value="AE">AE</option>
           <option value="AL">AL</option>
+          <option value="AM">AM</option>
+          <option value="AR">AR</option>
           <option value="AT">AT</option>
           <option value="AU">AU</option>
+          <option value="AZ">AZ</option>
           <option value="BE">BE</option>
           <option value="BG">BG</option>
           <option value="BH">BH</option>
+          <option value="BR">BR</option>
           <option value="BY">BY</option>
+          <option value="BZ">BZ</option>
           <option value="CA">CA</option>
           <option value="CH">CH</option>
           <option value="CL">CL</option>
           <option value="CO">CO</option>
+          <option value="CR">CR</option>
           <option value="CY">CY</option>
           <option value="CZ">CZ</option>
           <option value="DE">DE</option>
           <option value="DK">DK</option>
+          <option value="EC">EC</option>
           <option value="EE">EE</option>
+          <option value="EG">EG</option>
           <option value="EL">EL</option>
           <option value="ES">ES</option>
+          <option value="ET">ET</option>
           <option value="FI">FI</option>
           <option value="FR">FR</option>
           <option value="GB">GB</option>
+          <option value="GR">GR</option>
           <option value="HR">HR</option>
           <option value="HU">HU</option>
           <option value="ID">ID</option>
@@ -70,14 +81,19 @@ const {
           <option value="RO">RO</option>
           <option value="RS">RS</option>
           <option value="RU">RU</option>
+          <option value="SA">SA</option>
           <option value="SE">SE</option>
           <option value="SG">SG</option>
           <option value="SI">SI</option>
           <option value="SK">SK</option>
+          <option value="TH">TH</option>
           <option value="TR">TR</option>
           <option value="TW">TW</option>
+          <option value="US">US</option>
+          <option value="UY">UY</option>
           <option value="VN">VN</option>
           <option value="XI">XI</option>
+          <option value="ZA">ZA</option>
           
             <!-- Add more country options here -->
           </select>
@@ -94,10 +110,15 @@ const {
             placeholder="Enter Tax ID without special characters and the country prefix"
             />
         </div>
-        <div class="sm:col-span-12 text-right">
-          <button type="button" id="submitButton" class="btn btn-primary sm:mb-0 submitButton">
-            Submit
-          </button>
+        <div class="sm:col-span-12">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <button type="button" id="loadRandomButton" class="btn btn-secondary w-full">
+              Load Random Tax ID
+            </button>
+            <button type="button" id="submitButton" class="btn btn-primary w-full submitButton">
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     <div id="responseContainer" class="mt-4 hidden">
@@ -108,16 +129,247 @@ const {
 </tax-id-validation>
 <script>
   class TaxIdValidation extends HTMLElement {
+    constructor() {
+      super();
+      this.validationCount = parseInt(localStorage.getItem('taxIdValidationCount') || '0');
+      this.maxValidations = 10;
+      this.sampleTaxIds = [
+        {"country": "AE", "tin": "100057605600003"},
+        {"country": "AL", "tin": "L39308501E"},
+        {"country": "AL", "tin": "L42222506G"},
+        {"country": "AL", "tin": "K72001008V"},
+        {"country": "AL", "tin": "K72001502D"},
+        {"country": "AM", "tin": "02863799"},
+        {"country": "AR", "tin": "12-3456789-03"},
+        {"country": "AT", "tin": "U14399300"},
+        {"country": "AT", "tin": "U49450302"},
+        {"country": "AT", "tin": "U63454746"},
+        {"country": "AT", "tin": "U43740706"},
+        {"country": "AT", "tin": "U67472807"},
+        {"country": "AT", "tin": "U14200700"},
+        {"country": "AU", "tin": "77000011316"},
+        {"country": "AU", "tin": "29 088 510 605"},
+        {"country": "AU", "tin": "67 004 559 540"},
+        {"country": "AZ", "tin": "1525855852"},
+        {"country": "BE", "tin": "0402231383"},
+        {"country": "BE", "tin": "0886264056"},
+        {"country": "BE", "tin": "0738462483"},
+        {"country": "BE", "tin": "0745881993"},
+        {"country": "BE", "tin": "0719724459"},
+        {"country": "BE", "tin": "0440979321"},
+        {"country": "BE", "tin": "0881840658"},
+        {"country": "BE", "tin": "0100582333"},
+        {"country": "BE", "tin": "0807000030"},
+        {"country": "BG", "tin": "831650349"},
+        {"country": "BG", "tin": "177138748"},
+        {"country": "BG", "tin": "3077804772"},
+        {"country": "BG", "tin": "131119320"},
+        {"country": "BH", "tin": "200000452900002"},
+        {"country": "BH", "tin": "200000167300002"},
+        {"country": "BH", "tin": "200000844700002"},
+        {"country": "BR", "tin": "06.990.590/0001-23"},
+        {"country": "BY", "tin": "100582333"},
+        {"country": "BZ", "tin": "531520"},
+        {"country": "CA", "tin": "893978528"},
+        {"country": "CA", "tin": "890128358"},
+        {"country": "CH", "tin": "CHE107721785"},
+        {"country": "CH", "tin": "CHE458512549"},
+        {"country": "CL", "tin": "76116286-1"},
+        {"country": "CO", "tin": "8301149211"},
+        {"country": "CR", "tin": "3002087432"},
+        {"country": "CZ", "tin": "683997978"},
+        {"country": "CZ", "tin": "684965986"},
+        {"country": "CZ", "tin": "685364729"},
+        {"country": "CZ", "tin": "45799504"},
+        {"country": "CZ", "tin": "27385817"},
+        {"country": "CZ", "tin": "682767152"},
+        {"country": "CZ", "tin": "14801396"},
+        {"country": "CZ", "tin": "680454432"},
+        {"country": "CZ", "tin": "27086721"},
+        {"country": "DE", "tin": "261622937"},
+        {"country": "DE", "tin": "232457324"},
+        {"country": "DE", "tin": "813121512"},
+        {"country": "DE", "tin": "136593321"},
+        {"country": "DE", "tin": "114192681"},
+        {"country": "DE", "tin": "220564280"},
+        {"country": "DE", "tin": "146186770"},
+        {"country": "DE", "tin": "284739022"},
+        {"country": "DE", "tin": "111607889"},
+        {"country": "DE", "tin": "172992652"},
+        {"country": "DE", "tin": "113823034"},
+        {"country": "DE", "tin": "293480388"},
+        {"country": "DE", "tin": "270862054"},
+        {"country": "DE", "tin": "812962775"},
+        {"country": "DE", "tin": "811133976"},
+        {"country": "DE", "tin": "254674795"},
+        {"country": "DE", "tin": "356850372"},
+        {"country": "DE", "tin": "813283099"},
+        {"country": "DE", "tin": "254184022"},
+        {"country": "DK", "tin": "24221415"},
+        {"country": "DK", "tin": "38688928"},
+        {"country": "EC", "tin": "2733775471811"},
+        {"country": "EE", "tin": "EE100031513"},
+        {"country": "EG", "tin": "677626193"},
+        {"country": "ES", "tin": "N0394427I"},
+        {"country": "ES", "tin": "N0395169F"},
+        {"country": "ES", "tin": "A08005449"},
+        {"country": "ES", "tin": "B67038240"},
+        {"country": "ES", "tin": "B82378431"},
+        {"country": "ES", "tin": "N0392256D"},
+        {"country": "ES", "tin": "N0391140A"},
+        {"country": "ES", "tin": "A28198752"},
+        {"country": "ET", "tin": "4732707202"},
+        {"country": "FI", "tin": "30923375"},
+        {"country": "FI", "tin": "25752292"},
+        {"country": "FR", "tin": "40825291594"},
+        {"country": "FR", "tin": "49702032145"},
+        {"country": "FR", "tin": "28438124141"},
+        {"country": "FR", "tin": "95379208077"},
+        {"country": "FR", "tin": "51550200018"},
+        {"country": "FR", "tin": "92542014428"},
+        {"country": "FR", "tin": "62319543948"},
+        {"country": "FR", "tin": "87302079462"},
+        {"country": "FR", "tin": "34582022091"},
+        {"country": "FR", "tin": "52393204516"},
+        {"country": "FR", "tin": "6479463044"},
+        {"country": "FR", "tin": "90560200537"},
+        {"country": "FR", "tin": "74479464166"},
+        {"country": "FR", "tin": "18702034398"},
+        {"country": "FR", "tin": "3394583678"},
+        {"country": "FR", "tin": "95722045556"},
+        {"country": "FR", "tin": "69435520028"},
+        {"country": "FR", "tin": "17388532467"},
+        {"country": "FR", "tin": "76392757936"},
+        {"country": "FR", "tin": "85317563054"},
+        {"country": "FR", "tin": "68572049500"},
+        {"country": "FR", "tin": "25391543576"},
+        {"country": "FR", "tin": "20972502538"},
+        {"country": "FR", "tin": "50501063051"},
+        {"country": "FR", "tin": "55419222245"},
+        {"country": "FR", "tin": "43542106109"},
+        {"country": "FR", "tin": "60391548955"},
+        {"country": "FR", "tin": "87431438662"},
+        {"country": "GB", "tin": "894455183"},
+        {"country": "GB", "tin": "GB678629081"},
+        {"country": "GR", "tin": "EL996805282"},
+        {"country": "HR", "tin": "70870317501"},
+        {"country": "HR", "tin": "183562417"},
+        {"country": "HU", "tin": "30423521"},
+        {"country": "HU", "tin": "30493775"},
+        {"country": "HU", "tin": "28970772"},
+        {"country": "HU", "tin": "10571086"},
+        {"country": "HU", "tin": "13097596"},
+        {"country": "HU", "tin": "28160447"},
+        {"country": "HU", "tin": "26950709"},
+        {"country": "HU", "tin": "10523667"},
+        {"country": "IE", "tin": "3647784DH"},
+        {"country": "IE", "tin": "3741422PH"},
+        {"country": "IE", "tin": "8Z45096M"},
+        {"country": "IE", "tin": "6413631Q"},
+        {"country": "IE", "tin": "9Z26718P"},
+        {"country": "IE", "tin": "3549871BH"},
+        {"country": "IE", "tin": "9951020O"},
+        {"country": "IE", "tin": "IE3249971HH"},
+        {"country": "IN", "tin": "27AAACN0757G1ZL"},
+        {"country": "IN", "tin": "24AAACN0757G1ZR"},
+        {"country": "IN", "tin": "06AAACN0757G1ZP"},
+        {"country": "IN", "tin": "18AAACP6332M1Z6"},
+        {"country": "IN", "tin": "07AAACP4072C1ZT"},
+        {"country": "IN", "tin": "37AAACE2616F1Z1"},
+        {"country": "IN", "tin": "06AACCC8420F1Z0"},
+        {"country": "IN", "tin": "97AAACO1598A1ZG"},
+        {"country": "IN", "tin": "9919SGP29004OSJ"},
+        {"country": "IT", "tin": "09801670960"},
+        {"country": "IT", "tin": "11011600969"},
+        {"country": "IT", "tin": "04952121004"},
+        {"country": "IT", "tin": "00777280157"},
+        {"country": "IT", "tin": "00753740158"},
+        {"country": "IT", "tin": "11026600962"},
+        {"country": "IT", "tin": "10805410965"},
+        {"country": "KE", "tin": "P051098974U"},
+        {"country": "LT", "tin": "100000820210"},
+        {"country": "LU", "tin": "22637245"},
+        {"country": "LV", "tin": "50003626371"},
+        {"country": "NL", "tin": "803500816B01"},
+        {"country": "NL", "tin": "807355069B01"},
+        {"country": "NL", "tin": "802329470B01"},
+        {"country": "NL", "tin": "861260107B01"},
+        {"country": "NL", "tin": "805994750B01"},
+        {"country": "NL", "tin": "861897274B01"},
+        {"country": "NL", "tin": "002179143B01"},
+        {"country": "NL", "tin": "808751517B01"},
+        {"country": "NL", "tin": "002980381B01"},
+        {"country": "NL", "tin": "820002252B01"},
+        {"country": "PL", "tin": "5263278830"},
+        {"country": "PL", "tin": "5272367786"},
+        {"country": "PL", "tin": "8790168725"},
+        {"country": "PL", "tin": "5270203968"},
+        {"country": "PL", "tin": "8961586407"},
+        {"country": "PL", "tin": "5262861183"},
+        {"country": "PL", "tin": "5260211535"},
+        {"country": "PL", "tin": "5260211587"},
+        {"country": "PL", "tin": "1050000072"},
+        {"country": "PL", "tin": "7280132308"},
+        {"country": "PL", "tin": "5213289895"},
+        {"country": "PL", "tin": "5263091362"},
+        {"country": "PT", "tin": "980666880"},
+        {"country": "PT", "tin": "514238208"},
+        {"country": "PT", "tin": "500201307"},
+        {"country": "PT", "tin": "980203880"},
+        {"country": "RO", "tin": "42056996"},
+        {"country": "RO", "tin": "8184502"},
+        {"country": "RO", "tin": "17756999"},
+        {"country": "RO", "tin": "2833538"},
+        {"country": "RO", "tin": "7759807"},
+        {"country": "RS", "tin": "103445385"},
+        {"country": "RU", "tin": "7736207543"},
+        {"country": "SA", "tin": "300000432310003"},
+        {"country": "SE", "tin": "502082575701"},
+        {"country": "SE", "tin": "556605494501"},
+        {"country": "SG", "tin": "196700197W"},
+        {"country": "SG", "tin": "M200081803"},
+        {"country": "SI", "tin": "58241671"},
+        {"country": "SI", "tin": "81290292"},
+        {"country": "SK", "tin": "4120187632"},
+        {"country": "SK", "tin": "2020278337"},
+        {"country": "SK", "tin": "2020466976"},
+        {"country": "TH", "tin": "0107537002559"},
+        {"country": "TH", "tin": "0-9910-24970-75-4"},
+        {"country": "TW", "tin": "20828393"},
+        {"country": "TW", "tin": "82903505"},
+        {"country": "US", "tin": "602-250-005"},
+        {"country": "UY", "tin": "211634580017"},
+        {"country": "VN", "tin": "0312650437"},
+        {"country": "ZA", "tin": "4720285933"}
+      ];
+    }
+
     connectedCallback() {
     // document.addEventListener('DOMContentLoaded', () => {
       const submitButton = this.querySelector('#submitButton');
+      const loadRandomButton = this.querySelector('#loadRandomButton');
       const responseContainer = this.querySelector('#responseContainer');
       console.log("submitButton", submitButton);
   
-      if (submitButton && responseContainer) {
+      if (submitButton && loadRandomButton && responseContainer) {
         console.log("EventListeners registered");
+        
+        // Load Random Tax ID button event listener
+        loadRandomButton.addEventListener('click', () => {
+          const randomTaxId = this.sampleTaxIds[Math.floor(Math.random() * this.sampleTaxIds.length)];
+          document.getElementById('countryCode').value = randomTaxId.country;
+          document.getElementById('targetTaxID').value = randomTaxId.tin;
+        });
+
         submitButton.addEventListener('click', async () => {
           console.log("button clicked!");
+          
+          // Check validation limit
+          if (this.validationCount >= this.maxValidations) {
+            displayLimitMessage(this.maxValidations);
+            return;
+          }
+          
           const countryCode = document.getElementById('countryCode').value;
           let targetTaxID = document.getElementById('targetTaxID').value.trim();
           console.log("countrycode, taxID", countryCode, targetTaxID);
@@ -127,17 +379,22 @@ const {
             return
           }
           // check if country code is part of the input
-          const regex = /^[a-zA-Z]{2}/; // Matches the first two alphabets
+          const regex = /^[a-zA-Z]{2,3}/; // Matches the first two alphabets
           const result = targetTaxID.match(regex);
 
           if (result) {
-            const taxIDPart = targetTaxID.substr(2);
+            const prefix_length = result[0].length
+            const taxIDPart = targetTaxID.substr(prefix_length);
             console.log(taxIDPart);
             targetTaxID = taxIDPart;
           }
           try {
-           // const baseUrl = 'http://localhost:3100'
-           const baseUrl = 'https://demo.lookuptax.com'
+            // const baseUrl = 'http://localhost:3030'
+            const baseUrl = 'https://demo.lookuptax.com'
+            // Temp fix for switzerland
+            if (countryCode == "CH") {
+              targetTaxID = `CHE${targetTaxID}`;
+            }
             const response = await fetch(`${baseUrl}/validate?country_iso=${countryCode}&tin=${targetTaxID}`, {
               method: 'GET',
               headers: {
@@ -150,6 +407,11 @@ const {
             }
   
             const data = await response.json();
+            
+            // Increment validation count and save to localStorage
+            this.validationCount++;
+            localStorage.setItem('taxIdValidationCount', this.validationCount.toString());
+            
             displayResponse(data);
           } catch (error) {
             console.error('Error:', error);
@@ -170,24 +432,76 @@ const {
         responseContainer.innerHTML = '';
         responseContainer.classList.remove('hidden');
   
-        const isValid = data.valid !== undefined ? data.valid : data.isFormatValid;
+        // Check for errors first (legacy format and new errors array)
+        if (data.error || data.message || (data.errors && data.errors.length > 0)) {
+          const errorMessage = data.error || data.message || 
+            data.errors.map(err => `${err.code}: ${err.message}`).join('<br>');
+          
+          responseContainer.innerHTML = `
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+              <p class="font-bold">Error</p>
+              <p>${errorMessage}</p>
+            </div>
+          `;
+          return;
+        }
+
+        // Check for format validation errors
+        if (data.validation?.format?.error) {
+          const formatError = data.validation.format.error;
+          responseContainer.innerHTML = `
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+              <p class="font-bold">Format Validation Error</p>
+              <p><strong>${formatError.code}:</strong> ${formatError.message}</p>
+            </div>
+          `;
+          return;
+        }
+  
+        const isValid = data.validation?.overall?.isValid;
+        const formatValid = data.validation?.format?.isValid;
+        const sourceValid = data.validation?.source?.isValid;
+        const sourceAttempted = data.validation?.source?.attempted;
   
         if (isValid) {
+          let statusClass = 'bg-green-100 border-green-500 text-green-700';
+          let statusTitle = 'Valid Tax ID Number';
+          
+          // Show warning if only format validation was performed
+          if (formatValid && !sourceAttempted) {
+            statusClass = 'bg-yellow-100 border-yellow-500 text-yellow-700';
+            statusTitle = 'Valid Tax ID Number (Format Only)';
+          }
+
           responseContainer.innerHTML = `
-            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
-              <p class="font-bold">Valid Tax ID Number</p>
+            <div class="${statusClass} border-l-4 p-4 mb-4" role="alert">
+              <p class="font-bold">${statusTitle}</p>
+              ${!sourceAttempted ? '<p class="text-sm mt-1">Only format validation performed - no external source validation available</p>' : ''}
             </div>
+            
+            ${data.warnings && data.warnings.length > 0 ? `
+              <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
+                <p class="font-bold">Warnings</p>
+                ${data.warnings.map(warning => `<p class="text-sm"><strong>${warning.code}:</strong> ${warning.message}</p>`).join('')}
+              </div>
+            ` : ''}
+            
             <dl class="grid grid-cols-2 gap-x-4 gap-y-2">
               ${createResponseItem('Valid', isValid.toString())}
               ${createResponseItem('TIN', data.tin)}
-              ${createResponseItem('TIN Label', data.tinLabel)}
-              ${createResponseItem('TIN Name', data.tinName)}
-              ${createResponseItem('Name', data.name)}
-              ${createResponseItem('Address', data.address)}
+              ${createResponseItem('TIN Label', data.tinInfo?.label)}
+              ${createResponseItem('TIN Name', data.tinInfo?.name)}
+              ${createResponseItem('Formatted TIN', data.tinInfo?.formattedTin)}
+              ${createResponseItem('Name', data.entity?.name)}
+              ${createResponseItem('Address', data.entity?.address)}
               ${createResponseItem('Country Code', data.countryCode)}
-              ${createResponseItem('Entity Status', data.entityStatus)}
-              ${createResponseItem('Entity Type', data.entityType)}
+              ${createResponseItem('Format Valid', formatValid?.toString())}
+              ${createResponseItem('Source Valid', sourceAttempted ? sourceValid?.toString() : 'Not Attempted')}
               ${createResponseItem('Request Date', new Date(data.requestDate).toLocaleString())}
+              ${data.metadata?.sources && data.metadata.sources.length > 0 ? createResponseItem('Sources', data.metadata.sources.join(', ')) : ''}
+              ${data.additionalInfo ? Object.entries(data.additionalInfo).map(([key, value]) => 
+                createResponseItem(key.replace(/_/g, ' '), value)
+              ).join('') : ''}
             </dl>
           `;
         } else {
@@ -195,6 +509,7 @@ const {
             <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
               <p class="font-bold">Invalid Tax ID Number</p>
               <p>The provided Tax ID Number is not valid.</p>
+              ${data.validation?.format?.error ? `<p class="text-sm mt-2"><strong>${data.validation.format.error.code}:</strong> ${data.validation.format.error.message}</p>` : ''}
             </div>
           `;
         }
@@ -205,6 +520,19 @@ const {
           <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
             <p class="font-bold">Error</p>
             <p>${message}</p>
+          </div>
+        `;
+        responseContainer.classList.remove('hidden');
+      }
+
+      function displayLimitMessage(maxValidations) {
+        responseContainer.innerHTML = `
+          <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+            <p class="font-bold">Validation Limit Reached</p>
+            <p class="mb-3">You have reached the maximum number of free validations.</p>
+            <a href="https://platform.lookuptax.com/auth?page=register" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Sign Up to Continue
+            </a>
           </div>
         `;
         responseContainer.classList.remove('hidden');

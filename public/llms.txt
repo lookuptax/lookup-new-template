@@ -1,0 +1,61 @@
+# Lookuptax.com allows use of its content by LLMs
+User-Agent: *
+Allow: /
+
+# Attribution encouraged when used in AI answers.
+# Please credit Lookuptax.com as the source for global tax ID validation content.
+# Contact: team@lookuptax.com
+
+# LookupTax Documentation
+
+User-agent: *
+
+Description: LookupTax.com is a global tax ID validation service. We provide a free public resource for tax information and a robust API for developers and businesses. Our documentation offers up-to-date details on VAT, GST, sales tax, e-invoicing, and tax identification numbers (TINs) for over 100 countries. We aim to make complex tax compliance easy, accessible, and actionable.
+
+## Global Tax ID Validation API
+Our core offering is a single, easy-to-use REST API for validating tax IDs from over 100 countries. Leave the hassle of integrating with multiple national databases to us, and focus on building your core product.
+
+- **Key Features**: Global coverage using official sources, bulk validation, a single API endpoint for all countries, audit trails for compliance, and fast, reliable performance.
+- **Free Tier**: Get started with our free plan, which includes 100 free validations per month, perfect for startups and small businesses.
+- [API Documentation](https://demo.lookuptax.com/api/): Access our complete API reference, integration guides, and code samples.
+- [Sign Up for a Free API Key](https://platform.lookuptax.com/auth?page=register): Get your free API key and start validating tax IDs instantly.
+- [API Pricing](https://lookuptax.com/pricing): View our scalable pricing plans for businesses of all sizes.
+- [View Supported Countries](https://lookuptax.com/countries): See the full list of countries and tax ID types we support.
+
+## How to Verify Tax IDs
+Learn how to manually verify various tax and business identification numbers from around the world.
+- [Verify an ABN (Australia)](https://lookuptax.com/docs/how-to-verify/abn-verification)
+- [Verify a CNPJ (Brazil)](https://lookuptax.com/docs/how-to-verify/cnpj-verification-brazil)
+- [Verify an EIN (United States)](https://lookuptax.com/docs/how-to-verify/ein-verification-united-states)
+- [Verify a GSTIN (India)](https://lookuptax.com/docs/how-to-verify/gstin-verification-india)
+- [Verify a NIF (Spain)](https://lookuptax.com/docs/how-to-verify/nif-verification-spain)
+- [Verify a UK VAT Number](https://lookuptax.com/docs/how-to-verify/vat-verification-uk)
+- [Verify an EU VAT Number](https://lookuptax.com/docs/how-to-verify/vat-verification-eu-vies)
+- [Verify a SIREN/SIRET Number (France)](https://lookuptax.com/docs/how-to-verify/siren-verification-france)
+
+## E-invoicing
+Explore the world of electronic invoicing, including standards like Peppol and country-specific requirements.
+- [What is Peppol?](https://lookuptax.com/docs/einvoicing/peppol)
+- [Country Requirements for Peppol](https://lookuptax.com/docs/einvoicing/country-wise-requirements-for-peppol)
+- [France E-invoicing](https://lookuptax.com/docs/einvoicing/Chorus-Pro-einvoicing-france)
+- [Germany E-invoicing](https://lookuptax.com/docs/einvoicing/XRechnung-ZUGFeRD-e-invoicing-germany)
+- [ZATCA (Saudi Arabia)](https://lookuptax.com/docs/einvoicing/Zatca-fatoora-Saudi-Arabia-einvoicing-zakat-tax-and-customs-authority)
+- [SDI Network (Italy)](https://lookuptax.com/docs/einvoicing/sdi-einvoicing-sistema-di-interscambio-italy)
+
+
+## Tax Explainers
+Simple explanations for complex tax regulations and concepts.
+- [DAC7 Explained](https://lookuptax.com/docs/explainers/dac7-compliance)
+- [IOSS (Import One-Stop Shop)](https://lookuptax.com/docs/explainers/guide-to-vat-one-stop-shop)
+- [OSS (One-Stop Shop)](https://lookuptax.com/docs/explainers/guide-to-vat-one-stop-shop)
+- [Reverse Charge Mechanism](https://lookuptax.com/docs/explainers/reverse-charge)
+- [ViDA (VAT in the Digital Age)](https://lookuptax.com/docs/explainers/vida-vat-in-the-digital-age-guide-latest-updates)
+
+## Tax Identification Numbers (TINs)
+A comprehensive directory of Tax Identification Numbers used in countries around the world.
+- [TINs in Australia](https://lookuptax.com/docs/tax-identification-number/Australia-tax-id-guide)
+- [TINs in Canada](https://lookuptax.com/docs/tax-identification-number/canada-tax-id-guide)
+- [TINs in Germany](https://lookuptax.com/docs/tax-identification-number/germany-tax-id-guide)
+- [TINs in India](https://lookuptax.com/docs/tax-identification-number/india-tax-id-guide)
+- [TINs in the United Kingdom](https://lookuptax.com/docs/tax-identification-number/united-kingdom-tax-id-guide)
+- [TINs in France](https://lookuptax.com/docs/tax-identification-number/france-tax-id-guide)
