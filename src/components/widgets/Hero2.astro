@@ -66,15 +66,15 @@ const {
         </div>
         {content && <Fragment set:html={content} />}
       </div>
-      <div class="basis-1/2">
+      <div class="basis-1/2 overflow-hidden flex items-center justify-center max-h-[80vh] h-full">
         {
           image && (
-            <div class="relative m-auto max-w-5xl">
+            <div class="relative w-full max-w-full h-full aspect-auto">
               {typeof image === 'string' ? (
                 <Fragment set:html={image} />
               ) : (
                 <Image
-                  class="mx-auto rounded-md w-full"
+                  class="mx-auto rounded-md w-full h-full max-w-full object-contain aspect-auto"
                   widths={[400, 768, 1024, 2040]}
                   sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                   loading="eager"

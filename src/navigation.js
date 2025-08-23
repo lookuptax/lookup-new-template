@@ -114,7 +114,7 @@ export const headerData = {
     */
     {
       text: 'Features',
-      href: './#features',
+      href: '/#features',
     },
     {
       text: 'Pricing',
@@ -125,15 +125,47 @@ export const headerData = {
       href: '/demo',
     },
     {
-      text: 'Guides',
-      href: 'https://lookuptax.com/docs/category/verify-tax-ids',
-    },
-    {
-      text: 'Countries',
+      text: 'Resources',
+      links: [
+        {
+      text: 'Supported Countries',
       href: '/countries',
     },
+        {
+          text: 'Guides',
+          href: getPermalink('https://lookuptax.com/docs/category/verify-tax-ids'),
+        },
+       
+      /*  {
+          text: 'Startup',
+          href: getPermalink('/homes/startup'),
+        },
+        {
+          text: 'Mobile App',
+          href: getPermalink('/homes/mobile-app'),
+        },
+        {
+          text: 'Personal',
+          href: getPermalink('/homes/personal'),
+        },
+        */
+      ],
+    },
+    {
+      text: 'Integrations',
+      links: [
+        {
+          text: 'Shopify',
+          href: '/integrations/shopify-taxid-validation',
+        },
+        {
+      text: 'n8n',
+      href: '/integrations/n8n-taxid-validation',
+    },
+],
+    },
      {
-      text: 'API',
+      text: 'API\u00A0Docs',
       href: 'https://demo.lookuptax.com/api/',
     },
   ],

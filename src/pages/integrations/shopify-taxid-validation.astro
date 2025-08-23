@@ -1,0 +1,190 @@
+---
+
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+
+const metadata = {
+  title: 'Lookuptax Shopify App | Tax ID Validation',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Lookuptax for Shopify"
+    title="Seamless Tax ID Validation for Global Ecommerce"
+    subtitle="Automate tax ID validation at checkout for over 100 countries. Ensure compliance and reduce fraud for your Shopify store."
+    actions={[
+      { variant: 'primary', text: 'Install App', href: 'https://platform.lookuptax.com/auth?page=register', icon: 'tabler:square-rounded-arrow-right' },
+      { text: 'View Demo', href: 'https://platform.lookuptax.com/auth?page=register' },
+    ]}
+    image={{
+      src: '/src/assets/images/shopify_checkout_lookuptax.png',
+      alt: 'Lookuptax Shopify App Checkout Validation',
+    }}
+  />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    id="features"
+    title="Effortless Tax Compliance for Your Shopify Store"
+    subtitle="Lookuptax simplifies global tax compliance by validating customer tax IDs in real-time during checkout. Here’s how it works:"
+    tagline="How it Works"
+    columns={2}
+    items={[
+      {
+        title: 'Install the App',
+        description: `Easily install the Lookuptax app from the Shopify App Store in just a few clicks.`,
+        icon: 'tabler:plug',
+      },
+      {
+        title: 'Configure Settings',
+        description:
+          'Set up your validation rules based on the countries you sell to. No coding required.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Automated Validation',
+        description: 'Customer tax IDs are automatically validated at checkout. Invalid IDs are flagged, preventing fraudulent transactions.',
+        icon: 'tabler:automatic-gearbox',
+      },
+      {
+        title: 'Detailed Audit Trails',
+        description: `Access detailed logs of all validation checks for your records and compliance.`,
+        icon: 'tabler:file-text',
+      },
+    ]}
+    image={{
+      src: '/src/assets/images/customer-browsing.webp?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80',
+      alt: 'Tax Compliance Process',
+    }}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    title="Key Features for Global Sellers"
+    items={[
+      {
+        title: 'Global Coverage',
+        description:
+          'Validate tax IDs from over 100 countries, including VIES for the EU, GSTIN for India, ABN for Australia, and more.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Real-time Validation',
+        description:
+          'Prevent checkout completion with invalid tax IDs, reducing manual work and fraud.',
+        icon: 'tabler:clock-check',
+      },
+      {
+        title: 'Customizable Rules',
+        description:
+          'Tailor validation requirements for different countries and customer groups.',
+        icon: 'tabler:adjustments-horizontal',
+      },
+      {
+        title: 'Seamless Integration',
+        description: 'Integrates directly into your Shopify checkout process without impacting customer experience.',
+        icon: 'tabler:puzzle',
+      },
+    ]}
+    image={{
+      src: '/src/assets/images/global-commerce.webp?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
+      alt: 'Global Ecommerce Features',
+    }}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    title="Built for Shopify"
+    items={[
+      {
+        title: 'Shopify Flow Integration',
+        description: 'Create powerful workflows with Shopify Flow to automate tasks based on validation results.',
+        icon: 'tabler:arrows-random',
+      },
+      {
+        title: 'Theme Compatibility',
+        description:
+          'Works with all Shopify themes, including custom ones. No theme modifications needed.',
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Developer Friendly',
+        description: 'Well-documented API for custom integrations and advanced use cases.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Secure & Compliant',
+        description: 'All data is encrypted in transit and at rest. We are fully GDPR compliant.',
+        icon: 'tabler:lock',
+      },
+    ]}
+    image={{
+      src: '/src/assets/images/shopify-lookuptax-ecosystem.webp?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Shopify Integration',
+    }}
+  />
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    title="Trusted by Global Businesses"
+    stats={[
+      { amount: '100+', title: 'Countries Supported' },
+      { amount: '500+', title: 'Businesses' },
+      { amount: '99.9%', title: 'Uptime' },
+      { amount: '24/7', title: 'Support' },
+    ]}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    items={[
+      {
+        title: 'What countries do you support?',
+        description:
+          'We support tax ID validation for over 100 countries. You can see the full list on our Supported Countries page.',
+      },
+      {
+        title: 'Does this work with my Shopify theme?',
+        description:
+          'Yes, Lookuptax is designed to work with all Shopify themes, including custom-built themes. No code changes are required.',
+      },
+      {
+        title: 'What happens if a tax ID is invalid?',
+        description: `You can configure the app to prevent checkout if a tax ID is invalid. This helps to reduce fraud and ensure compliance.`,
+      },
+      {
+        title: 'Is there a free trial?',
+        description:
+          'Yes, we offer 100 free validations so you can see how Lookuptax can help your business without any commitment.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    id="download"
+    title="Get Started with Lookuptax Today"
+    subtitle="Install the app and start validating tax IDs in minutes. Simplify your global tax compliance and protect your business from fraud."
+    actions={[
+      { variant: 'primary', text: 'Install on Shopify', href: 'https://platform.lookuptax.com/auth?page=register', icon: 'tabler:shopping-cart' },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,41 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Lookuptax n8n Integration | Coming Soon',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Lookuptax n8n Integration"
+    title="Automate Tax ID Validation Workflows with n8n"
+    subtitle="Seamlessly integrate Lookuptax with your n8n workflows to automate tax ID validation, ensuring compliance and efficiency. Coming Soon!"
+    actions={[
+      { variant: 'primary', text: 'Learn more', href: 'https://platform.lookuptax.com/auth?page=register', icon: 'tabler:square-rounded-arrow-right' },
+      { text: 'Contact Us', href: 'https://platform.lookuptax.com/auth?page=register' },
+    ]}
+    image={{
+      src: '/src/assets/images/lookuptax_n8n_workflow.webp?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+      alt: 'Lookuptax n8n Integration Coming Soon',
+    }}
+  />
+
+  <CallToAction
+    title="Lookuptax n8n Integration: Coming Soon!"
+    subtitle="We are actively developing a powerful n8n integration to streamline your tax ID validation processes. Stay tuned for updates!"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Notified',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+        icon: 'tabler:bell',
+      },
+    ]}
+  />
+</Layout>
