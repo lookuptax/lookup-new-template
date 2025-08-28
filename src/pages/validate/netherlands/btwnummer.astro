@@ -1,0 +1,55 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Dutch BTW-nummer Online | Free VAT Check Tool',
+  description: 'Instantly validate Dutch BTW-nummer online. Free VAT checker with official entity details. Integrate VAT validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Dutch BTW-nummer Online"
+    subtitle="Quickly and accurately validate Dutch BTW-nummer for businesses across the Netherlands."
+    tagline="Netherlands BTW-nummer Validation"
+    country="NL"
+    taxIdPlaceholder="Enter BTW-nummer (e.g., NL123456789B01)"
+    sampleTaxIds={`[{"tin":"NL123456789B01"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Dutch BTW-nummer?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The Dutch BTW-nummer is used for tax identification purposes in the Netherlands.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Dutch BTW-nummer online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Dutch BTW-nummer using Lookuptax's free VAT checker. Enter the BTW-nummer to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is BTW-nummer validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer’s BTW-nummer ensures accurate invoicing, compliance with Dutch law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate BTW-nummer validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a BTW-nummer validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>
