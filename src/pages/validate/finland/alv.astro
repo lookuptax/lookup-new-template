@@ -1,0 +1,45 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Finnish ALV Number Online | Free ALV Check Tool',
+  description: 'Instantly validate Finnish ALV number online. Free ALV checker with official entity details. Integrate ALV validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Finnish ALV Number (Arvonlisäveronumero) Online"
+    subtitle="Quickly and accurately validate Finnish ALV number for businesses across Finland."
+    tagline="Finland ALV Validation"
+    country="FI"
+    taxIdPlaceholder="Enter ALV Number (e.g., FI12345678)"
+    sampleTaxIds={`[{"tin":"FI12345678"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Finnish ALV Number?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The Finnish ALV number, known as Arvonlisäveronumero, is used for tax identification purposes in Finland.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Finnish ALV number online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Finnish ALV number using Lookuptax's free ALV checker. Enter the ALV number to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is ALV number validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer’s ALV number ensures accurate invoicing, compliance with Finnish law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate ALV number validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides an ALV validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <CallToAction />
+</Layout>
