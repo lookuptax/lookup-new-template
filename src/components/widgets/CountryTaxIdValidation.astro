@@ -98,7 +98,12 @@ class TaxIdCountryValidation extends HTMLElement {
 					localStorage.setItem('taxIdValidationCount', validationCount.toString());
 
 					// Mask all fields except validation status, showing the first two characters
-					const maskField = (value) => value ? value.slice(0, 2) + 'X'.repeat(value.length - 2) : undefined;
+					const maskField = (value) => {
+						if (!value) return undefined;
+						const visiblePart = value.slice(0, 2);
+						const maskedPart = value.slice(2).replace(/./g, '<span style="color: red;">X</span>');
+						return visiblePart + maskedPart;
+					};
 
 					const maskedResponse = {
 						...data,
@@ -181,7 +186,10 @@ class TaxIdCountryValidation extends HTMLElement {
 						${createResponseItem('Request Date', data.requestDate ? new Date(data.requestDate).toLocaleString() : '')}
 					</dl>
 				</div>
-				<div class="mt-4">
+				<div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-4" role="alert">
+					<p class="font-bold">Sign up to see more details</p>
+				</div>
+				<div class="mt-4 text-center">
 					<a href="https://platform.lookuptax.com/auth?page=register" class="btn btn-primary">Sign up to see full details</a>
 				</div>
 			`;
