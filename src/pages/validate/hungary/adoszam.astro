@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Hungary Adószám Online | Free VAT Check Tool',
+  description: 'Instantly validate Hungarian Adószám (VAT) numbers online. Free VAT checker with official entity details. Integrate Hungarian VAT validation API into your workflows.',
+  ogTitle: 'Hungary Adószám Validation | Free Online Checker',
+  ogDescription: 'Validate Hungarian VAT numbers instantly. Get business details and ensure compliance with our free online tool.',
+  canonical: 'https://lookuptax.com/validate/hungary/adoszam',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Hungarian Adószám Online"
+    subtitle="Quickly and accurately validate Adószám (Tax Number) for businesses across Hungary."
+    tagline="Hungary VAT Number Validation"
+    country="HU"
+    taxIdPlaceholder="Enter Adószám (e.g., HU12345678)"
+    sampleTaxIds={`[{"tin":"HU12345678"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Hungarian Adószám?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The Adószám is Hungary's tax identification number used for VAT and business registration purposes. It consists of a sequence of numbers with the prefix 'HU' for international transactions.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Hungarian Adószám online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Hungarian Adószám using Lookuptax's free VAT checker. Enter the number (with or without the HU prefix) to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is Adószám validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer's Adószám ensures accurate invoicing, compliance with Hungarian tax law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate Adószám validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides an Adószám validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate an Adószám online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the Adószám (with or without HU prefix), we check format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is Adószám verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum validation are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>
