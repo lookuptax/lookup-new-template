@@ -1,0 +1,73 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Estonia KMKR Online | Free VAT Check Tool',
+  description: 'Instantly validate Estonia KMKR (VAT) numbers online. Free KMKR checker with official entity details. Integrate KMKR validation API into your workflows.',
+  ogTitle: 'Estonia KMKR Validation | Free Online Checker',
+  ogDescription: 'Validate Estonia KMKR numbers instantly. Get business details and ensure compliance with our free online tool.',
+  canonical: 'https://lookuptax.com/validate/estonia/kmkr',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate KMKR Number in Estonia Online"
+    subtitle="Quickly and accurately validate KMKR (Käibemaksukohuslase registrinumber) for businesses across Estonia."
+    tagline="Estonia KMKR Validation"
+    country="EE"
+    taxIdPlaceholder="Enter KMKR (e.g., EE123456789)"
+    sampleTaxIds={`[{"tin":"EE123456789"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a KMKR number online in Estonia?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any KMKR number in Estonia using Lookuptax's free KMKR checker. Enter the KMKR to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is KMKR validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer's KMKR ensures accurate invoicing, compliance with Estonian law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate KMKR validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a KMKR validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a KMKR online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the KMKR, we check format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is KMKR verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Greece Arithmós F.P.A Online | Free VAT Check Tool',
+  description: 'Instantly validate Greece Arithmós F.P.A (ΑΦΜ) numbers online. Free VAT checker with official entity details. Integrate Greek VAT validation API into your workflows.',
+  ogTitle: 'Greece Arithmós F.P.A Validation | Free Online Checker',
+  ogDescription: 'Validate Greek VAT numbers instantly. Get business details and ensure compliance with our free online tool.',
+  canonical: 'https://lookuptax.com/validate/greece/vat',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Arithmós F.P.A Number in Greece Online"
+    subtitle="Quickly and accurately validate Arithmós F.P.A (ΑΦΜ - Αριθμός Φορολογικού Μητρώου) for businesses across Greece."
+    tagline="Greece VAT Number Validation"
+    country="GR"
+    taxIdPlaceholder="Enter VAT number (e.g., EL123456789)"
+    sampleTaxIds={`[{"tin":"EL123456789"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Greek Arithmós F.P.A?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The Arithmós F.P.A (ΑΦΜ - Αριθμός Φορολογικού Μητρώου) is the Value Added Tax identification number used in Greece for tax and business purposes.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Greek VAT number online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Greek VAT number using Lookuptax's free VAT checker. Enter the number (with or without the EL prefix) to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is VAT number validation mandatory for invoices in Greece?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer's VAT number ensures accurate invoicing, compliance with Greek tax law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate Greek VAT validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a VAT validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a Greek VAT number online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the VAT number (with or without EL prefix), we check format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is Greek VAT verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum validation are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>
