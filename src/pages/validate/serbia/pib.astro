@@ -1,0 +1,73 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate PIB Number Serbia Online | Free PIB Check Tool',
+  description: 'Instantly validate PIB numbers in Serbia online. Free PIB checker with official entity details. Integrate PIB validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate PIB Number in Serbia Online"
+    subtitle="Quickly and accurately validate PIB (Poreski Identifikacioni Broj) for businesses and individuals across Serbia."
+    tagline="Serbia PIB Validation"
+    country="RS"
+    taxIdPlaceholder="Enter PIB (e.g., 123456789)"
+    sampleTaxIds={`[{"tin":"123456789"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a PIB number online in Serbia?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Serbian PIB number using Lookuptax's free PIB checker. Enter the PIB to confirm its validity and retrieve taxpayer details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is PIB validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes, the PIB must be stated on all invoices issued in Serbia. It is a key identifier for all tax-related matters and is required for compliance with Serbian law.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate PIB validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a PIB validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance with Serbian tax regulations.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a PIB online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the PIB, we check the format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is PIB verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <!-- Additional Information (optional) -->
+  <CallToAction
+  title="Ready to automate Tax ID validation?"
+  subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Get started now',
+      href: 'https://platform.lookuptax.com/auth?page=register',
+    },
+  ]}
+/> 
+</Layout>
