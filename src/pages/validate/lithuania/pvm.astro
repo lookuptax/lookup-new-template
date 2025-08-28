@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Lithuania PVM kodas Online | Free VAT Check Tool',
+  description: 'Instantly validate Lithuanian PVM kodas (VAT) numbers online. Free VAT checker with official entity details. Integrate Lithuanian VAT validation API into your workflows.',
+  ogTitle: 'Lithuania PVM kodas Validation | Free Online Checker',
+  ogDescription: 'Validate Lithuanian VAT numbers instantly. Get business details and ensure compliance with our free online tool.',
+  canonical: 'https://lookuptax.com/validate/lithuania/pvm',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Lithuanian PVM kodas Online"
+    subtitle="Quickly and accurately validate PVM kodas (Pridėtinės vertės mokesčio mokėtojo kodas) for businesses across Lithuania."
+    tagline="Lithuania VAT Number Validation"
+    country="LT"
+    taxIdPlaceholder="Enter PVM kodas (e.g., LT123456789)"
+    sampleTaxIds={`[{"tin":"LT123456789"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Lithuanian PVM kodas?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The PVM kodas (Pridėtinės vertės mokesčio mokėtojo kodas) is Lithuania's VAT identification number used for tax and business registration purposes.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Lithuanian PVM kodas online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Lithuanian PVM kodas using Lookuptax's free VAT checker. Enter the number (with or without the LT prefix) to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is PVM kodas validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer's PVM kodas ensures accurate invoicing, compliance with Lithuanian tax law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate PVM kodas validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a PVM kodas validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a PVM kodas online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the PVM kodas (with or without LT prefix), we check format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is PVM kodas verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum validation are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>
