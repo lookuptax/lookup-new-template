@@ -2,161 +2,187 @@
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
 
+
 const {
-  title = '',
-  subtitle = '',
-  tagline = '',
-  id,
-  isDark = false,
-  classes = {},
-  bg = '',
-  country = 'IN', // default to India
-  taxIdPlaceholder = '',
-  sampleTaxIds = [],
-  validateLabel = 'Submit',
-  loadRandomLabel = 'Load Random Tax ID',
+	title = '',
+	subtitle = '',
+	tagline = '',
+	id,
+	isDark = false,
+	classes = {},
+	bg = '',
+	country = 'IN',
+	taxIdPlaceholder = '',
+	validateLabel = 'Submit',
 } = Astro.props;
 ---
 
 <tax-id-country-validation>
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <Headline title={title} subtitle={subtitle} tagline={tagline} />
-
-  <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
-    <div id="taxIdForm" class="grid sm:grid-cols-12 gap-4 py-4">
-      <input type="hidden" id="countryCode" name="countryCode" value={country} />
-      <div class="sm:col-span-12">
-        <label for="targetTaxID" class="block text-sm font-medium">
-          Tax ID Number:
-        </label>
-        <input
-          type="text"
-          id="targetTaxID"
-          name="targetTaxID"
-          class="px-4 py-3 w-full bg-neutral-50 dark:bg-neutral-700 outline-none rounded-md border border-neutral-200 dark:border-neutral-600"
-          placeholder={taxIdPlaceholder || `Enter Tax ID for ${country}`}
-        />
-      </div>
-      <div class="sm:col-span-12">
-        <div class="flex justify-center gap-4">
-          <button type="button" id="submitButton" class="btn btn-primary submitButton">
-            {validateLabel}
-          </button>
-        </div>
-      </div>
-    </div>
-    <div id="responseContainer" class="mt-4 hidden">
-      <!-- Response will be inserted here -->
-    </div>
-  </div>
-</WidgetWrapper>
+	<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+		<Headline title={title} subtitle={subtitle} tagline={tagline} />
+		<div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
+			<div id="taxIdForm" class="grid sm:grid-cols-12 gap-4 py-4">
+				<input type="hidden" id="countryCode" name="countryCode" value={country} />
+				<div class="sm:col-span-12">
+					<label for="targetTaxID" class="block text-sm font-medium">
+						Tax ID Number:
+					</label>
+					<input
+						type="text"
+						id="targetTaxID"
+						name="targetTaxID"
+						class="px-4 py-3 w-full bg-neutral-50 dark:bg-neutral-700 outline-none rounded-md border border-neutral-200 dark:border-neutral-600"
+						placeholder={taxIdPlaceholder || `Enter Tax ID for ${country}`}
+					/>
+				</div>
+				<div class="sm:col-span-12">
+					<div class="flex justify-center gap-4">
+						<button type="button" id="submitButton" class="btn btn-primary submitButton">
+							{validateLabel}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div id="responseContainer" class="mt-4 hidden">
+				<!-- Response will be inserted here -->
+			</div>
+		</div>
+	</WidgetWrapper>
 </tax-id-country-validation>
-<script>
-  class TaxIdCountryValidation extends HTMLElement {
-    constructor() {
-      super();
-      this.validationCount = parseInt(localStorage.getItem('taxIdValidationCount') || '0');
-      this.maxValidations = 10;
-      this.sampleTaxIds = this.getAttribute('sampleTaxIds') ? JSON.parse(this.getAttribute('sampleTaxIds')) : [];
-    }
-    connectedCallback() {
-      const submitButton = this.querySelector('#submitButton');
-      const loadRandomButton = this.querySelector('#loadRandomButton');
-      const responseContainer = this.querySelector('#responseContainer');
-      const countryCode = this.getAttribute('country') || 'IN';
-      const targetTaxIDInput = this.querySelector('#targetTaxID');
-      const taxIdPlaceholder = this.getAttribute('taxIdPlaceholder');
-      if (taxIdPlaceholder && targetTaxIDInput) {
-        targetTaxIDInput.placeholder = taxIdPlaceholder;
-      }
-      if (submitButton && responseContainer) {
-        submitButton.addEventListener('click', async () => {
-          // Validation count logic
-          if (!this.validationCount) this.validationCount = parseInt(localStorage.getItem('taxIdValidationCount') || '0');
-          if (!this.maxValidations) this.maxValidations = 10;
-          if (this.validationCount >= this.maxValidations) {
-            alert(`You have reached the maximum of ${this.maxValidations} validations.`);
-            return;
-          }
-          if (!targetTaxIDInput) return;
-          let targetTaxID = targetTaxIDInput.value.trim();
-          if (!targetTaxID || targetTaxID.length < 4) {
-            displayError('Invalid tax ID number. Please enter a valid tax ID Number.');
-            return;
-          }
-          // Remove country prefix if present
-          const regex = /^[a-zA-Z]{2,3}/;
-          const result = targetTaxID.match(regex);
-          if (result) {
-            const prefix_length = result[0].length;
-            targetTaxID = targetTaxID.substr(prefix_length);
-          }
-          try {
-            const baseUrl = 'https://demo.lookuptax.com';
-            // Special handling for Switzerland
-            let cc = countryCode;
-            if (cc === 'CH') {
-              targetTaxID = `CHE${targetTaxID}`;
-            }
-            const response = await fetch(`${baseUrl}/validate?country_iso=${cc}&tin=${targetTaxID}`, {
-              method: 'GET',
-              headers: { 'Content-Type': 'application/json' },
-            });
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-            // Increment validation count and save to localStorage
-            this.validationCount++;
-            localStorage.setItem('taxIdValidationCount', this.validationCount.toString());
-            displayResponse(data);
-          } catch (error) {
-            let errorMessage = 'Not found. ';
-            if (error instanceof TypeError && error.message === 'Failed to fetch') {
-              errorMessage += 'The Tax id could not be found. Please ensure that the ID submitted is without any special characters and the country prefix.';
-            } else {
-              errorMessage += error.message;
-            }
-            displayError(errorMessage);
-          }
-        });
 
-      // Helper functions for displaying response/errors
-      function displayResponse(data) {
-        responseContainer.innerHTML = '';
-        responseContainer.classList.remove('hidden');
-        if (data.error || data.message || (data.errors && data.errors.length > 0)) {
-          const errorMessage = data.error || data.message || data.errors.map(err => `${err.code}: ${err.message}`).join('<br>');
-          responseContainer.innerHTML = `<div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert"><p class="font-bold">Error</p><p>${errorMessage}</p></div>`;
-          return;
-        }
-        if (data.validation?.format?.error) {
-          const formatError = data.validation.format.error;
-          responseContainer.innerHTML = `<div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert"><p class="font-bold">Format Validation Error</p><p><strong>${formatError.code}:</strong> ${formatError.message}</p></div>`;
-          return;
-        }
-        const isValid = data.validation?.overall?.isValid;
-        const formatValid = data.validation?.format?.isValid;
-        const sourceValid = data.validation?.source?.isValid;
-        const sourceAttempted = data.validation?.source?.attempted;
-        if (isValid) {
-          let statusClass = 'bg-green-100 border-green-500 text-green-700';
-          let statusTitle = 'Valid Tax ID Number';
-          if (formatValid && !sourceAttempted) {
-            statusClass = 'bg-yellow-100 border-yellow-500 text-yellow-700';
-            statusTitle = 'Format Valid, Source Not Checked';
-          }
-          responseContainer.innerHTML = `<div class="${statusClass} border-l-4 p-4" role="alert"><p class="font-bold">${statusTitle}</p><p>Tax ID is valid.</p></div>`;
-        } else {
-          responseContainer.innerHTML = `<div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert"><p class="font-bold">Invalid Tax ID</p><p>The provided Tax ID is not valid.</p></div>`;
-        }
-      }
-      function displayError(errorMessage) {
-        responseContainer.innerHTML = `<div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert"><p class="font-bold">Error</p><p>${errorMessage}</p></div>`;
-        responseContainer.classList.remove('hidden');
-      }
-      }
-    }
-  }
-  customElements.define('tax-id-country-validation', TaxIdCountryValidation);
+<script is:inline>
+class TaxIdCountryValidation extends HTMLElement {
+	connectedCallback() {
+		const submitButton = this.querySelector('#submitButton');
+		const responseContainer = this.querySelector('#responseContainer');
+		const targetTaxIDInput = this.querySelector('#targetTaxID');
+		const countryCodeInput = this.querySelector('#countryCode');
+		let validationCount = parseInt(localStorage.getItem('taxIdValidationCount') || '0');
+		const maxValidations = 10;
+		if (submitButton && responseContainer && targetTaxIDInput && countryCodeInput) {
+			submitButton.addEventListener('click', async () => {
+				if (validationCount >= maxValidations) {
+					alert(`You have reached the maximum of ${maxValidations} validations.`);
+					return;
+				}
+				let targetTaxID = targetTaxIDInput.value.trim();
+				if (!targetTaxID || targetTaxID.length < 4) {
+					TaxIdCountryValidation.displayError(responseContainer, 'Invalid tax ID number. Please enter a valid tax ID Number.');
+					return;
+				}
+				// Remove country prefix if present
+				const regex = /^[a-zA-Z]{2,3}/;
+				const result = targetTaxID.match(regex);
+				if (result) {
+					const prefix_length = result[0].length;
+					targetTaxID = targetTaxID.substr(prefix_length);
+				}
+				try {
+					const baseUrl = 'https://demo.lookuptax.com';
+					let cc = countryCodeInput.value;
+					if (cc === 'CH') {
+						targetTaxID = `CHE${targetTaxID}`;
+					}
+					const response = await fetch(`${baseUrl}/validate?country_iso=${cc}&tin=${targetTaxID}`, {
+						method: 'GET',
+						headers: { 'Content-Type': 'application/json' },
+					});
+					if (!response.ok) {
+						throw new Error(`HTTP error! status: ${response.status}`);
+					}
+					const data = await response.json();
+					validationCount++;
+					localStorage.setItem('taxIdValidationCount', validationCount.toString());
+					TaxIdCountryValidation.displayResponse(data, responseContainer);
+				} catch (error) {
+					let errorMessage = 'Not found. ';
+					if (error instanceof TypeError && error.message === 'Failed to fetch') {
+						errorMessage += 'The Tax id could not be found. Please ensure that the ID submitted is without any special characters and the country prefix.';
+					} else {
+						errorMessage += error.message;
+					}
+					TaxIdCountryValidation.displayError(responseContainer, errorMessage);
+				}
+			});
+		}
+	}
+
+	static displayResponse(data, responseContainer) {
+		if (!responseContainer) return;
+		responseContainer.innerHTML = '';
+		responseContainer.classList.remove('hidden');
+		function createResponseItem(label, value) {
+			return (value !== undefined && value !== null && value !== '') ? `
+				<dt class="font-medium text-gray-700 dark:text-gray-300">${label}:</dt>
+				<dd class="text-gray-900 dark:text-gray-100">${value}</dd>
+			` : '';
+		}
+		if (data && (data.error || data.message || (data.errors && Array.isArray(data.errors) && data.errors.length > 0))) {
+			const errorMessage = data.error || data.message || (Array.isArray(data.errors) ? data.errors.map(err => `${err.code}: ${err.message}`).join('<br>') : '');
+			responseContainer.innerHTML = `<div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert"><p class="font-bold">Error</p><p>${errorMessage}</p></div>`;
+			return;
+		}
+		if (data && data.validation && data.validation.format && data.validation.format.error) {
+			const formatError = data.validation.format.error;
+			responseContainer.innerHTML = `<div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert"><p class="font-bold">Format Validation Error</p><p><strong>${formatError.code}:</strong> ${formatError.message}</p></div>`;
+			return;
+		}
+		const isValid = data?.validation?.overall?.isValid;
+		const formatValid = data?.validation?.format?.isValid;
+		const sourceValid = data?.validation?.source?.isValid;
+		const sourceAttempted = data?.validation?.source?.attempted;
+		if (isValid) {
+			let statusClass = 'bg-green-100 border-green-500 text-green-700';
+			let statusTitle = 'Valid Tax ID Number';
+			if (formatValid && !sourceAttempted) {
+				statusClass = 'bg-yellow-100 border-yellow-500 text-yellow-700';
+				statusTitle = 'Format Valid, Source Not Checked';
+			}
+			responseContainer.innerHTML = `
+				<div class="${statusClass} border-l-4 p-4 mb-4" role="alert">
+					<p class="font-bold">${statusTitle}</p>
+					${!sourceAttempted ? '<p class="text-sm mt-1">Only format validation performed - no external source validation available</p>' : ''}
+				</div>
+				${(data.warnings && Array.isArray(data.warnings) && data.warnings.length > 0) ? `
+					<div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
+						<p class="font-bold">Warnings</p>
+						${data.warnings.map(warning => `<p class="text-sm"><strong>${warning.code}:</strong> ${warning.message}</p>`).join('')}
+					</div>
+				` : ''}
+				<dl class="grid grid-cols-2 gap-x-4 gap-y-2">
+					${createResponseItem('Valid', isValid.toString())}
+					${createResponseItem('TIN', data.tin)}
+					${createResponseItem('TIN Label', data.tinInfo?.label)}
+					${createResponseItem('TIN Name', data.tinInfo?.name)}
+					${createResponseItem('Formatted TIN', data.tinInfo?.formattedTin)}
+					${createResponseItem('Name', data.entity?.name)}
+					${createResponseItem('Address', data.entity?.address)}
+					${createResponseItem('Country Code', data.countryCode)}
+					${createResponseItem('Format Valid', formatValid?.toString())}
+					${createResponseItem('Source Valid', sourceAttempted ? sourceValid?.toString() : 'Not Attempted')}
+					${createResponseItem('Request Date', data.requestDate ? new Date(data.requestDate).toLocaleString() : '')}
+					${(data.metadata?.sources && Array.isArray(data.metadata.sources) && data.metadata.sources.length > 0) ? createResponseItem('Sources', data.metadata.sources.join(', ')) : ''}
+					${(data.additionalInfo && typeof data.additionalInfo === 'object') ? Object.entries(data.additionalInfo).map(([key, value]) => 
+						createResponseItem(key.replace(/_/g, ' '), value)
+					).join('') : ''}
+				</dl>
+			`;
+		} else {
+			responseContainer.innerHTML = `
+				<div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+					<p class="font-bold">Invalid Tax ID Number</p>
+					<p>The provided Tax ID Number is not valid.</p>
+					${(data && data.validation && data.validation.format && data.validation.format.error) ? `<p class="text-sm mt-2"><strong>${data.validation.format.error.code}:</strong> ${data.validation.format.error.message}</p>` : ''}
+				</div>
+			`;
+		}
+	}
+
+	static displayError(responseContainer, errorMessage) {
+		if (!responseContainer) return;
+		responseContainer.innerHTML = `<div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert"><p class="font-bold">Error</p><p>${errorMessage}</p></div>`;
+		responseContainer.classList.remove('hidden');
+	}
+}
+customElements.define('tax-id-country-validation', TaxIdCountryValidation);
 </script>

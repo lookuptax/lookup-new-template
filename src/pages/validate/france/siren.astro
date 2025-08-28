@@ -3,6 +3,9 @@ import Layout from '~/layouts/Layout.astro';
 import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Validate SIREN Number France Online | Free SIREN Check Tool',
@@ -54,4 +57,17 @@ const metadata = {
       ]
     }
   </script>
+
+  <!-- Additional Information (optional) -->
+  <CallToAction
+  title="Ready to automate Tax ID validation?"
+  subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Get started now',
+      href: 'https://platform.lookuptax.com/auth?page=register',
+    },
+  ]}
+/> 
 </Layout>
