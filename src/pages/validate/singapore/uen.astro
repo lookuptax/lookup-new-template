@@ -1,0 +1,73 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate UEN Number Singapore Online | Free UEN Check Tool',
+  description: 'Instantly validate UEN numbers in Singapore online. Free UEN checker with official entity details. Integrate UEN validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate UEN Number in Singapore Online"
+    subtitle="Quickly and accurately validate UEN (Unique Entity Number) for businesses and entities in Singapore."
+    tagline="Singapore UEN Validation"
+    country="SG"
+    taxIdPlaceholder="Enter UEN (e.g., 201012345A)"
+    sampleTaxIds={`[{"tin":"201012345A"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a UEN number online in Singapore?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any UEN number in Singapore using Lookuptax's free UEN checker. Enter the UEN to confirm validity and retrieve entity details instantly from ACRA.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is UEN validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes, it is mandatory for all registered businesses in Singapore to display their UEN on all business communications, including invoices, letterheads, and emails.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate UEN validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a UEN validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance with Singaporean regulations.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a UEN online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the UEN, we check the format, then verify against official sources (ACRA) via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is UEN verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <!-- Additional Information (optional) -->
+  <CallToAction
+  title="Ready to automate Tax ID validation?"
+  subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Get started now',
+      href: 'https://platform.lookuptax.com/auth?page=register',
+    },
+  ]}
+/> 
+</Layout>
