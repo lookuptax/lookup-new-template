@@ -1,0 +1,73 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate VKN Number Turkey Online | Free VKN Check Tool',
+  description: 'Instantly validate VKN numbers in Turkey online. Free VKN checker with official entity details. Integrate VKN validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate VKN Number in Turkey Online"
+    subtitle="Quickly and accurately validate VKN (Vergi Kimlik Numarası) for businesses and individuals across Turkey."
+    tagline="Turkey VKN Validation"
+    country="TR"
+    taxIdPlaceholder="Enter VKN (e.g., 1234567890)"
+    sampleTaxIds={`[{"tin":"1234567890"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a VKN number online in Turkey?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Turkish VKN number using Lookuptax's free VKN checker. Enter the VKN to confirm its validity and retrieve taxpayer details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is VKN validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes, the VKN must be included on all invoices in Turkey. It is a fundamental requirement for all commercial transactions and tax-related processes.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate VKN validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a VKN validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance with Turkish tax regulations.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a VKN online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the VKN, we check the format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is VKN verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <!-- Additional Information (optional) -->
+  <CallToAction
+  title="Ready to automate Tax ID validation?"
+  subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Get started now',
+      href: 'https://platform.lookuptax.com/auth?page=register',
+    },
+  ]}
+/> 
+</Layout>
