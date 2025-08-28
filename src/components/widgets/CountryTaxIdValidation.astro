@@ -63,7 +63,7 @@ class TaxIdCountryValidation extends HTMLElement {
 		if (submitButton && responseContainer && targetTaxIDInput && countryCodeInput) {
 			submitButton.addEventListener('click', async () => {
 				if (validationCount >= maxValidations) {
-					alert(`You have reached the maximum of ${maxValidations} validations.`);
+					this.displayLimitMessage(responseContainer, maxValidations);
 					return;
 				}
 
@@ -135,6 +135,17 @@ class TaxIdCountryValidation extends HTMLElement {
 		}
 	}
 
+	static displayLimitMessage(responseContainer, maxValidations) {
+		if (!responseContainer) return;
+		responseContainer.innerHTML = `
+			<div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
+				<p class="font-bold">Validation Limit Reached</p>
+				<p>You have reached the maximum of ${maxValidations} validations.</p>
+			</div>
+		`;
+		responseContainer.classList.remove('hidden');
+	}
+
 	static displayResponse(data, responseContainer) {
 		if (!responseContainer) return;
 		responseContainer.innerHTML = '';
@@ -173,6 +184,9 @@ class TaxIdCountryValidation extends HTMLElement {
 				</div>
 				<div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
 					<p class="font-bold">Sign up to see more details</p>
+					<div class="mt-2 text-center">
+						<a href="https://platform.lookuptax.com/auth?page=register" class="btn btn-primary">Sign up</a>
+					</div>
 				</div>
 				<div class="overflow-hidden max-w-full">
 					<dl class="grid grid-cols-2 gap-x-4 gap-y-2">
@@ -188,9 +202,6 @@ class TaxIdCountryValidation extends HTMLElement {
 						${createResponseItem('Source Valid', sourceAttempted ? sourceValid?.toString() : 'Not Attempted')}
 						${createResponseItem('Request Date', data.requestDate ? new Date(data.requestDate).toLocaleString() : '')}
 					</dl>
-				</div>
-				<div class="mt-4 text-center">
-					<a href="https://platform.lookuptax.com/auth?page=register" class="btn btn-primary">Sign up</a>
 				</div>
 			`;
 		} else {
