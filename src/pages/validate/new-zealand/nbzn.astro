@@ -1,0 +1,55 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate New Zealand NBZN Online | Free VAT Check Tool',
+  description: 'Instantly validate New Zealand NBZN online. Free VAT checker with official entity details. Integrate VAT validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate New Zealand NBZN Online"
+    subtitle="Quickly and accurately validate New Zealand NBZN for businesses across New Zealand."
+    tagline="New Zealand NBZN Validation"
+    country="NZ"
+    taxIdPlaceholder="Enter NBZN (e.g., NZ123456789)"
+    sampleTaxIds={`[{"tin":"NZ123456789"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the New Zealand NBZN?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The New Zealand NBZN (New Zealand Business Number) is used for tax identification purposes in New Zealand.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a New Zealand NBZN online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any New Zealand NBZN using Lookuptax's free VAT checker. Enter the NBZN to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is NBZN validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer’s NBZN ensures accurate invoicing, compliance with New Zealand law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate NBZN validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides an NBZN validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>
