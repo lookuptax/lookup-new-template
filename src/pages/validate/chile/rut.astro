@@ -1,0 +1,73 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate RUT Number Chile Online | Free RUT Check Tool',
+  description: 'Instantly validate RUT numbers in Chile online. Free RUT checker with official entity details. Integrate RUT validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate RUT Number in Chile Online"
+    subtitle="Quickly and accurately validate RUT (Rol Único Tributario) for businesses and individuals across Chile."
+    tagline="Chile RUT Validation"
+    country="CL"
+    taxIdPlaceholder="Enter RUT (e.g., 12.345.678-9)"
+    sampleTaxIds={`[{"tin":"12345678-9"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a RUT number online in Chile?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any RUT number in Chile using Lookuptax's free RUT checker. Enter the RUT to confirm validity and retrieve taxpayer details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is RUT validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For all electronic invoices (facturas electrónicas) in Chile, it is mandatory to include and validate the RUT of both the issuer and the recipient.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate RUT validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a RUT validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance with Chilean tax regulations.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a RUT online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the RUT, we check the format and verification digit, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is RUT verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <!-- Additional Information (optional) -->
+  <CallToAction
+  title="Ready to automate Tax ID validation?"
+  subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Get started now',
+      href: 'https://platform.lookuptax.com/auth?page=register',
+    },
+  ]}
+/> 
+</Layout>
