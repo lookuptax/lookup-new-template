@@ -1,0 +1,55 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Bulgarian DDS номер Online | Free VAT Check Tool',
+  description: 'Instantly validate Bulgarian DDS номер online. Free VAT checker with official entity details. Integrate VAT validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Bulgarian DDS номер Online"
+    subtitle="Quickly and accurately validate Bulgarian DDS номер for businesses across Bulgaria."
+    tagline="Bulgaria DDS номер Validation"
+    country="BG"
+    taxIdPlaceholder="Enter DDS номер (e.g., BG123456789)"
+    sampleTaxIds={`[{"tin":"BG123456789"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Bulgarian DDS номер?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The Bulgarian DDS номер (Данъчен номер за добавена стойност) is used for tax identification purposes in Bulgaria.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Bulgarian DDS номер online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Bulgarian DDS номер using Lookuptax's free VAT checker. Enter the DDS номер to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is DDS номер validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer’s DDS номер ensures accurate invoicing, compliance with Bulgarian law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate DDS номер validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a DDS номер validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>
