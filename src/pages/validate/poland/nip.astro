@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Poland NIP Online | Free VAT Check Tool',
+  description: 'Instantly validate Polish NIP (Numer Identyfikacji Podatkowej) numbers online. Free VAT checker with official entity details. Integrate Polish VAT validation API into your workflows.',
+  ogTitle: 'Poland NIP Validation | Free Online Checker',
+  ogDescription: 'Validate Polish VAT numbers instantly. Get business details and ensure compliance with our free online tool.',
+  canonical: 'https://lookuptax.com/validate/poland/nip',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Polish NIP Online"
+    subtitle="Quickly and accurately validate NIP (Numer Identyfikacji Podatkowej) for businesses across Poland."
+    tagline="Poland VAT Number Validation"
+    country="PL"
+    taxIdPlaceholder="Enter NIP (e.g., PL1234567890)"
+    sampleTaxIds={`[{"tin":"PL1234567890"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Polish NIP?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The NIP (Numer Identyfikacji Podatkowej) is Poland's tax identification number used for VAT and business registration purposes. It consists of 10 digits and may be prefixed with PL for international transactions.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Polish NIP number online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Polish NIP using Lookuptax's free VAT checker. Enter the number (with or without the PL prefix) to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is NIP validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer's NIP ensures accurate invoicing, compliance with Polish tax law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate NIP validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a NIP validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a NIP online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the NIP (with or without PL prefix), we check format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is NIP verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum validation are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>
