@@ -1,0 +1,73 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate MST Number Vietnam Online | Free MST Check Tool',
+  description: 'Instantly validate MST numbers in Vietnam online. Free MST checker with official entity details. Integrate MST validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate MST Number in Vietnam Online"
+    subtitle="Quickly and accurately validate MST (Mã Số Thuế) for businesses and individuals across Vietnam."
+    tagline="Vietnam MST Validation"
+    country="VN"
+    taxIdPlaceholder="Enter MST (e.g., 1234567890)"
+    sampleTaxIds={`[{"tin":"1234567890"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate an MST number online in Vietnam?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any MST number in Vietnam using Lookuptax's free MST checker. Enter the MST to confirm validity and retrieve taxpayer details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is MST validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes, according to Vietnamese law, an MST must be included on all official invoices (hóa đơn). Validating the MST is crucial for financial and tax compliance.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate MST validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides an MST validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance with Vietnamese tax regulations.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate an MST online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the MST, we check the format, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is MST verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <!-- Additional Information (optional) -->
+  <CallToAction
+  title="Ready to automate Tax ID validation?"
+  subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Get started now',
+      href: 'https://platform.lookuptax.com/auth?page=register',
+    },
+  ]}
+/> 
+</Layout>
