@@ -1,0 +1,57 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+
+const metadata = {
+  title: 'Validate SIREN Number France Online | Free SIREN Check Tool',
+  description: 'Instantly validate SIREN numbers in France online. Free SIREN checker with official entity details. Integrate SIREN validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate SIREN Number in France Online"
+    subtitle="Quickly and accurately validate SIREN (Système d’Identification du Répertoire des ENtreprises) for businesses across France."
+    tagline="France SIREN Validation"
+    country="FR"
+    taxIdPlaceholder="Enter SIREN (e.g., 732829320)"
+    sampleTaxIds={`[{"tin":"732829320"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a SIREN number online in France?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any SIREN number in France using Lookuptax's free SIREN checker. Enter the SIREN to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is SIREN validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer’s SIREN ensures accurate invoicing, compliance with French law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate SIREN validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a SIREN validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a SIREN online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the SIREN, we check format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is SIREN verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+</Layout>

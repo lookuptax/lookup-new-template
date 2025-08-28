@@ -11,6 +11,8 @@ import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
+import Header from '~/components/widgets/Header.astro';
+import { headerData } from '~/navigation.js';
 
 // Comment the line below to disable View Transitions
 import { ViewTransitions } from 'astro:transitions';
@@ -55,6 +57,7 @@ const { language, textDirection } = I18N;
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLGV623"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+    <Header links={headerData.links} actions={headerData.actions} />
     <slot />
 
     <BasicScripts />

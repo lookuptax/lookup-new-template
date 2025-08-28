@@ -27,6 +27,7 @@ const {
             id="countryCode"
             name="countryCode"
             class="px-4 py-3 w-full bg-neutral-50 dark:bg-neutral-700 outline-none rounded-md border border-neutral-200 dark:border-neutral-600"
+            {Astro.props.disableCountrySelector ? 'disabled' : ''}
           >
           <option value="AE">AE</option>
           <option value="AL">AL</option>
@@ -345,10 +346,28 @@ const {
     }
 
     connectedCallback() {
-    // document.addEventListener('DOMContentLoaded', () => {
       const submitButton = this.querySelector('#submitButton');
       const loadRandomButton = this.querySelector('#loadRandomButton');
       const responseContainer = this.querySelector('#responseContainer');
+      const countryCodeSelect = this.querySelector('#countryCode');
+      const targetTaxIDInput = this.querySelector('#targetTaxID');
+
+      // Get props from the Astro component
+      const preselectedCountry = this.getAttribute('preselectedCountry');
+      const disableCountrySelector = this.hasAttribute('disableCountrySelector');
+      const taxIdPlaceholder = this.getAttribute('taxIdPlaceholder');
+
+      if (preselectedCountry && countryCodeSelect) {
+        countryCodeSelect.value = preselectedCountry;
+        countryCodeSelect.disabled = disableCountrySelector;
+        // Filter sampleTaxIds if a preselected country is provided
+        this.sampleTaxIds = this.sampleTaxIds.filter(item => item.country === preselectedCountry);
+      }
+
+      if (taxIdPlaceholder && targetTaxIDInput) {
+        targetTaxIDInput.placeholder = taxIdPlaceholder;
+      }
+
       console.log("submitButton", submitButton);
   
       if (submitButton && loadRandomButton && responseContainer) {
