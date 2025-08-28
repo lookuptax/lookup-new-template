@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Luxembourg Numéro TVA Online | Free VAT Check Tool',
+  description: 'Instantly validate Luxembourg Numéro TVA numbers online. Free VAT checker with official entity details. Integrate Luxembourg VAT validation API into your workflows.',
+  ogTitle: 'Luxembourg Numéro TVA Validation | Free Online Checker',
+  ogDescription: 'Validate Luxembourg VAT numbers instantly. Get business details and ensure compliance with our free online tool.',
+  canonical: 'https://lookuptax.com/validate/luxembourg/tva',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Luxembourg Numéro TVA Online"
+    subtitle="Quickly and accurately validate Numéro TVA (Taxe sur la Valeur Ajoutée) for businesses across Luxembourg."
+    tagline="Luxembourg VAT Number Validation"
+    country="LU"
+    taxIdPlaceholder="Enter Numéro TVA (e.g., LU12345678)"
+    sampleTaxIds={`[{"tin":"LU12345678"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Luxembourg Numéro TVA?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The Numéro TVA (Taxe sur la Valeur Ajoutée) is Luxembourg's VAT identification number used for tax and business registration purposes. It is essential for all businesses operating in Luxembourg.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Luxembourg TVA number online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Luxembourg TVA number using Lookuptax's free VAT checker. Enter the number (with or without the LU prefix) to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is TVA number validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer's TVA number ensures accurate invoicing, compliance with Luxembourg tax law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate TVA validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a TVA validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a Luxembourg TVA number online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the TVA number (with or without LU prefix), we check format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is TVA verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum validation are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Norway MVA-nummer Online | Free VAT Check Tool',
+  description: 'Instantly validate Norwegian MVA-nummer (Merverdiavgift) numbers online. Free VAT checker with official entity details. Integrate Norwegian VAT validation API into your workflows.',
+  ogTitle: 'Norway MVA-nummer Validation | Free Online Checker',
+  ogDescription: 'Validate Norwegian VAT numbers instantly. Get business details and ensure compliance with our free online tool.',
+  canonical: 'https://lookuptax.com/validate/norway/mva',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Norwegian MVA-nummer Online"
+    subtitle="Quickly and accurately validate MVA-nummer (Merverdiavgift) for businesses across Norway."
+    tagline="Norway VAT Number Validation"
+    country="NO"
+    taxIdPlaceholder="Enter MVA-nummer (e.g., NO123456789MVA)"
+    sampleTaxIds={`[{"tin":"NO123456789MVA"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Norwegian MVA-nummer?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The MVA-nummer (Merverdiavgift) is Norway's Value Added Tax identification number used for tax and business registration purposes. It typically ends with 'MVA' after the number sequence.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Norwegian MVA-nummer online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Norwegian MVA-nummer using Lookuptax's free VAT checker. Enter the number (including NO prefix and MVA suffix) to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is MVA-nummer validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer's MVA-nummer ensures accurate invoicing, compliance with Norwegian tax law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate MVA-nummer validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides an MVA-nummer validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate an MVA-nummer online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the MVA-nummer (with NO prefix and MVA suffix), we check format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is MVA-nummer verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum validation are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>

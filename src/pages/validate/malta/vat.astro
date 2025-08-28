@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Malta Numru VAT Online | Free VAT Check Tool',
+  description: 'Instantly validate Malta Numru VAT numbers online. Free VAT checker with official entity details. Integrate Maltese VAT validation API into your workflows.',
+  ogTitle: 'Malta Numru VAT Validation | Free Online Checker',
+  ogDescription: 'Validate Maltese VAT numbers instantly. Get business details and ensure compliance with our free online tool.',
+  canonical: 'https://lookuptax.com/validate/malta/vat',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Maltese Numru VAT Online"
+    subtitle="Quickly and accurately validate Numru VAT (Value Added Tax Number) for businesses across Malta."
+    tagline="Malta VAT Number Validation"
+    country="MT"
+    taxIdPlaceholder="Enter Numru VAT (e.g., MT12345678)"
+    sampleTaxIds={`[{"tin":"MT12345678"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Maltese Numru VAT?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The Numru VAT is Malta's Value Added Tax identification number used for tax and business registration purposes. It is essential for all businesses operating in Malta.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Maltese VAT number online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Maltese VAT number using Lookuptax's free VAT checker. Enter the number (with or without the MT prefix) to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is Numru VAT validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer's Numru VAT ensures accurate invoicing, compliance with Maltese tax law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate Numru VAT validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a VAT validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a Maltese VAT number online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the Numru VAT (with or without MT prefix), we check format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is Numru VAT verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum validation are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>
