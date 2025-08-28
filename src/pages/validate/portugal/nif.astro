@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Portugal NIF Online | Free VAT Check Tool',
+  description: 'Instantly validate Portuguese NIF (Número de Identificação Fiscal) numbers online. Free VAT checker with official entity details. Integrate Portuguese VAT validation API into your workflows.',
+  ogTitle: 'Portugal NIF Validation | Free Online Checker',
+  ogDescription: 'Validate Portuguese VAT numbers instantly. Get business details and ensure compliance with our free online tool.',
+  canonical: 'https://lookuptax.com/validate/portugal/nif',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Portuguese NIF Online"
+    subtitle="Quickly and accurately validate NIF (Número de Identificação Fiscal) for businesses across Portugal."
+    tagline="Portugal VAT Number Validation"
+    country="PT"
+    taxIdPlaceholder="Enter NIF (e.g., PT123456789)"
+    sampleTaxIds={`[{"tin":"PT123456789"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Portuguese NIF?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The NIF (Número de Identificação Fiscal), also known as NIPC for businesses, is Portugal's tax identification number used for VAT and business registration purposes. It consists of 9 digits and may be prefixed with PT for international transactions.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Portuguese NIF online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Portuguese NIF using Lookuptax's free VAT checker. Enter the number (with or without the PT prefix) to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is NIF validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer's NIF ensures accurate invoicing, compliance with Portuguese tax law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate NIF validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a NIF validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a Portuguese NIF online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the NIF (with or without PT prefix), we check format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is NIF verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum validation are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>
