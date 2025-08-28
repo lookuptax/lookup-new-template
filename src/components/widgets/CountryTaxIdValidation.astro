@@ -97,13 +97,22 @@ class TaxIdCountryValidation extends HTMLElement {
 					validationCount++;
 					localStorage.setItem('taxIdValidationCount', validationCount.toString());
 
-					// Mask sensitive fields
+					// Mask all fields except validation status, showing the first two characters
+					const maskField = (value) => value ? value.slice(0, 2) + 'X'.repeat(value.length - 2) : undefined;
+
 					const maskedResponse = {
 						...data,
 						entity: {
 							...data.entity,
-							name: data.entity?.name ? data.entity.name[0] + 'X'.repeat(data.entity.name.length - 1) : undefined,
-							address: data.entity?.address ? data.entity.address[0] + 'X'.repeat(data.entity.address.length - 1) : undefined,
+							name: maskField(data.entity?.name),
+							address: maskField(data.entity?.address),
+						},
+						tin: maskField(data.tin),
+						tinInfo: {
+							...data.tinInfo,
+							label: maskField(data.tinInfo?.label),
+							name: maskField(data.tinInfo?.name),
+							formattedTin: maskField(data.tinInfo?.formattedTin),
 						},
 					};
 
@@ -157,19 +166,21 @@ class TaxIdCountryValidation extends HTMLElement {
 					<p class="font-bold">${statusTitle}</p>
 					${!sourceAttempted ? '<p class="text-sm mt-1">Only format validation performed - no external source validation available</p>' : ''}
 				</div>
-				<dl class="grid grid-cols-2 gap-x-4 gap-y-2">
-					${createResponseItem('Valid', isValid.toString())}
-					${createResponseItem('TIN', data.tin)}
-					${createResponseItem('TIN Label', data.tinInfo?.label)}
-					${createResponseItem('TIN Name', data.tinInfo?.name)}
-					${createResponseItem('Formatted TIN', data.tinInfo?.formattedTin)}
-					${createResponseItem('Name', data.entity?.name)}
-					${createResponseItem('Address', data.entity?.address)}
-					${createResponseItem('Country Code', data.countryCode)}
-					${createResponseItem('Format Valid', formatValid?.toString())}
-					${createResponseItem('Source Valid', sourceAttempted ? sourceValid?.toString() : 'Not Attempted')}
-					${createResponseItem('Request Date', data.requestDate ? new Date(data.requestDate).toLocaleString() : '')}
-				</dl>
+				<div class="overflow-hidden max-w-full">
+					<dl class="grid grid-cols-2 gap-x-4 gap-y-2">
+						${createResponseItem('Valid', isValid.toString())}
+						${createResponseItem('TIN', data.tin)}
+						${createResponseItem('TIN Label', data.tinInfo?.label)}
+						${createResponseItem('TIN Name', data.tinInfo?.name)}
+						${createResponseItem('Formatted TIN', data.tinInfo?.formattedTin)}
+						${createResponseItem('Name', data.entity?.name)}
+						${createResponseItem('Address', data.entity?.address)}
+						${createResponseItem('Country Code', data.countryCode)}
+						${createResponseItem('Format Valid', formatValid?.toString())}
+						${createResponseItem('Source Valid', sourceAttempted ? sourceValid?.toString() : 'Not Attempted')}
+						${createResponseItem('Request Date', data.requestDate ? new Date(data.requestDate).toLocaleString() : '')}
+					</dl>
+				</div>
 				<div class="mt-4">
 					<a href="https://platform.lookuptax.com/auth?page=register" class="btn btn-primary">Sign up to see full details</a>
 				</div>
