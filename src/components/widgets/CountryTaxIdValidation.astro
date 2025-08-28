@@ -58,24 +58,27 @@ class TaxIdCountryValidation extends HTMLElement {
 		const targetTaxIDInput = this.querySelector('#targetTaxID');
 		const countryCodeInput = this.querySelector('#countryCode');
 		let validationCount = parseInt(localStorage.getItem('taxIdValidationCount') || '0');
-		const maxValidations = 10;
+		const maxValidations = 2;
+
 		if (submitButton && responseContainer && targetTaxIDInput && countryCodeInput) {
 			submitButton.addEventListener('click', async () => {
 				if (validationCount >= maxValidations) {
 					alert(`You have reached the maximum of ${maxValidations} validations.`);
 					return;
 				}
+
 				let targetTaxID = targetTaxIDInput.value.trim();
 				if (!targetTaxID || targetTaxID.length < 4) {
-					TaxIdCountryValidation.displayError(responseContainer, 'Invalid tax ID number. Please enter a valid tax ID Number.');
+					this.displayError(responseContainer, 'Invalid tax ID number. Please enter a valid tax ID Number.');
 					return;
 				}
+
 				// Remove country prefix if present
 				const regex = /^[a-zA-Z]{2,3}/;
 				const result = targetTaxID.match(regex);
 				if (result) {
-					const prefix_length = result[0].length;
-					targetTaxID = targetTaxID.substr(prefix_length);
+					const prefixLength = result[0].length;
+					targetTaxID = targetTaxID.substr(prefixLength);
 				}
 				try {
 					const baseUrl = 'https://demo.lookuptax.com';
@@ -93,7 +96,18 @@ class TaxIdCountryValidation extends HTMLElement {
 					const data = await response.json();
 					validationCount++;
 					localStorage.setItem('taxIdValidationCount', validationCount.toString());
-					TaxIdCountryValidation.displayResponse(data, responseContainer);
+
+					// Mask sensitive fields
+					const maskedResponse = {
+						...data,
+						entity: {
+							...data.entity,
+							name: data.entity?.name ? data.entity.name[0] + 'X'.repeat(data.entity.name.length - 1) : undefined,
+							address: data.entity?.address ? data.entity.address[0] + 'X'.repeat(data.entity.address.length - 1) : undefined,
+						},
+					};
+
+					TaxIdCountryValidation.displayResponse(maskedResponse, responseContainer);
 				} catch (error) {
 					let errorMessage = 'Not found. ';
 					if (error instanceof TypeError && error.message === 'Failed to fetch') {
@@ -143,12 +157,6 @@ class TaxIdCountryValidation extends HTMLElement {
 					<p class="font-bold">${statusTitle}</p>
 					${!sourceAttempted ? '<p class="text-sm mt-1">Only format validation performed - no external source validation available</p>' : ''}
 				</div>
-				${(data.warnings && Array.isArray(data.warnings) && data.warnings.length > 0) ? `
-					<div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
-						<p class="font-bold">Warnings</p>
-						${data.warnings.map(warning => `<p class="text-sm"><strong>${warning.code}:</strong> ${warning.message}</p>`).join('')}
-					</div>
-				` : ''}
 				<dl class="grid grid-cols-2 gap-x-4 gap-y-2">
 					${createResponseItem('Valid', isValid.toString())}
 					${createResponseItem('TIN', data.tin)}
@@ -161,11 +169,10 @@ class TaxIdCountryValidation extends HTMLElement {
 					${createResponseItem('Format Valid', formatValid?.toString())}
 					${createResponseItem('Source Valid', sourceAttempted ? sourceValid?.toString() : 'Not Attempted')}
 					${createResponseItem('Request Date', data.requestDate ? new Date(data.requestDate).toLocaleString() : '')}
-					${(data.metadata?.sources && Array.isArray(data.metadata.sources) && data.metadata.sources.length > 0) ? createResponseItem('Sources', data.metadata.sources.join(', ')) : ''}
-					${(data.additionalInfo && typeof data.additionalInfo === 'object') ? Object.entries(data.additionalInfo).map(([key, value]) => 
-						createResponseItem(key.replace(/_/g, ' '), value)
-					).join('') : ''}
 				</dl>
+				<div class="mt-4">
+					<a href="https://platform.lookuptax.com/auth?page=register" class="btn btn-primary">Sign up to see full details</a>
+				</div>
 			`;
 		} else {
 			responseContainer.innerHTML = `
