@@ -133,7 +133,7 @@ const {
     constructor() {
       super();
       this.validationCount = parseInt(localStorage.getItem('taxIdValidationCount') || '0');
-      this.maxValidations = 10;
+      this.maxValidations = 3;
       this.sampleTaxIds = [
         {"country": "AE", "tin": "100057605600003"},
         {"country": "AL", "tin": "L39308501E"},
