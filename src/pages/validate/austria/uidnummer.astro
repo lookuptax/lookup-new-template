@@ -1,0 +1,55 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Austrian UID-Nummer Online | Free VAT Check Tool',
+  description: 'Instantly validate Austrian UID-Nummer online. Free VAT checker with official entity details. Integrate VAT validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Austrian UID-Nummer Online"
+    subtitle="Quickly and accurately validate Austrian UID-Nummer for businesses across Austria."
+    tagline="Austria UID-Nummer Validation"
+    country="AT"
+    taxIdPlaceholder="Enter UID-Nummer (e.g., ATU12345678)"
+    sampleTaxIds={`[{"tin":"ATU12345678"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Austrian UID-Nummer?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The Austrian UID-Nummer (Umsatzsteuer-Identifikationsnummer) is used for tax identification purposes in Austria.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate an Austrian UID-Nummer online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Austrian UID-Nummer using Lookuptax's free VAT checker. Enter the UID-Nummer to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is UID-Nummer validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer’s UID-Nummer ensures accurate invoicing, compliance with Austrian law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate UID-Nummer validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a UID-Nummer validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>
