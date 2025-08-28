@@ -1,0 +1,73 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate NPWP Number Indonesia Online | Free NPWP Check Tool',
+  description: 'Instantly validate NPWP numbers in Indonesia online. Free NPWP checker with official entity details. Integrate NPWP validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate NPWP Number in Indonesia Online"
+    subtitle="Quickly and accurately validate NPWP (Nomor Pokok Wajib Pajak) for businesses and individuals across Indonesia."
+    tagline="Indonesia NPWP Validation"
+    country="ID"
+    taxIdPlaceholder="Enter NPWP (e.g., 123456789012345)"
+    sampleTaxIds={`[{"tin":"123456789012345"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate an NPWP number online in Indonesia?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any NPWP number in Indonesia using Lookuptax's free NPWP checker. Enter the NPWP to confirm validity and retrieve taxpayer details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is NPWP validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes, for certain transactions and to issue a tax invoice (Faktur Pajak), a valid NPWP is required. Validating the NPWP ensures compliance with Indonesian tax regulations.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate NPWP validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides an NPWP validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance with Indonesian tax regulations.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate an NPWP online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the NPWP, we check the format, then verify against official sources (DJP) via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is NPWP verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <!-- Additional Information (optional) -->
+  <CallToAction
+  title="Ready to automate Tax ID validation?"
+  subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Get started now',
+      href: 'https://platform.lookuptax.com/auth?page=register',
+    },
+  ]}
+/> 
+</Layout>
