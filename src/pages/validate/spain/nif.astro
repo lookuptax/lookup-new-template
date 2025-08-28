@@ -1,0 +1,73 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate NIF Number Spain Online | Free NIF Check Tool',
+  description: 'Instantly validate NIF numbers in Spain online. Free NIF checker with official entity details. Integrate NIF validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate NIF Number in Spain Online"
+    subtitle="Quickly and accurately validate NIF (Número de Identificación Fiscal) for businesses and individuals across Spain."
+    tagline="Spain NIF Validation"
+    country="ES"
+    taxIdPlaceholder="Enter NIF (e.g., 12345678Z)"
+    sampleTaxIds={`[{"tin":"12345678Z"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a NIF number online in Spain?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any NIF number in Spain using Lookuptax's free NIF checker. Enter the NIF to confirm validity and retrieve business or individual details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is NIF validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer’s NIF ensures accurate invoicing, compliance with Spanish law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate NIF validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a NIF validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a NIF online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the NIF, we check format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is NIF verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <!-- Additional Information (optional) -->
+  <CallToAction
+  title="Ready to automate Tax ID validation?"
+  subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Get started now',
+      href: 'https://platform.lookuptax.com/auth?page=register',
+    },
+  ]}
+/> 
+</Layout>
