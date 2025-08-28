@@ -1,0 +1,55 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Italian Partita IVA Online | Free VAT Check Tool',
+  description: 'Instantly validate Italian Partita IVA online. Free VAT checker with official entity details. Integrate VAT validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Italian Partita IVA Online"
+    subtitle="Quickly and accurately validate Italian Partita IVA for businesses across Italy."
+    tagline="Italy Partita IVA Validation"
+    country="IT"
+    taxIdPlaceholder="Enter Partita IVA (e.g., IT12345678901)"
+    sampleTaxIds={`[{"tin":"IT12345678901"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Italian Partita IVA?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The Italian Partita IVA (Imposta sul Valore Aggiunto) is used for tax identification purposes in Italy.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate an Italian Partita IVA online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Italian Partita IVA using Lookuptax's free VAT checker. Enter the Partita IVA to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is Partita IVA validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer’s Partita IVA ensures accurate invoicing, compliance with Italian law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate Partita IVA validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a Partita IVA validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>
