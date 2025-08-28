@@ -1,0 +1,45 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Finnish VAT ID Online | Free VAT ID Check Tool',
+  description: 'Instantly validate Finnish VAT ID online. Free VAT ID checker with official entity details. Integrate VAT ID validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Finnish VAT ID (Arvonlisäveronumero) Online"
+    subtitle="Quickly and accurately validate Finnish VAT ID for businesses across Finland."
+    tagline="Finland VAT ID Validation"
+    country="FI"
+    taxIdPlaceholder="Enter VAT ID (e.g., FI12345678)"
+    sampleTaxIds={`[{"tin":"FI12345678"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Finnish VAT ID?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The Finnish VAT ID, known as Arvonlisäveronumero, is used for tax identification purposes in Finland.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Finnish VAT ID online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Finnish VAT ID using Lookuptax's free VAT ID checker. Enter the VAT ID to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is VAT ID validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer’s VAT ID ensures accurate invoicing, compliance with Finnish law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate VAT ID validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a VAT ID validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <CallToAction />
+</Layout>

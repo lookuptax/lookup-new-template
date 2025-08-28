@@ -1,0 +1,45 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Irish VAT Number Online | Free VAT Check Tool',
+  description: 'Instantly validate Irish VAT number online. Free VAT checker with official entity details. Integrate VAT validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Irish VAT Number Online"
+    subtitle="Quickly and accurately validate Irish VAT number for businesses across Ireland."
+    tagline="Ireland VAT Validation"
+    country="IE"
+    taxIdPlaceholder="Enter VAT Number (e.g., IE1234567A)"
+    sampleTaxIds={`[{"tin":"IE1234567A"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Irish VAT Number?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The Irish VAT number is used for tax identification purposes in Ireland.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate an Irish VAT number online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Irish VAT number using Lookuptax's free VAT checker. Enter the VAT number to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is VAT number validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer’s VAT number ensures accurate invoicing, compliance with Irish law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate VAT number validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a VAT validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <CallToAction />
+</Layout>
