@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Sweden MOMS Online | Free VAT Check Tool',
+  description: 'Instantly validate Swedish MOMS (Mervärdesskatt) numbers online. Free VAT checker with official entity details. Integrate Swedish VAT validation API into your workflows.',
+  ogTitle: 'Sweden MOMS Validation | Free Online Checker',
+  ogDescription: 'Validate Swedish VAT numbers instantly. Get business details and ensure compliance with our free online tool.',
+  canonical: 'https://lookuptax.com/validate/sweden/moms',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Swedish MOMS Online"
+    subtitle="Quickly and accurately validate MOMS (Mervärdesskatt) for businesses across Sweden."
+    tagline="Sweden VAT Number Validation"
+    country="SE"
+    taxIdPlaceholder="Enter MOMS (e.g., SE123456789001)"
+    sampleTaxIds={`[{"tin":"SE123456789001"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is the Swedish MOMS number?</h3>
+        <p class="text-gray-700 dark:text-gray-300">The MOMS (Mervärdesskatt) number is Sweden's Value Added Tax identification number used for tax and business registration purposes. It consists of 12 digits and is prefixed with SE for international transactions.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Swedish MOMS number online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">You can validate any Swedish MOMS number using Lookuptax's free VAT checker. Enter the number (with or without the SE prefix) to confirm validity and retrieve business details instantly.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is MOMS validation mandatory for invoices?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer's MOMS ensures accurate invoicing, compliance with Swedish tax law, and prevents tax filing errors.</p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate MOMS validation into my billing system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a MOMS validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to validate a Swedish MOMS number online?",
+          "acceptedAnswer": {"@type":"Answer","text":"Enter the MOMS number (with or without SE prefix), we check format and checksum, then verify against official sources via our API."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is MOMS verification free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum validation are free; server lookups may be rate-limited."}
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>
