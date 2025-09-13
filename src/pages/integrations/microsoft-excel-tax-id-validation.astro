@@ -1,0 +1,196 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+
+import microsoftExcelAddon from '~/assets/images/taxid-validation-on-excel-sheet.webp';
+import bulkValidation from '~/assets/images/bulk-validation.webp';
+import globalCommerce from '~/assets/images/bulk-tax-id-validation.webp';
+import microsoftExcelEcosystem from '~/assets/images/microsoft-excel-ecosystem.webp';
+
+const metadata = {
+  title: 'Lookuptax Microsoft Excel Add-in | Bulk Tax ID Validation',
+  description: 'Easily validate thousands of tax IDs in bulk directly from Microsoft Excel. Our addon streamlines tax compliance for over 100 countries, saving you time and reducing errors.',
+  keywords: 'bulk tax id validation, excel tax id, tax id lookup, vies validation, gst validation, abn validation, excel addon, tax compliance',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Lookuptax for Microsoft Excel"
+    title="Bulk Tax ID Validation for Effortless Compliance"
+    subtitle="Validate thousands of tax IDs from over 100 countries directly in Microsoft Excel. Streamline your compliance process and reduce manual work."
+    actions={[
+      { variant: 'primary', text: 'Install Add-in', href: 'https://platform.lookuptax.com/auth?page=register', icon: 'tabler:square-rounded-arrow-right' },
+      { text: 'View Demo', href: 'https://platform.lookuptax.com/auth?page=register' },
+    ]}
+    image={{
+      src: microsoftExcelAddon,
+      alt: 'Lookuptax Microsoft Excel Add-in',
+    }}
+  />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    id="features"
+    title="Streamlined Bulk Validation"
+    subtitle="Lookuptax simplifies bulk tax ID validation directly within your Microsoft Excel. Here’s how it works:"
+    tagline="How it Works"
+    columns={2}
+    items={[
+      {
+        title: 'Install the Add-in',
+        description: `Get the Lookuptax add-in from the Microsoft AppSource in a few clicks.`,
+        icon: 'tabler:plug',
+      },
+      {
+        title: 'Select Data Range',
+        description:
+          'Choose the columns with tax IDs and country codes you want to validate.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Run Validation',
+        description: 'Tax IDs are validated in bulk, with results appearing in a new column. Invalid IDs are clearly flagged.',
+        icon: 'tabler:automatic-gearbox',
+      },
+      {
+        title: 'Detailed Results',
+        description: `Get detailed validation results, including the official company name and address for valid IDs.`,
+        icon: 'tabler:file-text',
+      },
+    ]}
+    image={{
+      src: bulkValidation,
+      alt: 'Bulk Tax ID Validation Process',
+    }}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    title="Key Features for Bulk Processing"
+    items={[
+      {
+        title: 'Global Coverage',
+        description:
+          'Validate tax IDs from over 100 countries, including VIES for the EU, GSTIN for India, ABN for Australia, and more.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'High-Volume Validation',
+        description:
+          'Process thousands of tax IDs in a single batch, saving hours of manual work.',
+        icon: 'tabler:database-export',
+      },
+      {
+        title: 'Automatic Data Formatting',
+        description:
+          'The addon automatically formats and cleans data to ensure the highest validation accuracy.',
+        icon: 'tabler:wand',
+      },
+      {
+        title: 'Seamless Integration',
+        description: 'Works directly within your Microsoft Excel, no need to switch between applications.',
+        icon: 'tabler:puzzle',
+      },
+    ]}
+    image={{
+      src: globalCommerce,
+      alt: 'Global Ecommerce Features',
+    }}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    title="Built for Microsoft Excel"
+    items={[
+      {
+        title: 'Easy to Use',
+        description: 'An intuitive interface that feels like a native part of Microsoft Excel.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Export Results',
+        description:
+          'Easily export your validation results to a CSV file for your records.',
+        icon: 'tabler:file-export',
+      },
+      {
+        title: 'Developer Friendly',
+        description: 'Well-documented for any custom scripting needs with Office Scripts.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Secure & Compliant',
+        description: 'All data is encrypted in transit and at rest. We are fully GDPR compliant.',
+        icon: 'tabler:lock',
+      },
+    ]}
+    image={{
+      src: microsoftExcelEcosystem,
+      alt: 'Microsoft Excel Integration',
+    }}
+  />
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    title="Trusted by Businesses Worldwide"
+    stats={[
+      { amount: '100+', title: 'Countries Supported' },
+      { amount: '1M+', title: 'Validations per Month' },
+      { amount: '99.9%', title: 'Uptime' },
+      { amount: '24/7', title: 'Support' },
+    ]}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    items={[
+      {
+        title: 'What countries do you support?',
+        description:
+          'We support tax ID validation for over 100 countries. You can see the full list on our Supported Countries page.',
+      },
+      {
+        title: 'How many validations can I run at once?',
+        description:
+          'You can validate thousands of tax IDs in a single batch. The exact number depends on your Microsoft Excel usage limits.',
+      },
+      {
+        title: 'What happens if a tax ID is invalid?',
+        description: `The addon will flag the tax ID as invalid in the results column, allowing you to quickly identify and address problematic entries.`,
+      },
+      {
+        title: 'Is there a free trial?',
+        description:
+          'Yes, we offer 100 free validations so you can test the addon and see how it can help your business.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    id="download"
+    title="Start Validating Tax IDs in Bulk Today"
+    subtitle="Install the Microsoft Excel add-in and streamline your tax compliance process. Save time and reduce errors with our powerful bulk validation tool."
+    actions={[
+      { variant: 'primary', text: 'Install on Microsoft AppSource', href: 'https://platform.lookuptax.com/auth?page=register', icon: 'tabler:brand-windows' },
+    ]}
+  />
+</Layout>

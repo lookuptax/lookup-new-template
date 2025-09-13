@@ -162,6 +162,14 @@ export const headerData = {
       text: 'n8n',
       href: '/integrations/n8n-taxid-validation',
     },
+    {
+      text: 'Google Sheets',
+      href: '/integrations/google-sheets-tax-id-validation',
+    },
+    {
+      text: 'Microsoft Excel',
+      href: '/integrations/microsoft-excel-tax-id-validation',
+    }
 ],
     },
      {
