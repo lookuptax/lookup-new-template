@@ -1,14 +1,11 @@
 ---
-import merge from 'lodash.merge';
-import { AstroSeo } from '@astrolib/seo';
+import merge from "lodash.merge";
+import { SEO } from "astro-seo";
 
-import type { Props as AstroSeoProps } from '@astrolib/seo';
-
-import { SITE, METADATA, I18N } from 'astrowind:config';
-import type { MetaData } from '~/types';
-import { getCanonical } from '~/utils/permalinks';
-
-import { adaptOpenGraphImages } from '~/utils/images';
+import { SITE, METADATA, I18N } from "astrowind:config";
+import type { MetaData } from "~/types";
+import { getCanonical } from "~/utils/permalinks";
+import { adaptOpenGraphImages } from "~/utils/images";
 
 export interface Props extends MetaData {
   dontUseTitleTemplate?: boolean;
@@ -22,47 +19,106 @@ const {
   description,
   openGraph = {},
   twitter = {},
-} = Astro.props;
+} = Astro.props as Props;
 
-const seoProps: AstroSeoProps = merge(
-  {
-    title: '',
-    titleTemplate: '%s',
-    canonical: canonical,
-    noindex: true,
-    nofollow: true,
-    description: undefined,
-    openGraph: {
-      url: canonical,
-      site_name: SITE?.name,
-      images: [],
-      locale: I18N?.language || 'en',
-      type: 'website',
-    },
-    twitter: {
-      cardType: openGraph?.images?.length ? 'summary_large_image' : 'summary',
-    },
+// Build a merged SEO config similar to the old @astrolib/seo setup
+const base = {
+  title: "",
+  titleTemplate: "%s",
+  canonical,
+  noindex: true,
+  nofollow: true,
+  description: undefined as string | undefined,
+  openGraph: {
+    url: canonical,
+    site_name: SITE?.name,
+    images: [] as any[],
+    locale: I18N?.language || "en",
+    type: "website",
   },
-  {
-    title: METADATA?.title?.default,
-    titleTemplate: METADATA?.title?.template,
-    noindex: typeof METADATA?.robots?.index !== 'undefined' ? !METADATA.robots.index : undefined,
-    nofollow: typeof METADATA?.robots?.follow !== 'undefined' ? !METADATA.robots.follow : undefined,
-    description: METADATA?.description,
-    openGraph: METADATA?.openGraph,
-    twitter: METADATA?.twitter,
+  twitter: {
+    cardType: openGraph?.images?.length ? "summary_large_image" : "summary",
   },
-  {
-    title: title,
-    titleTemplate: ignoreTitleTemplate ? '%s' : undefined,
-    canonical: canonical,
-    noindex: typeof robots?.index !== 'undefined' ? !robots.index : undefined,
-    nofollow: typeof robots?.follow !== 'undefined' ? !robots.follow : undefined,
-    description: description,
-    openGraph: { url: canonical, ...openGraph },
-    twitter: twitter,
-  }
-);
+};
+
+const fromSite = {
+  title: METADATA?.title?.default,
+  titleTemplate: METADATA?.title?.template,
+  noindex:
+    typeof METADATA?.robots?.index !== "undefined"
+      ? !METADATA.robots.index
+      : undefined,
+  nofollow:
+    typeof METADATA?.robots?.follow !== "undefined"
+      ? !METADATA.robots.follow
+      : undefined,
+  description: METADATA?.description,
+  openGraph: METADATA?.openGraph,
+  twitter: METADATA?.twitter,
+};
+
+const fromPage = {
+  title,
+  titleTemplate: ignoreTitleTemplate ? "%s" : undefined,
+  canonical,
+  noindex:
+    typeof robots?.index !== "undefined" ? !robots.index : undefined,
+  nofollow:
+    typeof robots?.follow !== "undefined" ? !robots.follow : undefined,
+  description,
+  openGraph: { url: canonical, ...openGraph },
+  twitter,
+};
+
+const seoProps = merge({}, base, fromSite, fromPage);
+
+// Compute final title using template
+const template = seoProps.titleTemplate || "%s";
+const rawTitle =
+  seoProps.title ||
+  METADATA?.title?.default ||
+  SITE?.title ||
+  SITE?.name ||
+  "";
+const finalTitle = template.replace("%s", rawTitle);
+
+// Prepare robots flags for astro-seo
+const index = seoProps.noindex === undefined ? true : !seoProps.noindex;
+const follow =
+  seoProps.nofollow === undefined ? true : !seoProps.nofollow;
+
+// Normalize OG via your existing helper
+const og = await adaptOpenGraphImages(seoProps.openGraph, Astro.site);
+
+const ogImage =
+  (og?.images && og.images[0] && (og.images[0].url || og.images[0].src)) ||
+  undefined;
 ---
 
-<AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />
+<SEO
+  title={finalTitle}
+  description={seoProps.description}
+  canonical={seoProps.canonical}
+  openGraph={{
+    basic: {
+      title: finalTitle,
+      type: og?.type ?? "website",
+      image: ogImage,
+      url: og?.url ?? seoProps.canonical,
+    },
+    siteName: og?.site_name ?? SITE?.name,
+    locale: og?.locale ?? (I18N?.language || "en"),
+    images: og?.images,
+  }}
+  twitter={{
+    card:
+      seoProps.twitter?.cardType ??
+      (og?.images && og.images.length ? "summary_large_image" : "summary"),
+    site: seoProps.twitter?.site ?? METADATA?.twitter?.site,
+    creator: seoProps.twitter?.creator ?? METADATA?.twitter?.creator,
+  }}
+  robots={{
+    index,
+    follow,
+  }}
+/>
