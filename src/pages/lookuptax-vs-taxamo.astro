@@ -1,0 +1,336 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'LookupTax vs. Vertex (Taxamo): The "Database Check" Reality',
+  description:
+    'Compare LookupTax vs. Vertex Validator coverage. Why "supported" does not always mean "validated," and the 4 major economies where LookupTax beats Vertex on accuracy.',
+  keywords: 'LookupTax vs Vertex, LookupTax vs Taxamo, database validation, syntax validation, tax ID verification',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    title="LookupTax vs. Vertex (Taxamo): The Database Check Reality"
+    subtitle="LookupTax covers 100+ countries. Vertex covers ~50. But the real difference isn't just quantity—it's whether 'supported' means database-validated or just format-checked."
+  />
+
+  <!-- Introduction -->
+  <section class="max-w-4xl mx-auto px-4 py-8">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p class="text-xl">
+        LookupTax supports 100+ countries. Vertex (formerly Taxamo) supports around 50 countries. That's already a major
+        difference—but the real gap is hidden beneath the word "supported."
+      </p>
+      <p class="text-xl font-semibold">But in fraud prevention, the word "Supported" is often a marketing trap.</p>
+      <p>
+        You need to know: Is the tool checking the live government registry, or is it just checking if the number has
+        the right amount of digits?
+      </p>
+      <p>
+        Using the official developer documentation from both providers, we found a significant <strong
+          >"Validation Gap"</strong
+        > in high-growth markets.
+      </p>
+    </div>
+  </section>
+
+  <!-- Syntax vs Database Trap -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-gray-50 dark:bg-slate-800/50 rounded-lg">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">1. The "Syntax" vs. "Database" Trap</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <div class="grid md:grid-cols-2 gap-6 not-prose my-6">
+        <div class="border-2 border-red-300 dark:border-red-700 p-6 rounded-lg bg-red-50 dark:bg-red-900/20">
+          <h3 class="text-xl font-bold mb-3 text-red-700 dark:text-red-400">❌ Syntax Validation (Weak)</h3>
+          <p class="text-muted">
+            The tool checks if the ID <em>looks right</em> (e.g., "Starts with 'SA' and has 15 digits"). It passes valid-looking
+            fake numbers.
+          </p>
+        </div>
+
+        <div class="border-2 border-green-300 dark:border-green-700 p-6 rounded-lg bg-green-50 dark:bg-green-900/20">
+          <h3 class="text-xl font-bold mb-3 text-green-700 dark:text-green-400">✅ Database Validation (Strong)</h3>
+          <p class="text-muted">
+            The tool connects directly to the government's live registry to confirm the business is active.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        <strong>Vertex (Taxamo) defaults to "Syntax" checks</strong> for many difficult regions to save on engineering overhead.
+        <strong>LookupTax builds direct government connections.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- The Verification Gap -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">2. The Verification Gap: 4 Key Markets</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none mb-8">
+      <p>
+        According to the latest documentation, here are four major economies where LookupTax verifies the real entity,
+        while Vertex only checks the format.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <!-- Saudi Arabia -->
+      <div class="border border-gray-200 dark:border-gray-700 p-6 rounded-lg hover:border-primary transition-colors">
+        <div class="flex items-center gap-3 mb-4">
+          <span
+            class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-sm"
+            >SA</span
+          >
+          <h3 class="text-xl font-bold">Saudi Arabia (KSA)</h3>
+        </div>
+        <div class="space-y-2">
+          <p class="text-sm">
+            <strong>Vertex:</strong>
+            <span class="text-orange-600 dark:text-orange-400">⚠️ Syntax Only</span>
+            <br />
+            <span class="text-xs text-muted">(Source: Vertex Docs, Note 3)</span>
+          </p>
+          <p class="text-sm">
+            <strong>LookupTax:</strong>
+            <span class="text-green-600 dark:text-green-400">✅ Database Check</span>
+            <br />
+            <span class="text-xs text-muted">Connects to CRN database to verify the CRN is active.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Singapore -->
+      <div class="border border-gray-200 dark:border-gray-700 p-6 rounded-lg hover:border-primary transition-colors">
+        <div class="flex items-center gap-3 mb-4">
+          <span
+            class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-sm"
+            >SG</span
+          >
+          <h3 class="text-xl font-bold">Singapore</h3>
+        </div>
+        <div class="space-y-2">
+          <p class="text-sm">
+            <strong>Vertex:</strong>
+            <span class="text-orange-600 dark:text-orange-400">⚠️ Syntax Only</span>
+          </p>
+          <p class="text-sm">
+            <strong>LookupTax:</strong>
+            <span class="text-green-600 dark:text-green-400">✅ Database Check</span>
+            <br />
+            <span class="text-xs text-muted">Verifies GST/UEN status directly with IRAS.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Taiwan -->
+      <div class="border border-gray-200 dark:border-gray-700 p-6 rounded-lg hover:border-primary transition-colors">
+        <div class="flex items-center gap-3 mb-4">
+          <span
+            class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-sm"
+            >TW</span
+          >
+          <h3 class="text-xl font-bold">Taiwan</h3>
+        </div>
+        <div class="space-y-2">
+          <p class="text-sm">
+            <strong>Vertex:</strong>
+            <span class="text-orange-600 dark:text-orange-400">⚠️ Syntax Only</span>
+          </p>
+          <p class="text-sm">
+            <strong>LookupTax:</strong>
+            <span class="text-green-600 dark:text-green-400">✅ Database Check</span>
+            <br />
+            <span class="text-xs text-muted">Validates the Unified Business Number (UBN).</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Colombia -->
+      <div class="border border-gray-200 dark:border-gray-700 p-6 rounded-lg hover:border-primary transition-colors">
+        <div class="flex items-center gap-3 mb-4">
+          <span
+            class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-sm"
+            >CO</span
+          >
+          <h3 class="text-xl font-bold">Colombia</h3>
+        </div>
+        <div class="space-y-2">
+          <p class="text-sm">
+            <strong>Vertex:</strong>
+            <span class="text-orange-600 dark:text-orange-400">⚠️ Syntax Only</span>
+          </p>
+          <p class="text-sm">
+            <strong>LookupTax:</strong>
+            <span class="text-green-600 dark:text-green-400">✅ Database Check</span>
+            <br />
+            <span class="text-xs text-muted">Verifies the NIT (Número de Identificación Tributaria).</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p class="font-semibold bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border-l-4 border-yellow-500">
+        <strong>Why this matters:</strong> If you sell digital goods (SaaS) to a B2B customer in Saudi Arabia or Singapore,
+        a "Syntax" check will let a fraudster use a made-up ID to evade 15-20% tax. Only a Database check stops them.
+      </p>
+    </div>
+  </section>
+
+  <!-- Transparency Comparison -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-primary/5 rounded-lg">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">3. Transparency: The "Checkmark" Test</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>One subtle but important difference is how the companies treat this data.</p>
+
+      <p>
+        <strong>LookupTax is explicitly transparent.</strong> Their coverage page has a column for "DB Validation" and a separate
+        column for "Syntax Validation." You know exactly what you are paying for before you make the API call.
+      </p>
+
+      <p>
+        <strong>Vertex buries these limitations</strong> in the "Notes" section of their developer appendix. Their sales material
+        often lists these countries simply as "Supported," leaving you to discover the limitation only after you sign the
+        contract.
+      </p>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="max-w-5xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Comparison Cheat Sheet: The "Database" Advantage</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse border border-gray-300 dark:border-gray-600">
+        <thead>
+          <tr class="bg-gray-100 dark:bg-slate-700">
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">Country</th>
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">LookupTax</th>
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">Vertex (Taxamo)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Saudi Arabia</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Live Database
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ⚠️ Syntax Only
+            </td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-slate-800/30">
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Singapore</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Live Database
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ⚠️ Syntax Only
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Taiwan</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Live Database
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ⚠️ Syntax Only
+            </td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-slate-800/30">
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Colombia</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Live Database
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ⚠️ Syntax Only
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Hong Kong</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Live Database
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ❓ Unlisted/Syntax
+            </td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-slate-800/30">
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Australia</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Live Database
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ⚠️ ABN Only (by default)
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">EU (VIES)</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Live Database
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Live Database
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- The Verdict -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">The Verdict</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="border-2 border-gray-300 dark:border-gray-600 p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-4">Stick with Vertex (Taxamo) if:</h3>
+        <p class="text-muted">
+          You primarily sell to the US, Canada, and EU. Their coverage in these "Core West" regions is excellent, and
+          they offer liability insurance that LookupTax does not.
+        </p>
+      </div>
+
+      <div class="border-2 border-primary dark:border-primary p-6 rounded-lg bg-primary/5">
+        <h3 class="text-xl font-bold mb-4">Switch to LookupTax if:</h3>
+        <p class="text-muted mb-4">
+          You are expanding into Asia, LATAM, or MENA. If you have customers in Singapore, Riyadh, or Taipei, you cannot
+          rely on a 1990s-style format check. You need a modern tool that pings the government to confirm your customer
+          actually exists.
+        </p>
+        <a
+          href="https://platform.lookuptax.com/auth?page=register"
+          target="_blank"
+          class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-primary rounded-full hover:bg-secondary transition-colors duration-200"
+        >
+          Get Started Free →
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center">
+      <a href="/countries" class="text-primary hover:underline font-semibold text-lg">
+        See the full validation list →
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CallToAction
+    title="Ready for Real Database Validation?"
+    subtitle="Stop accepting syntax-only checks. Validate against live government registries in 100+ countries."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Started Free',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+      {
+        variant: 'secondary',
+        text: 'View Coverage',
+        href: '/countries',
+      },
+    ]}
+  />
+</Layout>

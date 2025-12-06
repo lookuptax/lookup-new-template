@@ -218,7 +218,7 @@ export const footerData = {
       links: [
         { text: 'About', href: '/about' },
         { text: 'Blog', href: '/blog' },
-        { text: 'LookupTax vs Fonoa', href: '/lookuptax-vs-fonoa' },
+        { text: 'Our Approach', href: '/our-approach-to-validation' },
         /*{ text: 'Careers', href: '#' },
         { text: 'Press', href: '#' },
         { text: 'Inclusion', href: '#' },

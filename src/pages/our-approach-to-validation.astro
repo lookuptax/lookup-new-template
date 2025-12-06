@@ -1,0 +1,239 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Our Approach to Tax ID Validation: Official Sources Only',
+  description:
+    'Learn why LookupTax exclusively uses official government sources for validation, the challenges we face, and how we are solving them with backup sources, async validation, and status pages.',
+  keywords: 'tax ID validation methodology, official government sources, validation reliability, tax compliance',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    title="Our Approach: Official Sources Only"
+    subtitle="Why we exclusively validate against government databases, the real challenges this creates, and how we are solving them."
+  />
+
+  <!-- Introduction -->
+  <section class="max-w-4xl mx-auto px-4 py-8">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p class="text-xl">
+        Most validation providers dont tell you where their data comes from. We think you deserve to know.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Core Principle -->
+  <section class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">The Core Principle: Official Sources Only</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>
+        <strong>LookupTax exclusively integrates with official government databases.</strong> When you validate a VAT number,
+        GST ID, or any other Tax ID through our API, youre getting data directly from the tax authority that issued it.
+      </p>
+
+      <p>We dont use:</p>
+      <ul>
+        <li>Private aggregated databases</li>
+        <li>Third-party data resellers</li>
+        <li>Scraped or cached registry data</li>
+        <li>"Black box" validation services with undisclosed sources</li>
+      </ul>
+
+      <p>
+        <strong>Why this matters:</strong> When a business claims a Tax ID is valid, you need to trust that the validation
+        actually checked the government registry, not a stale cache from six months ago or a third-party database that "claims"
+        to have official data.
+      </p>
+
+      <p>
+        If a government says an ID is registered, we return that. If they say its not, we return that. No middlemen, no
+        guesswork.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Honest Part -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-gray-50 dark:bg-slate-800/50 rounded-lg">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">The Honest Part: Official DBs Have Downtimes</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>Heres the tradeoff nobody talks about.</p>
+
+      <p>
+        <strong>Official government databases go down.</strong> Tax registries across the world experience maintenance windows,
+        outages, and slowdowns. Its an increasing problem, and our customers have felt it.
+      </p>
+
+      <p>
+        Some providers solve this by switching to cached databases or third-party aggregators when the official source
+        is unavailable. That might give you "better uptime," but it also means youre no longer validating against the
+        source of truth.
+      </p>
+
+      <p>We refuse to make that tradeoff.</p>
+
+      <p>
+        When a government database is down, <strong>we tell you its down</strong>. Our API returns a clear error state
+        instead of pretending to validate against stale data. This is intentional transparency.
+      </p>
+
+      <p class="font-semibold">
+        Yes, this creates friction. Yes, it means occasional timeouts. And yes, we know this is a real pain point.
+      </p>
+    </div>
+  </section>
+
+  <!-- Solutions -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">How We are Solving This</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none mb-8">
+      <p>
+        We are not just accepting the status quo. Heres what we are actively building to give you official-source
+        reliability <em>and</em> uptime:
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="border border-gray-200 dark:border-gray-700 p-6 rounded-lg">
+        <Icon name="tabler:database" class="w-12 h-12 mb-4 text-primary" />
+        <h3 class="text-xl font-bold mb-3">Multiple Backup Sources</h3>
+        <p class="text-muted">
+          Many countries offer multiple official endpoints (e.g., EU VIES for VAT, national registries for local IDs).
+          We are implementing intelligent fallback logic to retry across official mirrors when one endpoint is down.
+        </p>
+      </div>
+
+      <div class="border border-gray-200 dark:border-gray-700 p-6 rounded-lg">
+        <Icon name="tabler:repeat" class="w-12 h-12 mb-4 text-primary" />
+        <h3 class="text-xl font-bold mb-3">Async Validation</h3>
+        <p class="text-muted">
+          For workflows where instant responses arent critical (bulk validation, overnight reconciliation), we are
+          rolling out async validation. Submit IDs, get results when the registry is back online. No blocking, no
+          timeouts.
+        </p>
+      </div>
+
+      <div class="border border-gray-200 dark:border-gray-700 p-6 rounded-lg">
+        <Icon name="tabler:adjustments" class="w-12 h-12 mb-4 text-primary" />
+        <h3 class="text-xl font-bold mb-3">Country Status Pages</h3>
+        <p class="text-muted">
+          We are building proactive status tracking so you can see which government databases are operational before you
+          even try to validate. If Frances tax registry is down for maintenance, youll know before hitting our API.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why This Approach -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-primary/5 rounded-lg">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">Why We Built It This Way</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>We could have taken the easy path:</p>
+      <ul>
+        <li>Use aggregated databases for "99.9% uptime"</li>
+        <li>Market ourselves as "always available"</li>
+        <li>Avoid the hard conversations about government registry downtimes</li>
+      </ul>
+
+      <p>
+        But we didnt build LookupTax to be the easiest solution. We built it to be the <strong>most trustworthy</strong> one.
+      </p>
+
+      <p>
+        If you are validating a Tax ID to determine whether to charge VAT, offer a B2B discount, or comply with tax
+        regulations, you need to know the data is real. Not "pretty close," not "good enough"<em>real</em>.
+      </p>
+
+      <p>
+        That means going to the source, even when it's inconvenient. And it means being honest with you when the source
+        is unavailable.
+      </p>
+    </div>
+  </section>
+
+  <!-- Compare -->
+  <section class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">How LookupTax Compares</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse border border-gray-300 dark:border-gray-600">
+        <thead>
+          <tr class="bg-gray-100 dark:bg-slate-700">
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">Approach</th>
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">LookupTax</th>
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">Others</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Data Source</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">Official government databases only</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">
+              Mix of official sources + private aggregated DBs
+            </td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-slate-800/30">
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Transparency</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">
+              Explicitly lists which countries are DB-checked vs format-only
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">
+              Often vague. "100+ countries" without details on validation depth
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">When DB is Down</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">Returns clear error. No fake validations</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">
+              May fallback to cached/aggregated data (undisclosed to user)
+            </td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-slate-800/30">
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Future-Proofing</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">
+              Backup sources, async validation, status pages in development
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">Varies by provider</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CallToAction
+    title="Try Official-Source Validation"
+    subtitle="See the difference transparency makes. Start validating Tax IDs with confidence."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Started Free',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+      {
+        variant: 'secondary',
+        text: 'View API Docs',
+        href: 'https://demo.lookuptax.com/api/',
+      },
+    ]}
+  />
+
+  <!-- Related Comparisons (for SEO) -->
+  <section class="max-w-4xl mx-auto px-4 pb-12">
+    <div class="pt-6 border-t border-gray-200 dark:border-gray-700">
+      <p class="text-sm text-muted mb-2">Related Comparisons:</p>
+      <div class="flex flex-wrap gap-4 text-sm">
+        <a href="/lookuptax-vs-fonoa" class="text-muted hover:text-primary transition-colors"> LookupTax vs Fonoa </a>
+        <span class="text-muted">·</span>
+        <a href="/lookuptax-vs-taxamo" class="text-muted hover:text-primary transition-colors">
+          LookupTax vs Vertex (Taxamo)
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
