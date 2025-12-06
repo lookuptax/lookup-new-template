@@ -174,7 +174,7 @@ export const headerData = {
     },
     {
       text: 'API\u00A0Docs',
-      href: 'https://demo.lookuptax.com/api/',
+      href: 'https://platform.lookuptax.com/api-docs/',
     },
   ],
   actions: [{ text: 'Sign In', href: 'https://platform.lookuptax.com/auth', target: '_blank' }],
