@@ -1,0 +1,299 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'LookupTax vs. Stripe Tax: The "Default" Option is Costing You',
+  description:
+    "Should you enable Stripe Tax? A cost-benefit analysis of using Stripe's 0.5% fee vs. a dedicated utility like LookupTax for B2B validation.",
+  keywords: 'LookupTax vs Stripe Tax, stripe tax alternative, B2B tax validation, payment agnostic validation',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    title="LookupTax vs. Stripe Tax: The Default is Costing You"
+    subtitle="For B2B businesses, that 'Enable Stripe Tax' button could be your most expensive mistake."
+  />
+
+  <!-- Introduction -->
+  <section class="max-w-4xl mx-auto px-4 py-8">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p class="text-xl">
+        If you use Stripe for payments, you have seen the button in your dashboard: <strong>"Enable Stripe Tax."</strong
+        >
+      </p>
+      <p>It feels like the logical default. One click, and your tax headaches disappear, right?</p>
+      <p class="font-semibold">For many B2B businesses, that single click is their most expensive mistake.</p>
+      <p>
+        Stripe Tax is an incredible engine for <em>calculation</em> (figuring out if a zip code in Texas has a 6% or 8% rate).
+        But for <strong>Tax ID Validation</strong>, it is often overkill—and overpriced.
+      </p>
+      <p>Here is the honest breakdown of LookupTax vs. Stripe Tax.</p>
+    </div>
+  </section>
+
+  <!-- Key Difference 1: Pricing Model -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-gray-50 dark:bg-slate-800/50 rounded-lg">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">1. The Pricing Model: Revenue Share vs. Utility Cost</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>This is the biggest shock for growing teams.</p>
+
+      <p>
+        <strong>Stripe Tax typically charges a percentage of your revenue</strong> (often 0.5% per transaction where tax is
+        calculated) plus active usage fees.
+      </p>
+
+      <p class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border-l-4 border-yellow-500">
+        If you process a $10,000 B2B contract, Stripe Tax could cost you <strong>$50</strong> just to tell you "Yes, this
+        customer is in Germany."
+      </p>
+
+      <p>It taxes your volume, not your complexity.</p>
+
+      <p><strong>LookupTax charges for Utility Usage:</strong></p>
+      <ul>
+        <li>We charge per validation check (fractions of a cent).</li>
+        <li>Whether that customer pays you $10 or $100,000, the validation cost is the same (~$0.0149).</li>
+      </ul>
+
+      <p class="font-semibold">
+        The Math: If you validate a customer once and bill them monthly for 5 years, LookupTax costs you pennies. Stripe
+        Tax takes a cut every single month.
+      </p>
+    </div>
+  </section>
+
+  <!-- Key Difference 2: The 0% Tax Paradox -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">2. The "0% Tax" Paradox</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>
+        If you sell B2B (Business-to-Business), most of your international transactions are likely{' '}
+        <strong>0% Tax (Reverse Charge)</strong>.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6 not-prose my-6">
+        <div
+          class="border-2 border-orange-300 dark:border-orange-700 p-6 rounded-lg bg-orange-50 dark:bg-orange-900/20"
+        >
+          <h3 class="text-xl font-bold mb-3 text-orange-700 dark:text-orange-400">❌ With Stripe Tax</h3>
+          <p class="text-muted">
+            You validate the ID. You charge $0 tax. But you often still pay the transaction fee to facilitate this $0
+            tax event. You are effectively paying a premium for a transaction where no tax was collected.
+          </p>
+        </div>
+
+        <div class="border-2 border-green-300 dark:border-green-700 p-6 rounded-lg bg-green-50 dark:bg-green-900/20">
+          <h3 class="text-xl font-bold mb-3 text-green-700 dark:text-green-400">✅ With LookupTax</h3>
+          <p class="text-muted">
+            You validate the ID once at signup, store the result, and never pay again. No recurring fees on 0% tax
+            invoices.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Difference 3: Validation Gap -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-primary/5 rounded-lg">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">3. The Validation Gap: EU/UK/AU vs. The World</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>
+        Stripe's documentation is transparent about this: they offer automatic verification (Database Checks) primarily
+        for the <strong>EU (VIES), UK (HMRC), and Australia (ABN)</strong>.
+      </p>
+
+      <p>
+        For many other regions, Stripe relies on <strong>Format Checks (Regex)</strong>. Does the number{' '}
+        <em>look right</em>?
+      </p>
+
+      <p><strong>LookupTax is built for the global economy.</strong> We go beyond the "Core Western" markets:</p>
+
+      <div class="grid md:grid-cols-3 gap-4 not-prose my-6">
+        <div class="border border-gray-200 dark:border-gray-700 p-4 rounded-lg hover:border-primary transition-colors">
+          <div class="flex items-center gap-2 mb-3">
+            <span
+              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold text-xs"
+              >SA</span
+            >
+            <p class="text-sm font-semibold">Saudi Arabia</p>
+          </div>
+          <p class="text-xs text-orange-600 dark:text-orange-400">Stripe: Format check</p>
+          <p class="text-xs text-green-600 dark:text-green-400">LookupTax: Database check</p>
+        </div>
+
+        <div class="border border-gray-200 dark:border-gray-700 p-4 rounded-lg hover:border-primary transition-colors">
+          <div class="flex items-center gap-2 mb-3">
+            <span
+              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold text-xs"
+              >SG</span
+            >
+            <p class="text-sm font-semibold">Singapore</p>
+          </div>
+          <p class="text-xs text-orange-600 dark:text-orange-400">Stripe: Format check</p>
+          <p class="text-xs text-green-600 dark:text-green-400">LookupTax: Database check</p>
+        </div>
+
+        <div class="border border-gray-200 dark:border-gray-700 p-4 rounded-lg hover:border-primary transition-colors">
+          <div class="flex items-center gap-2 mb-3">
+            <span
+              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold text-xs"
+              >IN</span
+            >
+            <p class="text-sm font-semibold">India</p>
+          </div>
+          <p class="text-xs text-orange-600 dark:text-orange-400">Stripe: Format check</p>
+          <p class="text-xs text-green-600 dark:text-green-400">LookupTax: Database check</p>
+        </div>
+      </div>
+
+      <p class="font-semibold">
+        If you are selling globally, a format check isn't enough to stop fraud. You need to know if that ID is{' '}
+        <em>active right now</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Key Difference 4: Ecosystem Lock-in -->
+  <section class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">4. The "Ecosystem Lock-in"</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>Stripe Tax works like magic... as long as you never leave Stripe.</p>
+
+      <p>But modern businesses are complex:</p>
+      <ul>
+        <li>You might accept PayPal for some regions.</li>
+        <li>You might send manual Invoices or Wire Transfers for enterprise deals.</li>
+        <li>You might use a separate billing engine like Chargebee or Recurly.</li>
+      </ul>
+
+      <p>
+        Stripe Tax cannot easily validate IDs for transactions happening outside of Stripe. You end up with a fragmented
+        process: automated tax for credit cards, manual chaos for wires.
+      </p>
+
+      <p><strong>LookupTax is Payment Agnostic:</strong></p>
+      <ul>
+        <li>We are just an API.</li>
+        <li>
+          You can use us to validate an ID on a Stripe checkout, a PayPal form, a HubSpot quote, or a manual Excel
+          sheet.
+        </li>
+        <li>We don't care where the money moves; we just ensure the customer is real.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="max-w-5xl mx-auto px-4 py-16 bg-gray-50 dark:bg-slate-800/50 rounded-lg">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Comparison Cheat Sheet</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse border border-gray-300 dark:border-gray-600">
+        <thead>
+          <tr class="bg-gray-100 dark:bg-slate-700">
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">Feature</th>
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">LookupTax</th>
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">Stripe Tax</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Pricing</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Flat / Usage (~$0.0149 per check)
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ⚠️ % of Revenue (0.5% per transaction)
+            </td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-slate-800/30">
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Database Verification</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Global (EU, UK, AU + Saudi, SG, IN, etc.)
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ⚠️ Limited (Primarily EU, UK, AU)
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">B2B Economics</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Excellent. Validate once, bill forever
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ⚠️ Expensive. Recurring fees on 0% tax invoices
+            </td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-slate-800/30">
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Payment Agnostic</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Yes. Works with PayPal, Wires, Invoices
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ⚠️ No. Locked to Stripe ecosystem
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Finance Tools</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Excel / Sheets Add-ins
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">Dashboard Only</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- The Verdict -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">The Verdict</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="border-2 border-gray-300 dark:border-gray-600 p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-4">Stick with Stripe Tax if:</h3>
+        <p class="text-muted">
+          You are a B2C Marketplace with high transaction volume in the US/EU, complex physical nexus rules, and you are
+          happy to pay a premium to have everything handled inside one dashboard.
+        </p>
+      </div>
+
+      <div class="border-2 border-primary dark:border-primary p-6 rounded-lg bg-primary/5">
+        <h3 class="text-xl font-bold mb-4">Switch to LookupTax if:</h3>
+        <p class="text-muted mb-4">
+          You are primarily <strong>B2B SaaS</strong> (where most invoices are 0% reverse charge). You sell to high-growth
+          markets like Asia or the Middle East and need real database verification. You want to stop paying a percentage of
+          your revenue just to validate a Tax ID.
+        </p>
+        <a
+          href="https://platform.lookuptax.com/auth?page=register"
+          target="_blank"
+          class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-primary rounded-full hover:bg-secondary transition-colors duration-200"
+        >
+          Get Started Free →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CallToAction
+    title="Stop Paying a 'Tax' on Your Tax Tool"
+    subtitle="Switch to a dedicated validator. Pay per check, not per dollar of revenue."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Started Free',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+      {
+        variant: 'secondary',
+        text: 'View Pricing',
+        href: '/pricing',
+      },
+    ]}
+  />
+</Layout>

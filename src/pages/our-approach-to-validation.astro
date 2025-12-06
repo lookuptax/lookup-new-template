@@ -71,7 +71,7 @@ const metadata = {
       </p>
 
       <p>
-        Some providers solve this by switching to cached databases or third-party aggregators when the official source
+        Some providers resolve this by switching to cached databases or third-party aggregators when the official source
         is unavailable. That might give you "better uptime," but it also means youre no longer validating against the
         source of truth.
       </p>
@@ -111,11 +111,11 @@ const metadata = {
 
       <div class="border border-gray-200 dark:border-gray-700 p-6 rounded-lg">
         <Icon name="tabler:repeat" class="w-12 h-12 mb-4 text-primary" />
-        <h3 class="text-xl font-bold mb-3">Async Validation</h3>
+        <h3 class="text-xl font-bold mb-3">Batch API for Async Validation</h3>
         <p class="text-muted">
-          For workflows where instant responses arent critical (bulk validation, overnight reconciliation), we are
-          rolling out async validation. Submit IDs, get results when the registry is back online. No blocking, no
-          timeouts.
+          For workflows where instant responses arent critical (bulk validation, overnight reconciliation), our Batch
+          API handles async validation with automatic retries. Submit thousands of IDs, get results when complete. No
+          blocking, no timeouts.
         </p>
       </div>
 
@@ -232,6 +232,12 @@ const metadata = {
         <span class="text-muted">·</span>
         <a href="/lookuptax-vs-taxamo" class="text-muted hover:text-primary transition-colors">
           LookupTax vs Vertex (Taxamo)
+        </a>
+        <span class="text-muted">·</span>
+        <a href="/lookuptax-vs-taxdo" class="text-muted hover:text-primary transition-colors"> LookupTax vs TaxDo </a>
+        <span class="text-muted">·</span>
+        <a href="/lookuptax-vs-stripe-tax" class="text-muted hover:text-primary transition-colors">
+          LookupTax vs Stripe Tax
         </a>
       </div>
     </div>

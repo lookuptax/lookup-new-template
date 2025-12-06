@@ -1,0 +1,313 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'LookupTax vs. TaxDo: The "Silo" vs. The "Solution"',
+  description:
+    'Compare LookupTax vs. TaxDo. Why modern teams choose LookupTax not just for its API, but for the Finance and Ops tools that TaxDo ignores.',
+  keywords: 'LookupTax vs TaxDo, tax validation tools, cross-functional tax tools, no-code tax validation',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    title="LookupTax vs. TaxDo: The Silo vs. The Solution"
+    subtitle="TaxDo is built for the Tax Department. LookupTax is built for the Whole Team—Developers, Finance, and Ops."
+  />
+
+  <!-- Introduction -->
+  <section class="max-w-4xl mx-auto px-4 py-8">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p class="text-xl">
+        If you are researching TaxDo (specifically the US-based taxdo.com), you have likely found the one other player
+        that takes global validation seriously.
+      </p>
+      <p>
+        Unlike Vertex or Stripe (who often rely on "lazy" regex checks for emerging markets), TaxDo actually validates.
+        They claim direct government connections in 135+ countries, including difficult regions like Saudi Arabia and
+        Singapore.
+      </p>
+      <p class="font-semibold">Technically, they are strong.</p>
+      <p class="font-semibold">But functionally, they are often stuck in an "Enterprise Silo."</p>
+      <p>
+        TaxDo is built primarily for the <strong>Head of Tax</strong> to manage filings. LookupTax is built for the
+        <strong>Whole Team</strong>—Developers, Finance Managers, and Onboarding Ops—to handle validation proactively.
+      </p>
+      <p>Here is why cross-functional teams choose LookupTax over TaxDo.</p>
+    </div>
+  </section>
+
+  <!-- Key Difference 1: Beyond the API -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-gray-50 dark:bg-slate-800/50 rounded-lg">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">1. Beyond the API: Empowering Finance & Ops</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>This is the biggest operational difference.</p>
+
+      <p>
+        <strong>TaxDo is typically an API integration</strong> that feeds data into a "Tax Compliance Dashboard." If a Finance
+        Manager needs to bulk-verify 5,000 invoices for an audit, or an Ops agent needs to manually check a new seller, they
+        often hit a wall. They either need developer help or have to navigate a complex filing interface.
+      </p>
+
+      <p><strong>LookupTax democratizes access to the data with No-Code Tools:</strong></p>
+
+      <div class="grid md:grid-cols-2 gap-6 not-prose my-6">
+        <div class="border-2 border-primary p-6 rounded-lg bg-primary/5">
+          <h3 class="text-xl font-bold mb-3">For Finance</h3>
+          <p class="text-muted">
+            We have native <strong>Excel & Google Sheets Add-ins</strong>. Your finance team can paste 10,000 IDs and
+            validate them in bulk without writing a single line of code.
+          </p>
+        </div>
+
+        <div class="border-2 border-primary p-6 rounded-lg bg-primary/5">
+          <h3 class="text-xl font-bold mb-3">For Ops/Onboarding</h3>
+          <p class="text-muted">
+            We provide a dedicated <strong>Admin Dashboard</strong> where manual agents can quickly "Search & Verify" sellers
+            during onboarding.
+          </p>
+        </div>
+      </div>
+
+      <p class="font-semibold">We don't just solve the "Code Problem"; we solve the "Workflow Problem."</p>
+    </div>
+  </section>
+
+  <!-- Key Difference 2: Access -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">2. Access: The "Book a Demo" Wall</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p><strong>TaxDo operates on a traditional B2B sales motion:</strong></p>
+      <ul>
+        <li>Want to see the pricing? <span class="text-orange-600">Book a demo</span>.</li>
+        <li>Want to get an API key? <span class="text-orange-600">Talk to sales</span>.</li>
+        <li>
+          Want to give your Finance team access? <span class="text-orange-600">Contact your Account Manager</span>.
+        </li>
+      </ul>
+
+      <p><strong>LookupTax is radically self-serve:</strong></p>
+      <ul>
+        <li>
+          <strong>Pricing:</strong>
+          <span class="text-green-600">Publicly listed on the homepage</span>.
+        </li>
+        <li>
+          <strong>API Key:</strong>
+          <span class="text-green-600">Instant access after email signup</span>.
+        </li>
+        <li>
+          <strong>Team Invite:</strong>
+          <span class="text-green-600">Add your Finance Lead to the dashboard in one click</span>.
+        </li>
+      </ul>
+
+      <p class="font-semibold bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border-l-4 border-yellow-500">
+        If you are a Product Manager who wants to unblock your team <em>today</em>, TaxDo forces you to wait for a
+        calendar invite. LookupTax lets you ship to production before lunch.
+      </p>
+    </div>
+  </section>
+
+  <!-- Key Difference 3: Real-Time -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-primary/5 rounded-lg">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">3. The "Offline" Trap: Real-Time vs. "We'll Get Back to You"</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>This is a hidden killer for checkout conversion.</p>
+
+      <p>
+        TaxDo markets <strong>"Offline Verification"</strong> for difficult regions. While this sounds comprehensive, you
+        have to ask: <em>How does this work during a live checkout?</em>
+      </p>
+
+      <p>
+        If a country doesn't have a digital API, "offline verification" usually means a manual or asynchronous check
+        where they contact authorities directly. You cannot pause a user's credit card payment for 2 hours while an
+        agent calls a tax office in a remote jurisdiction.
+      </p>
+
+      <p><strong>LookupTax offers the best of both worlds:</strong></p>
+      <ul>
+        <li>
+          <strong>For Live Checkout:</strong> Real-time sync validation (&lt;2 seconds). If we can't validate it instantly
+          via a government database, we tell you immediately.
+        </li>
+        <li>
+          <strong>For Bulk/Async Workflows:</strong> Our Batch API handles thousands of IDs with automatic retries, perfect
+          for overnight reconciliation or bulk validation where instant response isn't critical.
+        </li>
+      </ul>
+      <p>We don't promise "Offline" magic that breaks your UX flow or leaves your Ops team waiting for callbacks.</p>
+    </div>
+  </section>
+
+  <!-- Key Difference 4: Pricing -->
+  <section class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">4. Pricing Transparency</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>
+        Because TaxDo sells enterprise contracts, their pricing is opaque. It is typically tailored to your revenue
+        volume, often with minimum annual commitments.
+      </p>
+
+      <p><strong>LookupTax offers Utility Pricing:</strong></p>
+      <ul>
+        <li>
+          <strong>Startup Friendly:</strong> Free tier for testing.
+        </li>
+        <li>
+          <strong>Scale Friendly:</strong> Transparent per-request pricing as you grow.
+        </li>
+        <li>
+          <strong>No Lock-in:</strong> Monthly contracts are standard.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Technical Parity -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-gray-50 dark:bg-slate-800/50 rounded-lg">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">5. The Technical Parity (The "Good News")</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>It is important to be honest: <strong>TaxDo is a solid technical product</strong>.</p>
+
+      <p>Like LookupTax, they correctly identify that "Regex Checks" are useless in 2025.</p>
+
+      <ul>
+        <li>
+          <strong>Middle East:</strong> Both LookupTax and TaxDo connect directly to official government portals.
+        </li>
+        <li>
+          <strong>Southeast Asia:</strong> Both LookupTax and TaxDo connect directly to official business registries.
+        </li>
+      </ul>
+
+      <p class="font-semibold">
+        The choice isn't about accuracy (both are excellent). The choice is about <em>usability</em>.
+      </p>
+
+      <p>
+        Do you want a "Black Box" for your Compliance Officer (TaxDo)? Or do you want a "Utility Toolkit" for your Devs,
+        Finance, and Ops teams (LookupTax)?
+      </p>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="max-w-5xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Comparison Cheat Sheet</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse border border-gray-300 dark:border-gray-600">
+        <thead>
+          <tr class="bg-gray-100 dark:bg-slate-700">
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">Feature</th>
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">LookupTax</th>
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">TaxDo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Primary User</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4"> The Whole Team (Devs, Finance, Ops) </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4"> The Tax Department (CFO, Head of Tax) </td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-slate-800/30">
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">No-Code Tools</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Excel & Google Sheets Add-ins included
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ⚠️ Primarily API & Portal based
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Validation Speed</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Real-time (&lt;2s) + Batch API for async
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ⚠️ Hybrid. Includes "Offline" modes that delay results
+            </td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-slate-800/30">
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Access</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Self-Serve. Start instantly
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ⚠️ Sales-Gated. "Book a Demo"
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Pricing</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400">
+              ✅ Transparent. Public pricing page
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 text-orange-600 dark:text-orange-400">
+              ⚠️ Opaque. Custom Enterprise Quotes
+            </td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-slate-800/30">
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Contract Style</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">Monthly / Usage-based</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">Annual / Enterprise</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- The Verdict -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">The Verdict</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="border-2 border-gray-300 dark:border-gray-600 p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-4">Choose TaxDo if:</h3>
+        <p class="text-muted">
+          You are a CFO looking for a "Total Tax Solution" to replace your current filing provider. You want a
+          relationship with an account manager, and you need a tool primarily for post-transaction reporting and filing.
+        </p>
+      </div>
+
+      <div class="border-2 border-primary dark:border-primary p-6 rounded-lg bg-primary/5">
+        <h3 class="text-xl font-bold mb-4">Choose LookupTax if:</h3>
+        <p class="text-muted mb-4">
+          You are a practical team that needs to solve validation operational challenges. Developers get a fast API.
+          Finance gets an Excel plugin for audits. Ops gets a dashboard for seller verification.
+        </p>
+        <p class="text-muted mb-4">
+          If you want the same high-quality database checks but want to empower your entire org to use them, LookupTax
+          is the modern choice.
+        </p>
+        <a
+          href="https://platform.lookuptax.com/auth?page=register"
+          target="_blank"
+          class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-primary rounded-full hover:bg-secondary transition-colors duration-200"
+        >
+          Get Started Free →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CallToAction
+    title="Empower Your Whole Team"
+    subtitle="Get validation tools for Developers, Finance, and Ops—not just the Tax Department."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Started Free',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+      {
+        variant: 'secondary',
+        text: 'View Pricing',
+        href: '/pricing',
+      },
+    ]}
+  />
+</Layout>
