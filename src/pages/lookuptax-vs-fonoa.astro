@@ -1,0 +1,262 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'LookupTax vs. Fonoa: Specialist Validation or Enterprise Bloat?',
+  description:
+    'Compare LookupTax vs. Fonoa. A practical guide for teams that need global Tax ID validation without the enterprise contracts, sales calls, or integration delays.',
+  keywords: 'LookupTax vs Fonoa, tax ID validation, VAT validation API, Fonoa alternative',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    title="LookupTax vs. Fonoa: Specialist Validation or Enterprise Bloat?"
+    subtitle="Cross-border SaaS and e-commerce usually have one specific, annoying tax problem: 'Is this customer's Tax ID valid or not?'  Most teams just need that one answer - reliable, instant, and at scale, so they can calculate the right tax at checkout. The market generally offers you two paths: Fonoa, a massive compliance suite built for the Fortune 500, and LookupTax, a dedicated validation tool built for agility."
+  />
+
+  <!-- Introduction -->
+  <section class="max-w-4xl mx-auto px-4 py-8">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p class="text-xl text-muted">
+        If youre trying to figure out which one fits your stack, here's the honest breakdown.
+      </p>
+    </div>
+  </section>
+
+  <!-- Core Difference Section -->
+  <section class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+      The Core Difference: Enterprise Gatekeeping vs. Developer Utility
+    </h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>The biggest difference isn't code; it's <em>access</em>.</p>
+
+      <p>
+        Fonoa operates on a classic enterprise sales motion. You generally cannot just sign up and start testing. You
+        book a demo, go through qualification, and negotiate a custom quote (often assuming high Annual Recurring
+        Revenue). If youre a scaling startup or a mid-sized agency, this is unnecessary friction.
+      </p>
+
+      <p><strong>LookupTax was built to kill that friction.</strong></p>
+
+      <ul>
+        <li><strong>Self-Serve:</strong> You get an API key in 30 seconds.</li>
+        <li>
+          <strong>Transparent Pricing:</strong> There's a free tier to validate IDs immediately, and clear usage tiers as
+          you scale.
+        </li>
+        <li>
+          <strong>No Blockers:</strong> We got tired of seeing developers blocked for days waiting for "enterprise access"
+          just to test a simple endpoint.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Product Comparison -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-gray-50 dark:bg-slate-800/50 rounded-lg">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">The Product: Suite vs. Specialist</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>
+        Fonoa is a "Tax Engine." They sell a broad suite including tax calculations, e-invoicing mandates, and filing
+        automation. For them, validation is just one small feature in a massive bundle.
+      </p>
+
+      <p><strong>LookupTax is unapologetically focused on one thing: Global Tax ID Validation.</strong></p>
+
+      <p>Because its our entire product, not a side feature, we iterate faster on:</p>
+
+      <ul>
+        <li>Real-time uptime and reliability.</li>
+        <li>Expanding country coverage (including difficult edge cases).</li>
+        <li>Handling format changes the moment a government updates their registry.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Side-by-Side Comparison</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse border border-gray-300 dark:border-gray-600">
+        <thead>
+          <tr class="bg-gray-100 dark:bg-slate-700">
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">Feature</th>
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">LookupTax</th>
+            <th class="border border-gray-300 dark:border-gray-600 p-4 text-left font-bold">Fonoa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Best For</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">Startups, Scale-ups, Agile Teams</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">Enterprise, Fortune 500, Compliance Depts</td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-slate-800/30">
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Pricing Model</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">
+              Transparent tiers (Free / Lite / Pro). Monthly subscription.
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">
+              Opaque Enterprise. Annual contracts & custom quotes based on revenue/volume.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Onboarding Time</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">Instant. Get API key in 30s.</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">
+              Weeks/Months. Demo → Scope → Contract → Integration.
+            </td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-slate-800/30">
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Core Focus</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">Specialist: Just Tax ID Validation.</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">
+              Suite: Tax Engine (Calculation + Filing + Invoicing).
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Integration</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">
+              Lightweight API + No-Code Tools (Excel, Sheets, Shopify).
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">
+              Heavy API + SDKs. Often requires engineering resources to maintain.
+            </td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-slate-800/30">
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Validation Depth</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">
+              Transparent Hybrid: Explicitly lists which countries are "Database Checked" vs "Format Checked."
+            </td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">
+              Black Box: "Direct Government Connections" (marketing claims usually cover 100+ countries but specifics
+              can be vague).
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 dark:border-gray-600 p-4 font-semibold">Support Style</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">Direct technical support (Dev-to-Dev).</td>
+            <td class="border border-gray-300 dark:border-gray-600 p-4">Account Manager + Ticketing System.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Integration Section -->
+  <section class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">Integration: Weeks vs. An Afternoon</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>
+        If you choose an enterprise suite, youre often signing up for a heavy integration. This usually involves
+        scoping, configuration, and navigating complex documentation designed for massive finance teams.
+      </p>
+
+      <p>
+        <strong>LookupTax optimizes for the Developer Experience.</strong> We keep the JSON response lightweight and predictable:
+      </p>
+
+      <pre
+        class="bg-gray-900 text-gray-100 p-6 rounded-lg overflow-x-auto text-sm"><code>{'{\n  "referenceId": "req_abc123def456",\n  "countryCode": "SG",\n  "requestDate": "2025-12-06T14:04:03.307Z",\n  "tin": "196700197W",\n  "validation": {\n    "format": { "isValid": true, "attempted": true },\n    "source": { "isValid": true, "attempted": true },\n    "overall": { "isValid": true, "attempted": true }\n  },\n  "tinInfo": {\n    "label": "UEN",\n    "name": "Unique Entity Number",\n    "formattedTin": "196700197W"\n  },\n  "entity": {\n    "name": "NESTLE SINGAPORE (PTE) LTD",\n    "status": "Registered"\n  },\n  "metadata": {\n    "processingTime": 466,\n    "version": "2.0"\n  }\n}'}</code></pre>
+
+      <p>
+        There's no orchestration layer to configure. A developer can drop this into a Stripe checkout flow or a signup
+        form in a single afternoon.
+      </p>
+    </div>
+  </section>
+
+  <!-- Real-World Workflow -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-gray-50 dark:bg-slate-800/50 rounded-lg">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">The "Real World" Workflow: Bulk Validation in Excel</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>This is where the market often ignores reality.</p>
+
+      <p>
+        Most tax validation work doesnt happen inside a codebase; it happens in the finance team's spreadsheets during
+        month-end reconciliation.
+      </p>
+
+      <p>
+        While Fonoa is API-first (great for engineers, tough for accountants), <strong
+          >LookupTax builds for the Finance Ops workflow too:</strong
+        >
+      </p>
+
+      <ul>
+        <li>
+          <strong>Excel Add-in:</strong> Paste 10,000 VAT numbers and bulk validate them instantly without leaving the sheet.
+        </li>
+        <li><strong>Shopify App:</strong> Merchants can prevent B2B fraud without touching a line of code.</li>
+      </ul>
+
+      <p>The no-code tools matter for actual business workflows.</p>
+    </div>
+  </section>
+
+  <!-- The Verdict -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">The Verdict: Which one is for you?</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p>Honesty is the best policy here.</p>
+
+      <div class="grid md:grid-cols-2 gap-8 not-prose my-8">
+        <div class="border-2 border-gray-300 dark:border-gray-600 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Choose Fonoa if:</h3>
+          <p class="text-muted">
+            Youre a massive multinational platform (think Uber or Spotify scale) with a dedicated compliance department,
+            7-figure tax exposure, and a need for a unified engine that handles filings and calculations alongside
+            validation.
+          </p>
+        </div>
+
+        <div class="border-2 border-primary dark:border-primary p-6 rounded-lg bg-primary/5">
+          <h3 class="text-xl font-bold mb-4">Choose LookupTax if:</h3>
+          <p class="text-muted mb-4">
+            You want a <strong>Fonoa alternative that cuts the bloat</strong>. If you need accurate, global Tax ID
+            validation without legal overhead, opaque pricing, or a slow sales cycle, LookupTax is likely the better
+            fit.
+          </p>
+          <a
+            href="https://platform.lookuptax.com/auth?page=register"
+            target="_blank"
+            class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-primary rounded-full hover:bg-secondary transition-colors duration-200"
+          >
+            Get started Free →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CallToAction
+    title="Get your API Key for free"
+    subtitle="Start validating Tax IDs in minutes. No credit card required."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Start validating now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+      {
+        variant: 'secondary',
+        text: 'View pricing',
+        href: '/pricing',
+      },
+    ]}
+  />
+</Layout>
+
+<style>
+  .prose pre {
+    background-color: #1a202c;
+    color: #e2e8f0;
+  }
+</style>
