@@ -5,15 +5,14 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Supported Countries for VAT Validation',
-  description: 'A comprehensive list of countries supported for VAT number validation. Ensure your business compliance with accurate VAT checks.',
+  description:
+    'A comprehensive list of countries supported for VAT number validation. Ensure your business compliance with accurate VAT checks.',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
-   <HeroText
-    title="Countries Supported for VAT Validation"
-  /> 
+  <HeroText title="Countries Supported for VAT Validation" />
 
   <!-- Country List Table *************** -->
   <section class="max-w-5xl mx-auto my-12">
@@ -118,13 +117,13 @@ const metadata = {
           <td class="border border-gray-300 p-2"></td>
           <td class="border border-gray-300 p-2"></td>
         </tr>
- <tr>
+        <tr>
           <td class="border border-gray-300 p-2"><a href="">Hong Kong</a></td>
           <td class="border border-gray-300 p-2 text-green-600">✅</td>
           <td class="border border-gray-300 p-2">✅</td>
           <td class="border border-gray-300 p-2">BRN</td>
         </tr>
-<tr>
+        <tr>
           <td class="border border-gray-300 p-2"><a href="/validate/india/gstin">India</a></td>
           <td class="border border-gray-300 p-2 text-green-600">✅</td>
           <td class="border border-gray-300 p-2 text-green-600">✅</td>
@@ -226,13 +225,13 @@ const metadata = {
           <td class="border border-gray-300 p-2"></td>
           <td class="border border-gray-300 p-2">UID</td>
         </tr>
-<tr>
+        <tr>
           <td class="border border-gray-300 p-2"><a href="/validate/taiwan/ubn">Taiwan</a></td>
           <td class="border border-gray-300 p-2 text-green-600">✅</td>
           <td class="border border-gray-300 p-2 text-green-600">✅</td>
           <td class="border border-gray-300 p-2">UBN</td>
         </tr>
-<tr>
+        <tr>
           <td class="border border-gray-300 p-2"><a href="">Thailand</a></td>
           <td class="border border-gray-300 p-2 text-green-600">✅</td>
           <td class="border border-gray-300 p-2 text-green-600">✅</td>
@@ -250,7 +249,7 @@ const metadata = {
           <td class="border border-gray-300 p-2 text-green-600"></td>
           <td class="border border-gray-300 p-2">Business Number</td>
         </tr>
-        
+
         <tr>
           <td class="border border-gray-300 p-2"><a href="/validate/bahrain/tin">Bahrain</a></td>
           <td class="border border-gray-300 p-2"></td>
@@ -287,7 +286,7 @@ const metadata = {
           <td class="border border-gray-300 p-2 text-green-600">✅</td>
           <td class="border border-gray-300 p-2">GST, UEN</td>
         </tr>
-        
+
         <tr>
           <td class="border border-gray-300 p-2"><a href="/validate/vietnam/mst">Vietnam</a></td>
           <td class="border border-gray-300 p-2"></td>
@@ -336,48 +335,50 @@ const metadata = {
           <td class="border border-gray-300 p-2 text-green-600">✅</td>
           <td class="border border-gray-300 p-2">Texas Taxpayer ID</td>
         </tr>
- <tr>
+        <tr>
           <td class="border border-gray-300 p-2">Brazil</td>
           <td class="border border-gray-300 p-2">Coming soon</td>
           <td class="border border-gray-300 p-2 text-green-600">✅</td>
           <td class="border border-gray-300 p-2">CNPJ</td>
         </tr>
-<tr>
+        <tr>
           <td class="border border-gray-300 p-2">Mauritius</td>
           <td class="border border-gray-300 p-2">Coming soon</td>
           <td class="border border-gray-300 p-2 text-green-600">✅</td>
           <td class="border border-gray-300 p-2">VAT</td>
         </tr>
-<tr>
+        <tr>
           <td class="border border-gray-300 p-2">Ecuador</td>
           <td class="border border-gray-300 p-2">Coming soon</td>
           <td class="border border-gray-300 p-2 text-green-600">✅</td>
           <td class="border border-gray-300 p-2">RUC</td>
         </tr>
-<tr>
+        <tr>
           <td class="border border-gray-300 p-2">Bahamas</td>
           <td class="border border-gray-300 p-2">Coming soon</td>
           <td class="border border-gray-300 p-2">Coming soon</td>
           <td class="border border-gray-300 p-2">VAT</td>
         </tr>
-
-
-
+        <tr>
+          <td class="border border-gray-300 p-2">Japan</td>
+          <td class="border border-gray-300 p-2">Coming soon</td>
+          <td class="border border-gray-300 p-2">Coming soon</td>
+          <td class="border border-gray-300 p-2">Corporate Number</td>
+        </tr>
       </tbody>
     </table>
   </section>
 
   <!-- Additional Information (optional) -->
   <CallToAction
-  title="Ready to automate Tax ID validation?"
-  subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
-  actions={[
-    {
-      variant: 'primary',
-      text: 'Get started now',
-      href: 'https://platform.lookuptax.com/auth?page=register',
-    },
-  ]}
-/>
-
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
 </Layout>
