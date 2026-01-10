@@ -1,0 +1,86 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Hong Kong Business Registration Number (BRN) Online | Free BRN Checker',
+  description:
+    'Instantly validate Hong Kong Business Registration Number (BRN) online. Free BRN checker with official entity details. Integrate BRN validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Hong Kong Business Registration Number (BRN) Online"
+    subtitle="Quickly and accurately validate Business Registration Numbers for companies registered in Hong Kong."
+    tagline="Hong Kong BRN Validation"
+    country="HK"
+    taxIdPlaceholder="Enter BRN (e.g., 12345678-000-00-00-0)"
+    sampleTaxIds={`[{"tin":"12345678"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is a Hong Kong Business Registration Number (BRN)?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          The Business Registration Number is a unique identifier issued by the Inland Revenue Department to all
+          businesses operating in Hong Kong. It's required for tax compliance and business operations.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Hong Kong BRN online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Use Lookuptax's free BRN checker to validate any Hong Kong Business Registration Number. Enter the BRN to
+          confirm validity and retrieve business details instantly.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate BRN validation into my system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Yes. Lookuptax provides a BRN validation API that can be integrated with your KYC, invoicing, or compliance
+          platforms to automate Hong Kong business verification.
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Hong Kong BRN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Business Registration Number is a unique identifier issued to businesses in Hong Kong by the Inland Revenue Department."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is BRN verification free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Format validation is free; database lookups may be rate-limited."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>

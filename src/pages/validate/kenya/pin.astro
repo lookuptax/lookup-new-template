@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Kenya KRA PIN Online | Free Kenya Tax PIN Checker',
+  description:
+    'Instantly validate Kenya KRA PIN (Personal Identification Number) online. Free Kenya tax PIN checker with official entity details. Integrate PIN validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Kenya KRA PIN Online"
+    subtitle="Quickly and accurately validate Kenya Revenue Authority Personal Identification Numbers (KRA PIN) for businesses and individuals."
+    tagline="Kenya KRA PIN Validation"
+    country="KE"
+    taxIdPlaceholder="Enter KRA PIN (e.g., A123456789B)"
+    sampleTaxIds={`[{"tin":"A123456789B"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is a Kenya KRA PIN?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          The KRA PIN is an 11-character Personal Identification Number issued by the Kenya Revenue Authority to
+          taxpayers for tax compliance and business registration.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Kenya KRA PIN online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Use Lookuptax's free KRA PIN checker to validate any Kenya tax PIN. Enter the PIN to confirm validity and
+          verify entity details.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate KRA PIN validation into my system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Yes. Lookuptax provides a KRA PIN validation API for automated compliance verification.
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Kenya KRA PIN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An 11-character tax identification number issued by Kenya Revenue Authority."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>

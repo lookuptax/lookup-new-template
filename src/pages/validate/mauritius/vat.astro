@@ -1,0 +1,76 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Mauritius VAT Number Online | Free Mauritius VAT Checker',
+  description:
+    'Instantly validate Mauritius VAT numbers online. Free Mauritius VAT checker with official entity details. Integrate VAT validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Mauritius VAT Number Online"
+    subtitle="Quickly and accurately validate VAT numbers for businesses registered in Mauritius."
+    tagline="Mauritius VAT Validation"
+    country="MU"
+    taxIdPlaceholder="Enter VAT Number (e.g., MU12345678)"
+    sampleTaxIds={`[{"tin":"MU12345678"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is a Mauritius VAT number?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          The Mauritius VAT number is issued by the Mauritius Revenue Authority (MRA) to businesses registered for Value
+          Added Tax purposes.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Mauritius VAT number online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Use Lookuptax's free VAT checker to validate any Mauritius VAT number. Enter the number to confirm validity.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate VAT validation into my system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Yes. Lookuptax provides a VAT validation API for automated compliance workflows.
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Mauritius VAT number?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A VAT registration number issued by the Mauritius Revenue Authority."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>

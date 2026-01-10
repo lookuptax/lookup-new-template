@@ -1,0 +1,92 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate US EIN Number Online | Free Employer Identification Number Checker',
+  description:
+    'Instantly validate US EIN (Employer Identification Number) online. Free EIN checker for business verification. Integrate EIN validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate US EIN (Employer Identification Number) Online"
+    subtitle="Quickly and accurately validate Employer Identification Numbers for US businesses and organizations."
+    tagline="US EIN Validation"
+    country="US"
+    taxIdPlaceholder="Enter EIN (e.g., 12-3456789)"
+    sampleTaxIds={`[{"tin":"123456789"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is a US EIN?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          An EIN (Employer Identification Number), also known as a Federal Tax ID, is a 9-digit number issued by the IRS
+          to identify businesses for tax purposes. It's formatted as XX-XXXXXXX.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a US EIN online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Use Lookuptax's free EIN checker to validate US Employer Identification Numbers. Enter the EIN to verify
+          format and check against available databases.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What's the difference between EIN and SSN?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          EIN is for businesses and organizations, while SSN (Social Security Number) is for individuals. EINs are used
+          for tax filings, hiring employees, and opening business bank accounts.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate EIN validation into my system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Yes. Lookuptax provides an EIN validation API for automated business verification and compliance workflows.
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a US EIN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 9-digit Federal Tax ID issued by the IRS to identify businesses for tax purposes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is EIN verification free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Format validation is free; database verifications may be rate-limited."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,78 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Croatia OIB Number Online | Free Croatian OIB Checker',
+  description:
+    'Instantly validate Croatia OIB (Osobni identifikacijski broj) numbers online. Free Croatian OIB checker with official entity details. Integrate OIB validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Croatia OIB Number Online"
+    subtitle="Quickly and accurately validate OIB (Osobni identifikacijski broj) numbers for Croatian businesses and individuals."
+    tagline="Croatia OIB Validation"
+    country="HR"
+    taxIdPlaceholder="Enter OIB (e.g., 12345678901)"
+    sampleTaxIds={`[{"tin":"12345678901"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is a Croatia OIB number?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          OIB (Osobni identifikacijski broj) is an 11-digit Personal Identification Number assigned to all Croatian
+          citizens, residents, and legal entities. It's used for tax and administrative purposes.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Croatian OIB online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Use Lookuptax's free OIB checker to validate any Croatian OIB number via VIES for VAT purposes or local
+          validation for entity verification.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is Croatia part of the EU VAT system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Yes, Croatia joined the EU in 2013 and uses the OIB as its VAT identification number with the HR prefix (e.g.,
+          HR12345678901).
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Croatia OIB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An 11-digit Personal Identification Number used in Croatia for tax and administrative purposes."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>

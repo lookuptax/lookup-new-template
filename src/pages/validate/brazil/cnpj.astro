@@ -1,0 +1,86 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Brazil CNPJ Number Online | Free CNPJ Checker Tool',
+  description:
+    'Instantly validate Brazil CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers online. Free CNPJ checker with official company details. Integrate CNPJ validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Brazil CNPJ Number Online"
+    subtitle="Quickly and accurately validate CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers for Brazilian companies."
+    tagline="Brazil CNPJ Validation"
+    country="BR"
+    taxIdPlaceholder="Enter CNPJ (e.g., 11.222.333/0001-81)"
+    sampleTaxIds={`[{"tin":"11222333000181"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is a Brazil CNPJ number?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          CNPJ (Cadastro Nacional da Pessoa Jurídica) is a 14-digit unique identification number assigned to Brazilian
+          companies by the Federal Revenue Service. It's required for all business activities in Brazil.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a CNPJ online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Use Lookuptax's free CNPJ checker to validate any Brazilian CNPJ number. Enter the CNPJ to confirm validity
+          and retrieve company details instantly.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate CNPJ validation into my system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Yes. Lookuptax provides a CNPJ validation API that can be integrated with your invoicing, KYC, or supplier
+          verification platforms.
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Brazil CNPJ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 14-digit company identification number issued by Brazil's Federal Revenue Service."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is CNPJ verification free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Format and checksum validation is free; database lookups may be rate-limited."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>

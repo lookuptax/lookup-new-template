@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Slovenia DDV Number Online | Free Slovenian VAT Checker',
+  description:
+    'Instantly validate Slovenia DDV (Davek na dodano vrednost) VAT numbers online. Free Slovenia VAT checker with VIES verification. Integrate DDV validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Slovenia DDV (VAT) Number Online"
+    subtitle="Quickly and accurately validate DDV (Davek na dodano vrednost) numbers for Slovenian businesses via VIES."
+    tagline="Slovenia DDV Validation"
+    country="SI"
+    taxIdPlaceholder="Enter DDV (e.g., SI12345678)"
+    sampleTaxIds={`[{"tin":"SI12345678"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is a Slovenia DDV number?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          DDV (Davek na dodano vrednost) is the Slovenian VAT identification number. It consists of an 8-digit number
+          prefixed with "SI" for EU transactions.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate a Slovenian VAT number online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Use Lookuptax's free DDV checker to validate any Slovenia VAT number via the official VIES system. Enter the
+          number to confirm validity.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Is Slovenia part of the EU VAT system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Yes, Slovenia joined the EU in 2004 and participates in VIES for cross-border VAT validation.
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Slovenia DDV number?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An 8-digit VAT identification number used in Slovenia, prefixed with SI for EU transactions."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>

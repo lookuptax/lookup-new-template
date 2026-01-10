@@ -1,0 +1,77 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Validate Ecuador RUC Number Online | Free RUC Checker Tool',
+  description:
+    'Instantly validate Ecuador RUC (Registro Único de Contribuyentes) numbers online. Free Ecuador RUC checker with official entity details. Integrate RUC validation API into your workflows.',
+};
+---
+
+<Layout metadata={metadata}>
+  <CountryTaxIdValidation
+    title="Validate Ecuador RUC Number Online"
+    subtitle="Quickly and accurately validate RUC (Registro Único de Contribuyentes) numbers for Ecuadorian businesses."
+    tagline="Ecuador RUC Validation"
+    country="EC"
+    taxIdPlaceholder="Enter RUC (e.g., 1790016919001)"
+    sampleTaxIds={`[{"tin":"1790016919001"}]`}
+  />
+  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8">
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">What is an Ecuador RUC number?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          RUC (Registro Único de Contribuyentes) is a 13-digit tax identification number assigned to individuals and
+          companies in Ecuador by the Internal Revenue Service (SRI).
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">How can I validate an Ecuador RUC online?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Use Lookuptax's free RUC checker to validate any Ecuador RUC number. Enter the RUC to confirm validity and
+          retrieve entity details.
+        </p>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-xl font-bold mb-2">Can I integrate RUC validation into my system?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Yes. Lookuptax provides a RUC validation API for automated tax compliance workflows.
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an Ecuador RUC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 13-digit tax identification number issued by Ecuador's SRI."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <CallToAction
+    title="Ready to automate Tax ID validation?"
+    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get started now',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+    ]}
+  />
+</Layout>
