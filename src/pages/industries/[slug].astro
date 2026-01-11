@@ -1,0 +1,424 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { industries } from '~/content/industries';
+
+export async function getStaticPaths() {
+  return industries.map((industry) => ({
+    params: { slug: industry.slug },
+    props: { industry },
+  }));
+}
+
+const { industry } = Astro.props;
+
+const metadata = {
+  title: industry.seo.title,
+  description: industry.seo.description,
+  keywords: industry.seo.keywords,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText title={industry.hero.headline} subtitle={industry.hero.subheadline} />
+
+  <!-- Hero Image -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="rounded-lg overflow-hidden shadow-lg">
+      <img
+        src={`/images/industries/${industry.slug}.png`}
+        alt={`${industry.title} illustration`}
+        class="w-full h-auto"
+        loading="eager"
+      />
+    </div>
+  </section>
+
+  <!-- Pain Section -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-red-50 dark:bg-red-900/10 rounded-lg my-8">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-red-900 dark:text-red-300">{industry.pain.heading}</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p class="text-lg mb-4">{industry.pain.description}</p>
+      <div class="bg-white dark:bg-slate-800 p-6 rounded-lg border-l-4 border-red-500">
+        <p class="font-semibold text-red-900 dark:text-red-300 mb-2">Real-World Impact:</p>
+        <p class="text-muted">{industry.pain.example}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Fix Section -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">{industry.fix.heading}</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <div class="bg-primary/5 p-6 rounded-lg mb-6 border-l-4 border-primary">
+        <p class="font-semibold text-primary mb-2">
+          <span class="inline-flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"
+              ></path>
+            </svg>
+            Integrates With: {industry.fix.techStack}
+          </span>
+        </p>
+        <p class="text-muted">{industry.fix.description}</p>
+      </div>
+      {
+        industry.fix.visual && (
+          <div class="text-center my-8">
+            <div class="inline-flex items-center gap-4 bg-gradient-to-r from-primary/10 to-secondary/10 px-8 py-4 rounded-full">
+              <span class="font-mono font-semibold text-primary">{industry.fix.visual}</span>
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <!-- Compliance Section -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-gray-50 dark:bg-slate-800/50 rounded-lg my-8">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8">{industry.compliance.heading}</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      {
+        industry.compliance.regulations.map((regulation) => (
+          <div class="border border-gray-200 dark:border-gray-700 p-6 rounded-lg bg-white dark:bg-slate-800 hover:border-primary transition-colors">
+            <h3 class="text-xl font-bold mb-3 text-primary">{regulation.name}</h3>
+            <p class="text-muted">{regulation.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Data Dictionary Section -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">{industry.dataDictionary.heading}</h2>
+    <p class="text-lg text-muted mb-8">{industry.dataDictionary.description}</p>
+    <div class="space-y-4">
+      {
+        industry.dataDictionary.taxIds.map((taxId) => (
+          <div class="flex items-start gap-4 p-4 bg-gray-50 dark:bg-slate-800/50 rounded-lg">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold text-sm flex-shrink-0 mt-1">
+              ✓
+            </span>
+            <div>
+              <h3 class="font-bold text-lg mb-1">{taxId.type}</h3>
+              <p class="text-muted">{taxId.importance}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Technical Example Section (SaaS specific) -->
+  {
+    industry.slug === 'saas-tax-validation' && (
+      <section class="max-w-4xl mx-auto px-4 py-12 bg-gray-900 dark:bg-slate-900 rounded-lg my-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Clean JSON Response</h2>
+        <p class="text-gray-300 mb-6">
+          Your engineering team will love us. Simple, fast API integration with comprehensive data.
+        </p>
+        <div class="bg-gray-800 p-6 rounded-lg overflow-x-auto">
+          <pre class="text-sm text-green-400 font-mono">
+            <code>{`// POST https://api.lookuptax.com/tax/validate
+{
+  "taxId": "DE123456789",
+  "countryIso": "DE"
+}
+
+// RESPONSE
+{
+  "referenceId": "uuid-12345",
+  "countryIso": "DE",
+  "tin": "DE123456789",
+  "validation": {
+    "overall": {
+      "isValid": true,
+      "message": "Tax ID is valid"
+    },
+    "format": {
+      "isValid": true,
+      "message": "Format is correct"
+    }
+  },
+  "businessEntity": {
+    "name": "Acme SaaS GmbH",
+    "address": "Berlin, Germany"
+  }
+}`}</code>
+          </pre>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- FAQ Section (SaaS specific) -->
+  {
+    industry.slug === 'saas-tax-validation' && (
+      <section class="max-w-4xl mx-auto px-4 py-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8">Frequently Asked Questions</h2>
+        <div class="space-y-6">
+          <div class="border-l-4 border-primary pl-6 py-4">
+            <h3 class="text-xl font-bold mb-2">Does this work with Stripe/Chargebee/Paddle?</h3>
+            <p class="text-muted">
+              Yes. Lookuptax is API-first. You can use our validation response to update the "Customer" object in Stripe
+              or Chargebee before finalizing an invoice.
+            </p>
+          </div>
+          <div class="border-l-4 border-primary pl-6 py-4">
+            <h3 class="text-xl font-bold mb-2">What happens if the government database is down?</h3>
+            <p class="text-muted">
+              We handle government portal downtime gracefully to ensure your checkout doesn't fail.
+              <a href="/our-approach-to-validation" class="text-primary hover:underline">
+                Learn more about our approach
+              </a>
+              .
+            </p>
+          </div>
+          <div class="border-l-4 border-primary pl-6 py-4">
+            <h3 class="text-xl font-bold mb-2">Do you store the data?</h3>
+            <p class="text-muted">
+              We process validation requests securely. We do not sell or share your customer data. Validation logs are
+              retained for audit purposes only.
+            </p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Technical Example Section (Marketplace specific) -->
+  {
+    industry.slug === 'marketplace-tax-verification' && (
+      <section class="max-w-4xl mx-auto px-4 py-12 bg-gray-900 dark:bg-slate-900 rounded-lg my-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Enterprise-Ready KYB API</h2>
+        <p class="text-gray-300 mb-6">
+          Built for platforms at scale. Verify thousands of sellers with batch processing and real-time webhooks.
+        </p>
+        <div class="bg-gray-800 p-6 rounded-lg overflow-x-auto">
+          <pre class="text-sm text-green-400 font-mono">
+            <code>{`// POST https://api.lookuptax.com/tax/validate
+{
+  "taxId": "GB123456789",
+  "countryIso": "GB"
+}
+
+// RESPONSE
+{
+  "referenceId": "uuid-67890",
+  "countryIso": "GB",
+  "tin": "GB123456789",
+  "validation": {
+    "overall": {
+      "isValid": true,
+      "message": "Tax ID is valid"
+    },
+    "format": {
+      "isValid": true,
+      "message": "Format is correct"
+    }
+  },
+  "businessEntity": {
+    "name": "Acme Traders Ltd",
+    "address": "123 High St, London, UK",
+    "status": "Active"
+  }
+}`}</code>
+          </pre>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- FAQ Section (Marketplace specific) -->
+  {
+    industry.slug === 'marketplace-tax-verification' && (
+      <section class="max-w-4xl mx-auto px-4 py-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8">Marketplace FAQs</h2>
+        <div class="space-y-6">
+          <div class="border-l-4 border-primary pl-6 py-4">
+            <h3 class="text-xl font-bold mb-2">Can I verify individual freelancers and sole proprietors?</h3>
+            <p class="text-muted">
+              We primarily focus on business Tax IDs. For individual/personal Tax ID validation needs,
+              <a href="https://platform.lookuptax.com" class="text-primary hover:underline">
+                contact us
+              </a>{' '}
+              to discuss your requirements.
+            </p>
+          </div>
+          <div class="border-l-4 border-primary pl-6 py-4">
+            <h3 class="text-xl font-bold mb-2">What about bulk verification of existing sellers?</h3>
+            <p class="text-muted">
+              Our bulk validation endpoint lets you clean your entire seller database in minutes. Upload a CSV or send
+              batch JSON requests to verify thousands of sellers at once.
+            </p>
+          </div>
+          <div class="border-l-4 border-primary pl-6 py-4">
+            <h3 class="text-xl font-bold mb-2">What data do you return?</h3>
+            <p class="text-muted">
+              We return the validation status plus business details where available from official sources—including
+              registered business name, address, and active/inactive status.
+            </p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Technical Example Section (Fintech specific) -->
+  {
+    industry.slug === 'fintech-kyb-tax-id' && (
+      <section class="max-w-4xl mx-auto px-4 py-12 bg-gray-900 dark:bg-slate-900 rounded-lg my-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Merchant Underwriting API</h2>
+        <p class="text-gray-300 mb-6">
+          Replace manual document review with instant verification. Support async webhooks for slow government
+          registries.
+        </p>
+        <div class="bg-gray-800 p-6 rounded-lg overflow-x-auto">
+          <pre class="text-sm text-green-400 font-mono">
+            <code>{`// POST https://api.lookuptax.com/tax/validate
+{
+  "taxId": "12-3456789",
+  "countryIso": "US"
+}
+
+// RESPONSE
+{
+  "referenceId": "uuid-abc123",
+  "countryIso": "US",
+  "tin": "12-3456789",
+  "validation": {
+    "overall": {
+      "isValid": true,
+      "message": "Tax ID is valid"
+    },
+    "format": {
+      "isValid": true,
+      "message": "Format is correct"
+    }
+  },
+  "businessEntity": {
+    "name": "Acme Fintech Solutions Inc",
+    "type": "C-Corp",
+    "status": "Active"
+  }
+}`}</code>
+          </pre>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- FAQ Section (Fintech specific) -->
+  {
+    industry.slug === 'fintech-kyb-tax-id' && (
+      <section class="max-w-4xl mx-auto px-4 py-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8">Underwriting FAQs</h2>
+        <div class="space-y-6">
+          <div class="border-l-4 border-primary pl-6 py-4">
+            <h3 class="text-xl font-bold mb-2">Is this a replacement for a full KYC provider?</h3>
+            <p class="text-muted">
+              We specialize in the Business (KYB) layer—validating the legal entity and Tax ID. Most clients use us
+              alongside identity verification providers (Onfido, Sumsub) for a complete compliance stack.
+            </p>
+          </div>
+          <div class="border-l-4 border-primary pl-6 py-4">
+            <h3 class="text-xl font-bold mb-2">Do you support sole proprietors?</h3>
+            <p class="text-muted">
+              Yes. We can validate personal tax IDs (like SSNs in the US or UTR in the UK) where permitted by local
+              regulations for sole trader underwriting.
+            </p>
+          </div>
+          <div class="border-l-4 border-primary pl-6 py-4">
+            <h3 class="text-xl font-bold mb-2">How fresh is the data?</h3>
+            <p class="text-muted">
+              Live. We do not use stale marketing databases. We query the government source of truth at the moment of
+              your request to ensure accuracy.
+            </p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Related Use Cases Section -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-primary/5 rounded-lg my-8">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Related Solutions</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      {
+        industry.relatedUseCases.map((useCase) => (
+          <a
+            href={`/use-cases/${useCase.slug}`}
+            class="block p-6 bg-white dark:bg-slate-800 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary transition-all hover:shadow-lg group"
+          >
+            <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{useCase.title}</h3>
+            <p class="text-muted text-sm">{useCase.description}</p>
+            <span class="inline-flex items-center gap-2 mt-4 text-primary font-semibold text-sm">
+              Learn More
+              <svg
+                class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Additional Resources Section -->
+  <section class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Explore More</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a
+        href="/countries"
+        class="block p-6 text-center bg-gray-50 dark:bg-slate-800/50 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+      >
+        <div class="text-4xl mb-3">🌍</div>
+        <h3 class="font-bold mb-2">Coverage</h3>
+        <p class="text-sm text-muted">See all 100+ countries</p>
+      </a>
+      <a
+        href="/our-approach-to-validation"
+        class="block p-6 text-center bg-gray-50 dark:bg-slate-800/50 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+      >
+        <div class="text-4xl mb-3">🔍</div>
+        <h3 class="font-bold mb-2">Our Approach</h3>
+        <p class="text-sm text-muted">How validation works</p>
+      </a>
+      <a
+        href="https://demo.lookuptax.com/api/"
+        target="_blank"
+        class="block p-6 text-center bg-gray-50 dark:bg-slate-800/50 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+      >
+        <div class="text-4xl mb-3">📚</div>
+        <h3 class="font-bold mb-2">API Docs</h3>
+        <p class="text-sm text-muted">Integration guides</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CallToAction
+    title={`Ready to Automate ${industry.title}?`}
+    subtitle="Get started with our free plan. No credit card required."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Started Free',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+      {
+        variant: 'secondary',
+        text: 'View API Docs',
+        href: 'https://demo.lookuptax.com/api/',
+      },
+    ]}
+  />
+</Layout>

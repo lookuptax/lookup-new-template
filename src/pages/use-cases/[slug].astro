@@ -1,0 +1,203 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
+import { useCases } from '~/content/use-cases';
+
+export async function getStaticPaths() {
+  return useCases.map((useCase) => ({
+    params: { slug: useCase.slug },
+    props: { useCase },
+  }));
+}
+
+const { useCase } = Astro.props;
+
+const metadata = {
+  title: useCase.seo.title,
+  description: useCase.seo.description,
+  keywords: useCase.seo.keywords,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText title={useCase.hero.headline} subtitle={useCase.hero.subheadline} />
+
+  <!-- Hero Image -->
+  <section class="max-w-4xl mx-auto px-4 py-8">
+    <div class="rounded-lg overflow-hidden shadow-lg bg-white">
+      <img
+        src={`/images/use-cases/${useCase.slug}.png`}
+        alt={`${useCase.title} illustration`}
+        class="w-full h-auto"
+        loading="eager"
+      />
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-yellow-50 dark:bg-yellow-900/10 rounded-lg my-8">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-yellow-900 dark:text-yellow-300">{useCase.problem.heading}</h2>
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <p class="text-lg text-muted">{useCase.problem.description}</p>
+    </div>
+  </section>
+
+  <!-- The Flow Section -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">{useCase.flow.heading}</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      {
+        useCase.flow.steps.map((step, index) => (
+          <div class="relative">
+            <div class="flex items-start gap-4">
+              <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-xl flex-shrink-0">
+                {step.number}
+              </span>
+              <div>
+                <h3 class="text-xl font-bold mb-2">{step.title}</h3>
+                <p class="text-muted">{step.description}</p>
+              </div>
+            </div>
+            {index < useCase.flow.steps.length - 1 && index % 2 === 0 && (
+              <div class="hidden md:block absolute top-6 -right-4 w-8 h-8 text-primary">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Technical Feature Section -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-primary/5 rounded-lg my-8">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">{useCase.technicalFeature.heading}</h2>
+    <p class="text-lg text-muted mb-8">{useCase.technicalFeature.description}</p>
+    <div class="space-y-3">
+      {
+        useCase.technicalFeature.highlights.map((highlight) => (
+          <div class="flex items-start gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg">
+            <svg
+              class="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <p class="text-muted">{highlight}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ROI Section -->
+  <section class="max-w-5xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">{useCase.roi.heading}</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {
+        useCase.roi.metrics.map((metric) => (
+          <div class="text-center p-6 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg border-2 border-transparent hover:border-primary transition-all">
+            <div class="text-4xl md:text-5xl font-bold text-primary mb-2">{metric.value}</div>
+            <h3 class="text-lg font-bold mb-2">{metric.label}</h3>
+            <p class="text-sm text-muted">{metric.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Related Industries Section -->
+  <section class="max-w-4xl mx-auto px-4 py-12 bg-gray-50 dark:bg-slate-800/50 rounded-lg my-8">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Built For These Industries</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      {
+        useCase.relatedIndustries.map((industry) => (
+          <a
+            href={`/industries/${industry.slug}`}
+            class="block p-6 bg-white dark:bg-slate-800 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary transition-all hover:shadow-lg group"
+          >
+            <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{industry.title}</h3>
+            <p class="text-muted text-sm">{industry.description}</p>
+            <span class="inline-flex items-center gap-2 mt-4 text-primary font-semibold text-sm">
+              Explore Industry
+              <svg
+                class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Additional Resources Section -->
+  <section class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Learn More</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a
+        href="/demo"
+        class="block p-6 text-center bg-gray-50 dark:bg-slate-800/50 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors group"
+      >
+        <Icon
+          name="tabler:target"
+          class="w-10 h-10 mx-auto mb-3 text-primary group-hover:scale-110 transition-transform"
+        />
+        <h3 class="font-bold mb-2">Try Demo</h3>
+        <p class="text-sm text-muted">Test validation live</p>
+      </a>
+      <a
+        href="/pricing"
+        class="block p-6 text-center bg-gray-50 dark:bg-slate-800/50 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors group"
+      >
+        <Icon
+          name="tabler:currency-dollar"
+          class="w-10 h-10 mx-auto mb-3 text-primary group-hover:scale-110 transition-transform"
+        />
+        <h3 class="font-bold mb-2">Pricing</h3>
+        <p class="text-sm text-muted">See plans & pricing</p>
+      </a>
+      <a
+        href="https://demo.lookuptax.com/api/"
+        target="_blank"
+        class="block p-6 text-center bg-gray-50 dark:bg-slate-800/50 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors group"
+      >
+        <Icon
+          name="tabler:book"
+          class="w-10 h-10 mx-auto mb-3 text-primary group-hover:scale-110 transition-transform"
+        />
+        <h3 class="font-bold mb-2">Documentation</h3>
+        <p class="text-sm text-muted">Integration guides</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CallToAction
+    title="Ready to Implement This Solution?"
+    subtitle="Start validating Tax IDs in under 10 minutes. Free plan available."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get API Keys',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+      {
+        variant: 'secondary',
+        text: 'View Integration Examples',
+        href: 'https://demo.lookuptax.com/api/',
+      },
+    ]}
+  />
+</Layout>

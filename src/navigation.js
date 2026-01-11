@@ -126,6 +126,7 @@ export const headerData = {
     },
     {
       text: 'Resources',
+
       links: [
         {
           text: 'Supported Countries',
@@ -192,17 +193,25 @@ export const footerData = {
         { text: 'Resources', href: 'https://lookuptax.com/docs/category/verify-tax-ids' },
       ],
     },
-    /*{
-      title: 'Platform',
+    {
+      title: 'Industries',
       links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
+        { text: 'SaaS Tax Validation', href: '/industries/saas-tax-validation' },
+        { text: 'Marketplace Verification', href: '/industries/marketplace-tax-verification' },
+        { text: 'Fintech KYB', href: '/industries/fintech-kyb-tax-id' },
+        { text: 'E-commerce VAT', href: '/industries/ecommerce-vat-validation' },
       ],
     },
-    */
+    {
+      title: 'Use Cases',
+      links: [
+        { text: 'Seller Onboarding', href: '/use-cases/seller-onboarding-tax-validation' },
+        { text: 'Customer Signup', href: '/use-cases/customer-signup-tax-validation' },
+        { text: 'Cross-Border Compliance', href: '/use-cases/cross-border-tax-compliance' },
+        { text: 'Bulk Tax ID Validation', href: '/use-cases/bulk-tax-id-validation' },
+        { text: 'Invoice Validation', href: '/use-cases/invoice-validation' },
+      ],
+    },
     {
       title: 'Support',
       links: [
@@ -219,11 +228,6 @@ export const footerData = {
         { text: 'About', href: '/about' },
         { text: 'Blog', href: '/blog' },
         { text: 'Our Approach', href: '/our-approach-to-validation' },
-        /*{ text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },*/
       ],
     },
   ],
