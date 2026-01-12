@@ -14,7 +14,7 @@ export const getStaticPaths = (async ({ paginate }) => {
     return import.meta.env.PROD ? !data.draft : true;
   });
 
-  const pages = await getCollection('page', ({ data }) => {
+  const pages = await getCollection('pages', ({ data }) => {
     return import.meta.env.PROD ? !data.draft : true;
   });
 
@@ -22,7 +22,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   const blogPagination = await getStaticPathsBlogList({ paginate, posts });
 
   // Handle individual pages
-  const individualPages = pages.map(page => ({
+  const individualPages = pages.map((page) => ({
     params: { page: page.slug },
     props: { type: 'page', entry: page },
   }));
@@ -60,22 +60,20 @@ if (type === 'page') {
 ---
 
 <Layout metadata={metadata}>
-  {type === 'page' ? (
-    <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-      <Headline>
-        {entry.data.title}
-      </Headline>
-      <div set:html={entry.body} />
-    </section>
-  ) : (
-    <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-      <Headline
-        subtitle="Read about the best ways to remain tax compliant and efficiently manage your financial operations. Look out for tips and tricks on our blog articles published every week"
-      >
-        The Lookup Blog
-      </Headline>
-      <BlogList posts={page.data} />
-      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-    </section>
-  )}
+  {
+    type === 'page' ? (
+      <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+        <Headline>{entry.data.title}</Headline>
+        <div set:html={entry.body} />
+      </section>
+    ) : (
+      <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+        <Headline subtitle="Read about the best ways to remain tax compliant and efficiently manage your financial operations. Look out for tips and tricks on our blog articles published every week">
+          The Lookup Blog
+        </Headline>
+        <BlogList posts={page.data} />
+        <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+      </section>
+    )
+  }
 </Layout>
