@@ -19,9 +19,86 @@ const metadata = {
   title: 'Global Tax ID Validation API | Validate VAT, GSTIN, EIN | Lookuptax',
   ignoreTitleTemplate: true,
 };
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      name: 'Lookuptax',
+      url: 'https://lookuptax.com',
+      sameAs: ['https://x.com/lookuptax', 'https://www.linkedin.com/company/lookuptax/'],
+    },
+    {
+      '@type': 'WebApplication',
+      name: 'Lookuptax API',
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'Cloud, Web',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What countries do you support for Tax ID validation?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'We support over 100 countries including the European Union (VIES), UK (HMRC), India (GST), and Australia (ABR). We connect directly to official government databases.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I get started with Lookuptax?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Simply sign up for a free account to get API keys and access to our documentation. You can start validating IDs immediately.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What is the pricing model for Lookuptax?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'We have a free starter plan and scalable paid tiers based on validation volume. You only pay for what you use.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is there a free trial available?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes, we offer a free trial with limited validations so you can test our accuracy and speed before committing.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What do I do if the country I am looking for is not listed on your website?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'If your business operates globally and you don’t find the country you’re looking for, please contact us at support@lookuptax.com, we’re happy to prioritize it for you.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What do I do if I am facing trouble integrating or having any other questions?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'You can reach out to support@lookuptax.com for all questions. Our team will reach out to you with a response as soon as possible.',
+          },
+        },
+      ],
+    },
+  ],
+};
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <!-- Hero Widget ******************* -->
 
   <Hero

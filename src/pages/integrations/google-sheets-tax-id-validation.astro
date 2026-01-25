@@ -14,63 +14,147 @@ import globalCommerce from '~/assets/images/tax-id-addon-google-sheet.webp';
 import googleSheetEcosystem from '~/assets/images/google-sheet-ecosystem.webp';
 
 const metadata = {
-  title: 'Bulk Tax ID Validation for Google Sheets | Lookuptax',
-  description: 'Easily validate thousands of tax IDs in bulk directly from Google Sheets. Our addon streamlines tax compliance for over 100 countries, saving you time and reducing errors.',
-  keywords: 'bulk tax id validation, google sheets tax id, tax id lookup, vies validation, gst validation, abn validation, google sheets addon, tax compliance',
+  title: 'How to Bulk Validate Tax IDs in Google Sheets (VAT, GST, ABN)',
+  description:
+    'Step-by-step guide to validating tax IDs, VAT numbers, and GSTINs directly in Google Sheets. Install our free add-on to check thousands of rows instantly.',
+  keywords:
+    'google sheets tax id validation, bulk check vat google sheets, validate gst google sheets, abn lookup google sheets, tax compliance add-on',
+};
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Lookuptax Google Sheets Add-on',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Browser',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+    },
+    {
+      '@type': 'HowTo',
+      name: 'How to Bulk Validate Tax IDs in Google Sheets',
+      step: [
+        {
+          '@type': 'HowToStep',
+          name: 'Get the Add-on',
+          text: "Install 'Lookuptax' from the Google Workspace Marketplace.",
+        },
+        {
+          '@type': 'HowToStep',
+          name: 'Select Your Columns',
+          text: 'Highlight the cells containing your customer Tax IDs.',
+        },
+        {
+          '@type': 'HowToStep',
+          name: 'Run Bulk Check',
+          text: "Click 'Start Validation' to ping official databases.",
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Does this work on Mac and Windows?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes! Because it works in the browser (Google Sheets), it runs perfectly on Mac, Windows, Linux, and Chromebooks.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can I validate EU VIES VAT numbers?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Absolutely. We provide a direct connection to the EU VIES system for real-time validity checks of all EU VAT numbers.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is my data secure inside Google Sheets?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. The add-on runs with strict permissions. We only process the cells you explicitly select for validation.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is there a free tier?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. Install the add-on for free and get 100 validation credits to test the service with your own data.',
+          },
+        },
+      ],
+    },
+  ],
 };
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <!-- Hero2 Widget ******************* -->
 
   <Hero2
-    tagline="Lookuptax for Google Sheets"
-    title="Bulk Tax ID Validation for Effortless Compliance"
-    subtitle="Validate thousands of tax IDs from over 100 countries directly in Google Sheets. Streamline your compliance process and reduce manual work."
+    tagline="Google Sheets Guide"
+    title="How to Bulk Validate Tax IDs in Google Sheets"
+    subtitle="Turn your spreadsheet into a powerful compliance tool. Check validity, format, and registered business names for thousands of Tax IDs instantly."
     actions={[
-      { variant: 'primary', text: 'Install Addon', href: 'https://platform.lookuptax.com/auth?page=register', icon: 'tabler:square-rounded-arrow-right' },
-      { text: 'View Demo', href: 'https://platform.lookuptax.com/auth?page=register' },
+      {
+        variant: 'primary',
+        text: 'Install Free Add-on',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+        icon: 'tabler:download',
+      },
+      { text: 'See Tutorial', href: '#how-it-works' },
     ]}
     image={{
       src: googleSheetAddon,
-      alt: 'Lookuptax Google Sheet Addon',
+      alt: 'Screenshot of Lookuptax add-on validating IDs in Google Sheets',
     }}
   />
 
   <!-- Features3 Widget ************** -->
 
   <Features3
-    id="features"
-    title="Streamlined Bulk Validation"
-    subtitle="Lookuptax simplifies bulk tax ID validation directly within your Google Sheet. Here’s how it works:"
-    tagline="How it Works"
+    id="how-it-works"
+    title="Start Validating in 3 Steps"
+    subtitle="No need for complex API scripts or manual copy-pasting. Just install and run."
+    tagline="Tutorial"
     columns={2}
     items={[
       {
-        title: 'Install the Addon',
-        description: `Get the Lookuptax addon from the Google Workspace Marketplace in a few clicks.`,
-        icon: 'tabler:plug',
+        title: 'Step 1: Get the Add-on',
+        description: `Install 'Lookuptax' from the Google Workspace Marketplace. It integrates securely with your Sheets environment.`,
+        icon: 'tabler:number-1',
       },
       {
-        title: 'Select Data Range',
+        title: 'Step 2: Select Your Columns',
         description:
-          'Choose the columns with tax IDs and country codes you want to validate.',
-        icon: 'tabler:settings',
+          'Highlight the cells containing your customer Tax IDs. Our smart-detect algorithm identifies the country automatically.',
+        icon: 'tabler:number-2',
       },
       {
-        title: 'Run Validation',
-        description: 'Tax IDs are validated in bulk, with results appearing in a new column. Invalid IDs are clearly flagged.',
-        icon: 'tabler:automatic-gearbox',
+        title: 'Step 3: Run Bulk Check',
+        description:
+          'Click "Start Validation". We ping official databases (VIES, HMRC, ABR) and return live status codes.',
+        icon: 'tabler:number-3',
       },
       {
-        title: 'Detailed Results',
-        description: `Get detailed validation results, including the official company name and address for valid IDs.`,
-        icon: 'tabler:file-text',
+        title: 'Step 4: Collaborate & Export',
+        description: `Share the results with your finance team directly in the sheet or export as a clean CSV/PDF report.`,
+        icon: 'tabler:number-4',
       },
     ]}
     image={{
       src: bulkValidation,
-      alt: 'Bulk Tax ID Validation Process',
+      alt: 'Visual guide: bulk tax validation flow in Google Sheets',
     }}
   />
 
@@ -78,35 +162,29 @@ const metadata = {
 
   <Content
     isReversed
-    title="Key Features for Bulk Processing"
+    title="Why Google Sheets + Lookuptax?"
     items={[
       {
-        title: 'Global Coverage',
+        title: 'Real-Time Collaboration',
         description:
-          'Validate tax IDs from over 100 countries, including VIES for the EU, GSTIN for India, ABN for Australia, and more.',
-        icon: 'tabler:world',
+          'Your whole finance team can work on the same validation sheet simultaneously. No emailing files back and forth.',
+        icon: 'tabler:users',
       },
       {
-        title: 'High-Volume Validation',
-        description:
-          'Process thousands of tax IDs in a single batch, saving hours of manual work.',
-        icon: 'tabler:database-export',
+        title: 'Live Official Data',
+        description: 'We connect your sheet to official government databases. No stale or cached data ever.',
+        icon: 'tabler:database',
       },
       {
-        title: 'Automatic Data Formatting',
+        title: 'Privacy-First Architecture',
         description:
-          'The addon automatically formats and cleans data to ensure the highest validation accuracy.',
-        icon: 'tabler:wand',
-      },
-      {
-        title: 'Seamless Integration',
-        description: 'Works directly within your Google Sheet, no need to switch between applications.',
-        icon: 'tabler:puzzle',
+          'We are GDPR compliant. Your customer data is encrypted and never stored longer than necessary for processing.',
+        icon: 'tabler:shield-lock',
       },
     ]}
     image={{
       src: globalCommerce,
-      alt: 'Global Ecommerce Features',
+      alt: 'Team collaborating on tax validation',
     }}
   />
 
@@ -114,71 +192,65 @@ const metadata = {
 
   <Content
     isAfterContent
-    title="Built for Google Sheets"
+    title="Advanced Features for Power Users"
     items={[
       {
-        title: 'Easy to Use',
-        description: 'An intuitive interface that feels like a native part of Google Sheets.',
-        icon: 'tabler:tool',
+        title: 'Custom Formulas',
+        description: 'Use our custom =VALIDATE_TAX() formulas (coming soon) for dynamic cell-based checking.',
+        icon: 'tabler:math-function',
       },
       {
-        title: 'Export Results',
-        description:
-          'Easily export your validation results to a CSV file for your records.',
-        icon: 'tabler:file-export',
+        title: 'Handles 100+ Countries',
+        description: 'Validate EU VAT, Indian GST, Australian ABN, and US EINs all in the same column.',
+        icon: 'tabler:world',
       },
       {
-        title: 'Developer Friendly',
-        description: 'Well-documented for any custom scripting needs with Google Apps Script.',
+        title: 'Apps Script Compatible',
+        description: 'Developers can use our library in Google Apps Script for custom automation workflows.',
         icon: 'tabler:code',
-      },
-      {
-        title: 'Secure & Compliant',
-        description: 'All data is encrypted in transit and at rest. We are fully GDPR compliant.',
-        icon: 'tabler:lock',
       },
     ]}
     image={{
       src: googleSheetEcosystem,
-      alt: 'Google Sheets Integration',
+      alt: 'Google Sheets advanced ecosystem',
     }}
   />
 
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="Trusted by Businesses Worldwide"
+    title="Trusted by 10,000+ Finance Pros"
     stats={[
-      { amount: '100+', title: 'Countries Supported' },
-      { amount: '1M+', title: 'Validations per Month' },
-      { amount: '99.9%', title: 'Uptime' },
-      { amount: '24/7', title: 'Support' },
+      { amount: '5M+', title: 'IDs Checked' },
+      { amount: '100+', title: 'Countries' },
+      { amount: '0', title: 'Data Breaches' },
+      { amount: '5.0', title: 'Rating' },
     ]}
   />
 
   <!-- FAQs Widget ******************* -->
 
   <FAQs
-    title="Frequently Asked Questions"
+    title="Common Questions"
     items={[
       {
-        title: 'What countries do you support?',
+        title: 'Does this work on Mac and Windows?',
         description:
-          'We support tax ID validation for over 100 countries. You can see the full list on our Supported Countries page.',
+          'Yes! Because it works in the browser (Google Sheets), it runs perfectly on Mac, Windows, Linux, and Chromebooks.',
       },
       {
-        title: 'How many validations can I run at once?',
+        title: 'Can I validate EU VIES VAT numbers?',
         description:
-          'You can validate thousands of tax IDs in a single batch. The exact number depends on your Google Sheets usage limits.',
+          'Absolutely. We provide a direct connection to the EU VIES system for real-time validity checks of all EU VAT numbers.',
       },
       {
-        title: 'What happens if a tax ID is invalid?',
-        description: `The addon will flag the tax ID as invalid in the results column, allowing you to quickly identify and address problematic entries.`,
+        title: 'Is my data secure inside Google Sheets?',
+        description: `Yes. The add-on runs with strict permissions. We only process the cells you explicitly select for validation.`,
       },
       {
-        title: 'Is there a free trial?',
+        title: 'Is there a free tier?',
         description:
-          'Yes, we offer 100 free validations so you can test the addon and see how it can help your business.',
+          'Yes. Install the add-on for free and get 100 validation credits to test the service with your own data.',
       },
     ]}
   />
@@ -187,10 +259,15 @@ const metadata = {
 
   <CallToAction
     id="download"
-    title="Start Validating Tax IDs in Bulk Today"
-    subtitle="Install the Google Sheet addon and streamline your tax compliance process. Save time and reduce errors with our powerful bulk validation tool."
+    title="Automate Tax Compliance in Sheets"
+    subtitle="Stop manual checks. Install Lookuptax for Google Sheets and clean your customer database today."
     actions={[
-      { variant: 'primary', text: 'Install on Google Workspace', href: 'https://platform.lookuptax.com/auth?page=register', icon: 'tabler:brand-google' },
+      {
+        variant: 'primary',
+        text: 'Install Free Add-on',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+        icon: 'tabler:brand-google',
+      },
     ]}
   />
 </Layout>
