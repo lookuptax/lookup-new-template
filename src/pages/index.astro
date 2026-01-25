@@ -26,35 +26,39 @@ const metadata = {
 
   <Hero
     actions={[
-     {
+      {
         variant: 'primary',
         text: 'Get Started Free',
-      /*  id: 'openModalBtn',
+        /*  id: 'openModalBtn',
         icon: 'tabler:lock-open',
         */
-       href:'https://platform.lookuptax.com/auth?page=register'
+        href: 'https://platform.lookuptax.com/auth?page=register',
       },
-      
-     
+
       { text: 'Demo', href: './demo' },
     ]}
-    image={{ src: '~/assets/images/official-sources.png', alt: 'Supported Official sources', style:"width: auto; height: auto; max-width: 100%; max-height: 100%; aspect-ratio: auto; ",class:"hidden xl:inline", }}
+    image={{
+      src: '~/assets/images/official-sources.png',
+      alt: 'Supported Official sources',
+      style: 'width: auto; height: auto; max-width: 100%; max-height: 100%; aspect-ratio: auto; ',
+      class: 'hidden xl:inline',
+    }}
   >
     <Fragment slot="title">
-      Tax ID Validation <span class="hidden xl:inline">across the world !!</span>
-      <span class="text-accent dark:text-white highlight"> 100+ countries</span> supported
+      Global Tax ID Validation via <span class="text-accent hidden xl:inline">Official Government Sources</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">VAT number, ABN, GSTIN and more.</span></span
+        Connect directly to national databases for <span class="font-semibold">100% accurate real-time validation.</span
+        ></span
       >
-     <span class="block mb-1 sm:hidden font-bold text-blue-600">VAT, ABN, EIN, GST and more</span>
-     Validate Tax IDs using our free, secure and refreshingly easy to use APIs.
+      <span class="block mb-1 sm:hidden font-bold text-blue-600">Official Source Validation</span>
+      No cached data. Support for VAT, GST, ABN, and EIN.
     </Fragment>
   </Hero>
 
-<!-- 
+  <!-- 
   <Modal id="hubspotModal">
     <HubspotForm
       portalId="22529954"
@@ -91,10 +95,10 @@ const metadata = {
 -->
   <!-- Note Widget ******************* -->
   <TaxIdValidation
-  title="Try Tax ID Validation"
-  subtitle="Validate your tax identification number"
-  tagline="Quick and easy verification"
-/> 
+    title="Try Tax ID Validation"
+    subtitle="Validate your tax identification number"
+    tagline="Quick and easy verification"
+  />
   <Note />
 
   <!-- Features Widget *************** -->
@@ -107,30 +111,36 @@ const metadata = {
     items={[
       {
         title: '#1 Global coverage',
-        description:
-          'Multiple national databases under one roof',
+        description: 'Multiple national databases under one roof',
         icon: 'tabler:brand-tailwind',
       },
       {
-        title: 'Validate in Bulk',
+        title: 'Only official sources',
         description:
-          'Upload Tax IDs in bulk and instantly validate their authenticity',
+          'We integrate only with official national databases to ensure you always get accurate, real-time validation results.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Validate in Bulk',
+        description: 'Upload Tax IDs in bulk and instantly validate their authenticity',
         icon: 'tabler:components',
       },
       {
         title: 'Single API',
         description:
           'Easily switch Tax ID validation between countries with a single API integration. Check out API docs <a href="https://demo.lookuptax.com/api" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">here</a>.',
-  icon: 'tabler:list-check',
         icon: 'tabler:list-check',
       },
       {
         title: 'Audit trails',
-        description:
-          'Refer to validation history anytime',
+        description: 'Refer to validation history anytime',
         icon: 'tabler:rocket',
       },
-      
+      {
+        title: 'Privacy-Compliant Enrichment',
+        description: 'Get official business details (Name, Address) when permitted by source privacy laws.',
+        icon: 'tabler:database-export',
+      },
     ]}
   />
 
@@ -144,7 +154,7 @@ const metadata = {
       {
         title: 'Fast Performance',
         description:
-          'UK, Europe, Australia. No matter the country, call our API\'s and instantly see the results. You don\'t deserve to wait.',
+          "UK, Europe, Australia. No matter the country, call our API's and instantly see the results. You don't deserve to wait.",
       },
       {
         title: 'Free subscription for small businesses',
@@ -164,13 +174,15 @@ const metadata = {
     ]}
     image={{
       src: '~/assets/images/banner_2.png',
-    alt: 'Colorful Image',
-    style: "width: 100%; height: auto; max-width: 100%; object-fit: contain; background-color: transparent !important; box-shadow: none;"
- 
+      alt: 'Colorful Image',
+      style:
+        'width: 100%; height: auto; max-width: 100%; object-fit: contain; background-color: transparent !important; box-shadow: none;',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Focus on other parts of your business operations. </h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Focus on other parts of your business operations.
+      </h3>
       Integrate once and forget about it. That's how reliable we are.
     </Fragment>
 
@@ -180,7 +192,7 @@ const metadata = {
   </Content>
 
   <!-- Content Widget **************** -->
-<!-- 
+  <!-- 
   <Content
     isAfterContent
     items={[
@@ -217,7 +229,7 @@ const metadata = {
   </Content>
 -->
   <!-- Content Widget **************** -->
-<!-- 
+  <!-- 
   <Content
     isReversed
     isAfterContent
@@ -255,7 +267,7 @@ const metadata = {
   </Content>
 -->
   <!-- Steps Widget ****************** -->
-<!-- 
+  <!-- 
   <Steps
     title="Get your dream website up and running in no time with AstroWind."
     items={[
@@ -289,7 +301,7 @@ const metadata = {
   />
 -->
   <!-- Features2 Widget ************** -->
-<!-- 
+  <!-- 
   <Features2
     title="Most used widgets"
     subtitle="Provides frequently used components for building websites using Tailwind CSS"
@@ -353,7 +365,7 @@ const metadata = {
   </Features2>
 -->
   <!-- HighlightedPosts Widget ******* -->
-<!-- 
+  <!-- 
   <BlogLatestPosts
     title="Find out more content in our Blog"
     information={`The blog is used to display AstroWind documentation.
@@ -373,7 +385,7 @@ const metadata = {
       {
         title: 'What countries do you support for Tax ID validation?',
         description:
-    'We use official national databases to offer reliable Tax ID validation across multiple countries. You can view the full list of supported countries <a href="/countries" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">here</a>. This includes the European Union via the VIES system, the UK via HMRC, India via the GST portal, Australia via the Australian Business Register, and many others.',
+          'We use official national databases to offer reliable Tax ID validation across multiple countries. You can view the full list of supported countries <a href="/countries" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">here</a>. This includes the European Union via the VIES system, the UK via HMRC, India via the GST portal, Australia via the Australian Business Register, and many others.',
       },
       {
         title: 'How do I get started with Lookuptax?',
@@ -390,16 +402,17 @@ const metadata = {
         description:
           'Yes, we offer a free trial that allows you to test our services with limited validations. This is a great way to see if Lookuptax meets your needs before committing to a paid plan.',
       },
-{
+      {
         title: 'What do I do if the country I am looking for is not listed on your website?',
         description:
           'If your business operates globally and you don’t find the country you’re looking for, please contact us at support@lookuptax.com, we’re happy to prioritize it for you.',
-       },
+      },
 
-{
+      {
         title: 'What do I do if I am facing trouble integrating or having any other questions?',
         description:
-          'You can reach out to support@lookuptax.com for all questions. Our team will reach out to you with a response as soon as possible.', },
+          'You can reach out to support@lookuptax.com for all questions. Our team will reach out to you with a response as soon as possible.',
+      },
     ]}
   />
 
@@ -415,7 +428,7 @@ const metadata = {
   />
 
   <!-- CallToAction Widget *********** -->
-<!-- 
+  <!-- 
   <CallToAction
     actions={[
       {

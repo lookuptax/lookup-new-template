@@ -1,0 +1,17 @@
+---
+interface Props {
+  code: string;
+  alt?: string;
+  class?: string;
+}
+
+const { code, alt = 'Mermaid diagram', class: className = '' } = Astro.props;
+
+// Base64 encode the code for mermaid.ink
+const base64Code = Buffer.from(code.trim()).toString('base64');
+const imageUrl = `https://mermaid.ink/svg/${base64Code}?bgColor=FFFFFF`;
+---
+
+<div class={`mermaid-diagram flex justify-center w-full my-8 ${className}`}>
+  <img src={imageUrl} alt={alt} class="max-w-full h-auto rounded-lg shadow-sm" loading="lazy" decoding="async" />
+</div>
