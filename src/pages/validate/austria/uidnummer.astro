@@ -6,50 +6,146 @@ import Headline from '~/components/ui/Headline.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Validate Austrian UID-Nummer Online | Free VAT Check Tool',
-  description: 'Instantly validate Austrian UID-Nummer online. Free VAT checker with official entity details. Integrate VAT validation API into your workflows.',
+  title: 'Validate Austria UID (ATU) Number | Free FinanzOnline & VIES Check',
+  description:
+    'Free Austria ATU validator. Verify UID-Nummer format (ATUxxxxxxxx), check status on FinanzOnline/VIES, and find Firmenbuchnummer details.',
 };
 ---
 
 <Layout metadata={metadata}>
   <CountryTaxIdValidation
-    title="Validate Austrian UID-Nummer Online"
-    subtitle="Quickly and accurately validate Austrian UID-Nummer for businesses across Austria."
-    tagline="Austria UID-Nummer Validation"
+    title="Validate Austria UID (ATU) Number Online"
+    subtitle="Verify Austrian UID-Nummer status, VIES registration, and entity details for free. Check ATU format and validate against FinanzOnline."
+    tagline="Austria UID Validation"
     country="AT"
-    taxIdPlaceholder="Enter UID-Nummer (e.g., ATU12345678)"
+    taxIdPlaceholder="Enter UID (e.g., ATU12345678)"
     sampleTaxIds={`[{"tin":"ATU12345678"}]`}
   />
-  <WidgetWrapper containerClass="max-w-7xl mx-auto">
-    <Headline title="Frequently Asked Questions" />
-    <div class="mt-8">
-      <div class="mb-6">
-        <h3 class="text-xl font-bold mb-2">What is the Austrian UID-Nummer?</h3>
-        <p class="text-gray-700 dark:text-gray-300">The Austrian UID-Nummer (Umsatzsteuer-Identifikationsnummer) is used for tax identification purposes in Austria.</p>
+
+  <WidgetWrapper containerClass="max-w-7xl mx-auto" id="format">
+    <Headline
+      title="Understanding Austria UID Format"
+      subtitle="The UID-Nummer (Umsatzsteuer-Identifikationsnummer) must start with 'ATU' followed by 8 digits."
+    />
+
+    <div class="flex flex-col md:flex-row gap-8 mt-8">
+      <div
+        class="flex-1 bg-blue-50 dark:bg-slate-800 p-6 rounded-lg text-center flex flex-col justify-center items-center"
+      >
+        <div class="flex gap-6 items-start">
+          <div class="flex flex-col items-center">
+            <span class="text-3xl font-mono font-bold text-primary tracking-wider">AT</span>
+            <span class="text-xs text-gray-500 mt-2">Country<br />Code</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-3xl font-mono font-bold text-primary tracking-wider">U</span>
+            <span class="text-xs text-gray-500 mt-2">VAT<br />Identifier</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-3xl font-mono font-bold text-primary tracking-wider">12345678</span>
+            <span class="text-xs text-gray-500 mt-2">8 Unique<br />Digits</span>
+          </div>
+        </div>
       </div>
-      <div class="mb-6">
-        <h3 class="text-xl font-bold mb-2">How can I validate an Austrian UID-Nummer online?</h3>
-        <p class="text-gray-700 dark:text-gray-300">You can validate any Austrian UID-Nummer using Lookuptax's free VAT checker. Enter the UID-Nummer to confirm validity and retrieve business details instantly.</p>
-      </div>
-      <div class="mb-6">
-        <h3 class="text-xl font-bold mb-2">Is UID-Nummer validation mandatory for invoices?</h3>
-        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer’s UID-Nummer ensures accurate invoicing, compliance with Austrian law, and prevents tax filing errors.</p>
-      </div>
-      <div class="mb-6">
-        <h3 class="text-xl font-bold mb-2">Can I integrate UID-Nummer validation into my billing system?</h3>
-        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a UID-Nummer validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      <div class="flex-1 flex flex-col justify-center">
+        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+          <li class="flex items-start">
+            <span class="mr-2 text-primary font-bold">✓</span>
+            <span
+              ><strong>Structure:</strong> Must start with 'AT' (Austria) + 'U' (Umsatzsteuer). Total 11 characters.</span
+            >
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2 text-primary font-bold">✓</span>
+            <span
+              ><strong>UID vs Steuernummer:</strong> UID is for international trade (VIES). Steuernummer is for local tax.</span
+            >
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2 text-primary font-bold">✓</span>
+            <span><strong>Validation:</strong> Checks format (ATU regex) and active status via VIES/FinanzOnline.</span>
+          </li>
+        </ul>
       </div>
     </div>
   </WidgetWrapper>
+
+  <WidgetWrapper containerClass="max-w-7xl mx-auto" id="faq">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+      <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg">
+        <h3 class="text-lg font-bold mb-2">Can I check UID on FinanzOnline?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Yes, <strong>FinanzOnline</strong> is the official Austrian portal for tax administration. However, for quick batch
+          validation or API integration, third-party tools like Lookuptax are faster.
+        </p>
+      </div>
+      <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg">
+        <h3 class="text-lg font-bold mb-2">Difference between UID and Firmenbuchnummer?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          The <strong>UID-Nummer</strong> (e.g., ATU...) is for VAT and tax purposes. The <strong
+            >Firmenbuchnummer</strong
+          > (e.g., FN 123456 x) is the Commercial Register number identifying the legal entity.
+        </p>
+      </div>
+      <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg">
+        <h3 class="text-lg font-bold mb-2">What exactly is an 'ATU' number?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          "ATU Number" is a common nickname for the Austrian VAT ID. It simply refers to the mandatory prefix: <strong
+            >AT</strong
+          > (Austria) + <strong>U</strong> (Umsatzsteuer).
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
+
   <CallToAction
-    title="Ready to automate Tax ID validation?"
-    subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
+    title="Need to validate 100+ tax IDs?"
+    subtitle="Get accurate, real-time validation for Austria (UID) and 100+ other countries with one API."
     actions={[
       {
         variant: 'primary',
-        text: 'Get started now',
+        text: 'Sign Up for Free',
         href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+      {
+        text: 'Read Austria Tax Guide',
+        href: 'https://lookuptax.com/docs/tax-identification-number/austria-tax-id-guide',
+        icon: 'tabler:book',
       },
     ]}
   />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I check UID on FinanzOnline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, FinanzOnline is the official Austrian portal for tax administration. However, for quick batch validation or API integration, third-party tools like Lookuptax are faster."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Difference between UID and Firmenbuchnummer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The UID-Nummer (e.g., ATU...) is for VAT and tax purposes. The Firmenbuchnummer (e.g., FN 123456 x) is the Commercial Register number identifying the legal entity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What exactly is an 'ATU' number?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "'ATU Number' is a common nickname for the Austrian VAT ID. It simply refers to the mandatory prefix: AT (Austria) + U (Umsatzsteuer)."
+          }
+        }
+      ]
+    }
+  </script>
 </Layout>

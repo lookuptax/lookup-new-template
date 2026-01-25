@@ -6,42 +6,83 @@ import Headline from '~/components/ui/Headline.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Validate Bahamas TIN Online | Free Bahamas Tax ID Checker',
+  title: 'Validate Bahamas TIN (Tax ID) | Free DIR & NIB Check',
   description:
-    'Instantly validate Bahamas Taxpayer Identification Number (TIN) online. Free Bahamas TIN checker with official entity details. Integrate TIN validation API into your workflows.',
+    'Free Bahamas TIN validator. Verify 9-digit Tax ID versus NIB number, check "TIN Only" status logic, and validate against Department of Inland Revenue (DIR) rules.',
 };
 ---
 
 <Layout metadata={metadata}>
   <CountryTaxIdValidation
-    title="Validate Bahamas Taxpayer Identification Number (TIN) Online"
-    subtitle="Quickly and accurately validate Tax Identification Numbers for businesses registered in The Bahamas."
+    title="Validate Bahamas TIN (Tax ID) Online"
+    subtitle="Verify Bahamas Tax Identification Number (TIN), check NIB status, and entity details for free. Validate 9-digit format against Department of Inland Revenue (DIR) rules."
     tagline="Bahamas TIN Validation"
     country="BS"
     taxIdPlaceholder="Enter TIN (e.g., 123456789)"
     sampleTaxIds={`[{"tin":"123456789"}]`}
   />
-  <WidgetWrapper containerClass="max-w-7xl mx-auto">
+
+  <WidgetWrapper containerClass="max-w-7xl mx-auto" id="format">
+    <Headline
+      title="Understanding Bahamas TIN Format"
+      subtitle="The Bahamas TIN is a 9-digit number issued by the Department of Inland Revenue (DIR). It is distinct from the NIB number."
+    />
+
+    <div class="flex flex-col md:flex-row gap-8 mt-8">
+      <div
+        class="flex-1 bg-blue-50 dark:bg-slate-800 p-6 rounded-lg text-center flex flex-col justify-center items-center"
+      >
+        <div class="flex gap-6 items-start">
+          <div class="flex flex-col items-center">
+            <span class="text-3xl font-mono font-bold text-primary tracking-wider">123456789</span>
+            <span class="text-xs text-gray-500 mt-2">9 Distinct<br />Digits</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1 flex flex-col justify-center">
+        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+          <li class="flex items-start">
+            <span class="mr-2 text-primary font-bold">✓</span>
+            <span><strong>Structure:</strong> A strict 9-digit numeric code required for VAT and tax purposes.</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2 text-primary font-bold">✓</span>
+            <span><strong>Authority:</strong> Issued by the Department of Inland Revenue (DIR).</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2 text-primary font-bold">✓</span>
+            <span
+              ><strong>TIN vs NIB:</strong> NIB (8 digits) is for social security. TIN (9 digits) is for Tax/VAT.</span
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </WidgetWrapper>
+
+  <WidgetWrapper containerClass="max-w-7xl mx-auto" id="faq">
     <Headline title="Frequently Asked Questions" />
-    <div class="mt-8">
-      <div class="mb-6">
-        <h3 class="text-xl font-bold mb-2">What is a Bahamas TIN?</h3>
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+      <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg">
+        <h3 class="text-lg font-bold mb-2">Difference between TIN and NIB?</h3>
         <p class="text-gray-700 dark:text-gray-300">
-          The Bahamas TIN is a unique Taxpayer Identification Number issued to businesses and entities for tax
-          compliance purposes in The Bahamas.
+          The <strong>NIB Number</strong> (8 digits) is for National Insurance/Social Security and is held by every working
+          individual. The <strong>TIN</strong> (9 digits) is strictly for tax laws and is issued by the DIR.
         </p>
       </div>
-      <div class="mb-6">
-        <h3 class="text-xl font-bold mb-2">How can I validate a Bahamas TIN online?</h3>
+      <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg">
+        <h3 class="text-lg font-bold mb-2">What is "TIN Only" status?</h3>
         <p class="text-gray-700 dark:text-gray-300">
-          Use Lookuptax's free TIN checker to validate any Bahamas Taxpayer Identification Number. Enter the TIN to
-          confirm validity instantly.
+          "TIN Only" means an entity is registered with the DIR (e.g., for refunds or importing goods) but is <strong
+            >not authorized</strong
+          > to charge VAT. Validating this status is critical for compliance.
         </p>
       </div>
-      <div class="mb-6">
-        <h3 class="text-xl font-bold mb-2">Can I integrate Bahamas TIN validation into my system?</h3>
+      <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg">
+        <h3 class="text-lg font-bold mb-2">How do I verify a Bahamas VAT number?</h3>
         <p class="text-gray-700 dark:text-gray-300">
-          Yes. Lookuptax provides a TIN validation API for automated compliance workflows.
+          Check the "VRN" or TIN on the invoice. You can use our tool to validate the 9-digit format or search the
+          monthly "Registrant's List" on the DIR website.
         </p>
       </div>
     </div>
@@ -53,10 +94,26 @@ const metadata = {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is a Bahamas TIN?",
+          "name": "Difference between TIN and NIB?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A Taxpayer Identification Number issued to entities in The Bahamas."
+            "text": "The NIB Number (8 digits) is for National Insurance/Social Security and is held by every working individual. The TIN (9 digits) is strictly for tax laws and is issued by the DIR."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is 'TIN Only' status?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "'TIN Only' means an entity is registered with the DIR (e.g., for refunds or importing goods) but is not authorized to charge VAT. Validating this status is critical for compliance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I verify a Bahamas VAT number?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Check the 'VRN' or TIN on the invoice. You can use our tool to validate the 9-digit format or search the monthly 'Registrants List' on the DIR website."
           }
         }
       ]
@@ -69,8 +126,13 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get started now',
+        text: 'Sign Up for Free',
         href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+      {
+        text: 'Official DIR Guide',
+        href: 'https://inlandrevenue.finance.gov.bs/',
+        icon: 'tabler:book',
       },
     ]}
   />

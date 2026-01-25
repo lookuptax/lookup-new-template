@@ -1,44 +1,119 @@
 ---
-import Layout from '~/layouts/Layout.astro';
+import Layout from '~/layouts/PageLayout.astro';
 import CountryTaxIdValidation from '~/components/widgets/CountryTaxIdValidation.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
-import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Validate TIN Number Bahrain Online | Free TIN Check Tool',
-  description: 'Instantly validate TIN numbers in Bahrain online. Free TIN checker with official entity details. Integrate TIN validation API into your workflows.',
+  title: 'Validate Bahrain VAT (TRN) Number | Free NBR Check',
+  description:
+    'Free Bahrain TRN validator (Free Quota). Verify 15-digit VAT number, distinguish from CR Number, and check status against National Bureau for Revenue (NBR).',
 };
 ---
 
 <Layout metadata={metadata}>
   <CountryTaxIdValidation
-    title="Validate TIN Number in Bahrain Online"
-    subtitle="Quickly and accurately validate TIN (Taxpayer Identification Number) for businesses across Bahrain."
-    tagline="Bahrain TIN Validation"
+    title="Validate Bahrain VAT (TRN) Number Online"
+    subtitle="Verify Bahrain VAT status, distinguish from CR Number, and check entity details. Validate 15-digit format against National Bureau for Revenue (NBR) rules."
+    tagline="Bahrain VAT Validation"
     country="BH"
-    taxIdPlaceholder="Enter TIN (e.g., 123456789)"
-    sampleTaxIds={`[{"tin":"123456789"}]`}
+    taxIdPlaceholder="Enter TRN (e.g., 200000000000002)"
+    sampleTaxIds={`[{"tin":"200000000000002"}]`}
   />
-  <WidgetWrapper containerClass="max-w-7xl mx-auto">
-    <Headline title="Frequently Asked Questions" />
-    <div class="mt-8">
-      <div class="mb-6">
-        <h3 class="text-xl font-bold mb-2">How can I validate a TIN number online in Bahrain?</h3>
-        <p class="text-gray-700 dark:text-gray-300">You can validate any TIN number in Bahrain using Lookuptax's free TIN checker. Enter the TIN to confirm validity and retrieve business details instantly.</p>
+
+  <WidgetWrapper containerClass="max-w-7xl mx-auto" id="format">
+    <Headline
+      title="Understanding Bahrain TRN Format"
+      subtitle="The Tax Registration Number (TRN) is a unique 15-digit code issued by the National Bureau for Revenue (NBR)."
+    />
+
+    <div class="flex flex-col md:flex-row gap-8 mt-8">
+      <div
+        class="flex-1 bg-blue-50 dark:bg-slate-800 p-6 rounded-lg text-center flex flex-col justify-center items-center"
+      >
+        <div class="flex gap-6 items-start">
+          <div class="flex flex-col items-center">
+            <span class="text-3xl font-mono font-bold text-primary tracking-wider">200...</span>
+            <span class="text-xs text-gray-500 mt-2">Country<br />Prefix</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-3xl font-mono font-bold text-primary tracking-wider">...00002</span>
+            <span class="text-xs text-gray-500 mt-2">Branch<br />Code</span>
+          </div>
+        </div>
+        <div class="text-sm text-gray-400 mt-4">(Total 15 Digits)</div>
       </div>
-      <div class="mb-6">
-        <h3 class="text-xl font-bold mb-2">Is TIN validation mandatory for invoices?</h3>
-        <p class="text-gray-700 dark:text-gray-300">Yes. For B2B transactions, validating the buyer’s TIN ensures accurate invoicing, compliance with Bahraini law, and prevents tax filing errors.</p>
-      </div>
-      <div class="mb-6">
-        <h3 class="text-xl font-bold mb-2">Can I integrate TIN validation into my billing system?</h3>
-        <p class="text-gray-700 dark:text-gray-300">Yes. Lookuptax provides a TIN validation API that can be integrated with invoicing, ERP, or billing platforms to automate compliance.</p>
+      <div class="flex-1 flex flex-col justify-center">
+        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+          <li class="flex items-start">
+            <span class="mr-2 text-primary font-bold">✓</span>
+            <span
+              ><strong>Structure:</strong> 15 digits total. Often starts with '2' (Country Code). Ends with branch digits.</span
+            >
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2 text-primary font-bold">✓</span>
+            <span
+              ><strong>TRN vs CR:</strong> CR (Commercial Registration) authorizes business. TRN (VAT) authorizes tax collection.</span
+            >
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2 text-primary font-bold">✓</span>
+            <span><strong>Validation:</strong> Checks 15-digit format and checksum logic.</span>
+          </li>
+        </ul>
       </div>
     </div>
   </WidgetWrapper>
+
+  <WidgetWrapper containerClass="max-w-7xl mx-auto" id="faq">
+    <Headline title="Frequently Asked Questions" />
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+      <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg">
+        <h3 class="text-lg font-bold mb-2">Difference between TRN and CR Number?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          The <strong>CR Number</strong> (Issued by MOIC) is your business license. The <strong>TRN</strong> (Issued by NBR)
+          is for VAT. You generally need a CR to get a TRN.
+        </p>
+      </div>
+      <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg">
+        <h3 class="text-lg font-bold mb-2">How do I verify a Bahrain VAT number?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          You can use our tool to pre-check the 15-digit format. For official status, cross-reference with the <strong
+            >NBR VAT Payer Lookup</strong
+          > system.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg">
+        <h3 class="text-lg font-bold mb-2">What is the VAT rate in Bahrain?</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          The standard VAT rate is <strong>10%</strong> (increased from 5% in 2022). Verify the TRN validity before reclaiming
+          any input VAT.
+        </p>
+      </div>
+    </div>
+  </WidgetWrapper>
+
+  <CallToAction
+    title="Need to validate 100+ tax IDs?"
+    subtitle="Get accurate, real-time validation for Bahrain (TRN) and 100+ other countries with one API."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Sign Up for Free',
+        href: 'https://platform.lookuptax.com/auth?page=register',
+      },
+      {
+        text: 'Official NBR Guide',
+        href: 'https://www.nbr.gov.bh/',
+        icon: 'tabler:book',
+      },
+    ]}
+  />
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -46,28 +121,30 @@ const metadata = {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How to validate a TIN online?",
-          "acceptedAnswer": {"@type":"Answer","text":"Enter the TIN, we check format and checksum, then verify against official sources via our API."}
+          "name": "Difference between TRN and CR Number?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The CR Number (Issued by MOIC) is your business license. The TRN (Issued by NBR) is for VAT. You generally need a CR to get a TRN."
+          }
         },
         {
           "@type": "Question",
-          "name": "Is TIN verification free?",
-          "acceptedAnswer": {"@type":"Answer","text":"Format and checksum are free; server lookups may be rate-limited."}
+          "name": "How do I verify a Bahrain VAT number?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can use our tool to pre-check the 15-digit format. For official status, cross-reference with the NBR VAT Payer Lookup system."
+          }
+        },
+
+        {
+          "@type": "Question",
+          "name": "What is the VAT rate in Bahrain?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The standard VAT rate is 10% (increased from 5% in 2022). Verify the TRN validity before reclaiming any input VAT."
+          }
         }
       ]
     }
   </script>
-
-  <!-- Additional Information (optional) -->
-  <CallToAction
-  title="Ready to automate Tax ID validation?"
-  subtitle="Signup with a free trial to validate tax IDs in 100+ countries"
-  actions={[
-    {
-      variant: 'primary',
-      text: 'Get started now',
-      href: 'https://platform.lookuptax.com/auth?page=register',
-    },
-  ]}
-/> 
 </Layout>
