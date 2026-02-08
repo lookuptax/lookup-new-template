@@ -228,12 +228,14 @@ export const footerData = {
         { text: 'About', href: '/about' },
         { text: 'Blog', href: '/blog' },
         { text: 'Our Approach', href: '/our-approach-to-validation' },
+        { text: 'Terms', href: '/terms' },
+        { text: 'Privacy Policy', href: '/privacy' },
+        { text: 'DPA', href: '/dpa' },
+        { text: 'Sub-processors', href: '/sub-processors' },
       ],
     },
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/lookuptax' },
