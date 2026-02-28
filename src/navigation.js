@@ -232,6 +232,7 @@ export const footerData = {
         { text: 'Privacy Policy', href: '/privacy' },
         { text: 'DPA', href: '/dpa' },
         { text: 'Sub-processors', href: '/sub-processors' },
+        { text: 'GDPR', href: '/gdpr' },
       ],
     },
   ],
