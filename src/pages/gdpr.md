@@ -128,6 +128,7 @@ For complete details, please refer to:
 
 For GDPR, privacy, or data protection inquiries, please contact:
 
-📧 **contact@lookuptax.com**
+📧 **[contact@lookuptax.com](mailto:contact@lookuptax.com)**
+🏢 **Kadalas Tech LLP (Lookuptax brand)**
 
 Lookuptax is committed to transparent and proportionate data protection practices aligned with the scope of our services.

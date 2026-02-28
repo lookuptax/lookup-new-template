@@ -48,4 +48,5 @@ Lookuptax may update this list from time to time as sub-processors are added or 
 
 If you have questions about our sub-processors or data protection practices, please contact:
 
-contact@lookuptax.com
+📧 **[contact@lookuptax.com](mailto:contact@lookuptax.com)**
+🏢 **Kadalas Tech LLP (Lookuptax brand)**

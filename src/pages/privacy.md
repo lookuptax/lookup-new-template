@@ -18,7 +18,7 @@ By creating an account, subscribing to our services, or using our **Tax ID valid
 - Receiving marketing and promotional communications from us
 - Sharing of data with sub-processors as described in our [Sub-Processors list](/sub-processors)
 
-Your consent is provided upon your first interaction with our services (including account creation, subscription, API usage, or website registration). You may withdraw your consent at any time by contacting us at **contact@lookuptax.com**, though this may affect your ability to use certain features of our services.
+Your consent is provided upon your first interaction with our services (including account creation, subscription, API usage, or website registration). You may withdraw your consent at any time by contacting us at **[contact@lookuptax.com](mailto:contact@lookuptax.com)**, though this may affect your ability to use certain features of our services.
 
 ### Legal Bases for Processing
 
@@ -72,7 +72,7 @@ By using our services, you automatically consent to receiving marketing communic
 You may withdraw your consent to marketing communications at any time without affecting the lawfulness of processing based on consent before withdrawal. To opt out:
 
 - Click the "unsubscribe" link included in every marketing email
-- Email us at **contact@lookuptax.com** with the subject line "Unsubscribe"
+- Email us at **[contact@lookuptax.com](mailto:contact@lookuptax.com)** with the subject line "Unsubscribe"
 - Update your communication preferences in your account settings
 
 Please note that opting out of marketing communications does not affect essential service-related communications (e.g., security alerts, billing notifications, and service updates), which are necessary for account operation.
@@ -115,5 +115,5 @@ We may update this privacy policy from time to time to reflect changes in our da
 
 If you have any questions or concerns about this privacy policy, our data processing practices, or wish to exercise any of your rights, please contact us at:
 
-📧 **contact@lookuptax.com**
+📧 **[contact@lookuptax.com](mailto:contact@lookuptax.com)**
 🏢 **Kadalas Tech LLP (Lookuptax brand)**

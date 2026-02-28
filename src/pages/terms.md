@@ -59,7 +59,7 @@ We may determine organisational affiliation by any reasonable means, including b
 
 ### Good Faith Usage
 
-We encourage organisations with multiple users to subscribe to one of our paid plans, which offer higher limits, additional features, and dedicated support. If you are unsure whether your usage qualifies under our free tier, please contact us at **contact@lookuptax.com** before creating additional accounts.
+We encourage organisations with multiple users to subscribe to one of our paid plans, which offer higher limits, additional features, and dedicated support. If you are unsure whether your usage qualifies under our free tier, please contact us at **[contact@lookuptax.com](mailto:contact@lookuptax.com)** before creating additional accounts.
 
 ## Intellectual Property
 
@@ -99,5 +99,5 @@ These terms and conditions shall be governed by and construed in accordance with
 
 If you have any questions or concerns about these terms and conditions, please contact us at:
 
-📧 **contact@lookuptax.com**  
+📧 **[contact@lookuptax.com](mailto:contact@lookuptax.com)**  
 🏢 **Kadalas Tech LLP (Lookuptax brand)**

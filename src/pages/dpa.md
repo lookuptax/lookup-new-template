@@ -107,4 +107,5 @@ This DPA shall be governed by the governing law specified in the main agreement.
 
 ## Contact for Data Protection Matters
 
-contact@lookuptax.com
+📧 **[contact@lookuptax.com](mailto:contact@lookuptax.com)**
+🏢 **Kadalas Tech LLP (Lookuptax brand)**
