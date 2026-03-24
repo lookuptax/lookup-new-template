@@ -7,6 +7,16 @@
   for = "/_astro/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+# Exact match for /docs and /docs/ — splat is empty so :splat won't resolve
+[[redirects]]
+  from = "/docs"
+  to = "https://lookup-guides.netlify.app/"
+  status = 200
+[[redirects]]
+  from = "/docs/"
+  to = "https://lookup-guides.netlify.app/"
+  status = 200
+# Wildcard for /docs/anything
 [[redirects]]
   from = "/docs/*"
   to = "https://lookup-guides.netlify.app/:splat"
