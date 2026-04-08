@@ -5,7 +5,9 @@ import Hero from '~/components/widgets/Hero.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
-
+import { Image } from 'astro:assets';
+import abhilashImg from '~/assets/images/abhilash_john.jpg';
+import arunImg from '~/assets/images/arun_tk.jpg';
 const metadata = {
   title: 'About',
 };
@@ -17,11 +19,11 @@ const metadata = {
   <Hero
     tagline="About"
     image={{
-        src: '~/assets/images/use_case.png',
-    alt: 'Colorful Image',
-    style: "width: 100%; height: auto; max-width: 100%; max-height: 214px; object-fit: contain; background-color: transparent !important; box-shadow: none;"
- 
-    }} 
+      src: '~/assets/images/use_case.png',
+      alt: 'Colorful Image',
+      style:
+        'width: 100%; height: auto; max-width: 100%; max-height: 214px; object-fit: contain; background-color: transparent !important; box-shadow: none;',
+    }}
   >
     <Fragment slot="title">
       You are in expert hands <br />
@@ -29,12 +31,13 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      We are team of finance experts, technologist and problem solvers. Our mission is to make your Tax ID validation Efficient, Affordable and Secure
+      We are team of finance experts, technologist and problem solvers. Our mission is to make your Tax ID validation
+      Efficient, Affordable and Secure
     </Fragment>
   </Hero>
 
   <!-- Stats Widget ****************** -->
-<!-- 
+  <!-- 
   <Stats
     title="Statistics about us"
     stats={[
@@ -47,7 +50,7 @@ const metadata = {
   -->
 
   <!-- Features3 Widget ************** -->
-<!-- 
+  <!-- 
   <Features3
     title="Our templates"
     subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
@@ -76,7 +79,7 @@ const metadata = {
   />
 -->
   <!-- Features3 Widget ************** -->
-<!-- 
+  <!-- 
   <Features3
     columns={3}
     isAfterContent={true}
@@ -148,8 +151,119 @@ const metadata = {
     ]}
   />
 
+  <!-- Team Section ****************** -->
+
+  <section class="py-16 px-4 md:px-8 lg:px-16">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <p class="text-sm font-semibold uppercase tracking-widest text-primary dark:text-blue-400 mb-2">Our Team</p>
+        <h2 class="text-3xl md:text-4xl font-bold dark:text-white">Meet the Founders</h2>
+        <p class="mt-4 text-lg text-muted dark:text-slate-400 max-w-2xl mx-auto">
+          Experienced leaders in global taxation, compliance infrastructure, and distributed systems.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Abhilash John Philip -->
+        <div
+          class="relative group bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+          </div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-5">
+              <Image
+                src={abhilashImg}
+                alt="Abhilash John Philip"
+                class="w-16 h-16 rounded-full object-cover shadow-md border-2 border-white dark:border-slate-800"
+              />
+              <div>
+                <h3 class="text-xl font-bold dark:text-white">Abhilash John Philip</h3>
+                <p class="text-sm font-medium text-primary dark:text-blue-400">Co-Founder</p>
+              </div>
+            </div>
+            <p class="text-muted dark:text-slate-300 text-sm leading-relaxed mb-4">
+              Abhilash is a product leader specializing in infrastructure for global taxation and compliance. He
+              previously led global tax systems at Chargebee, where he architected VAT ID validation across 40+
+              countries and scaled tax integrations for multinational enterprises.
+            </p>
+            <p class="text-muted dark:text-slate-300 text-sm leading-relaxed mb-5">
+              He brings deep expertise in real world tax workflows and compliance systems, and co-founded Lookuptax to
+              solve the “Identity Gap” in cross border commerce building high-precision, API-first systems for tax
+              identity validation.
+            </p>
+            <a
+              href="https://www.linkedin.com/in/abhilashjohnphilip/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+                ><path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                ></path></svg
+              >
+              LinkedIn Profile
+            </a>
+          </div>
+        </div>
+
+        <!-- Arun Kumar TK -->
+        <div
+          class="relative group bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+          </div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-5">
+              <Image
+                src={arunImg}
+                alt="Arun Kumar TK"
+                class="w-16 h-16 rounded-full object-cover shadow-md border-2 border-white dark:border-slate-800"
+              />
+              <div>
+                <h3 class="text-xl font-bold dark:text-white">Arun Kumar TK</h3>
+                <p class="text-sm font-medium text-primary dark:text-blue-400">Co-Founder</p>
+              </div>
+            </div>
+            <p class="text-muted dark:text-slate-300 text-sm leading-relaxed mb-4">
+              Arun is a seasoned architect specializing in distributed systems, data platforms, and large-scale
+              infrastructure. He has led end-to-end platform transformations, including payment systems, real-time
+              analytics infrastructure, and event-driven architectures for high-growth companies.
+            </p>
+            <p class="text-muted dark:text-slate-300 text-sm leading-relaxed mb-4">
+              His experience includes building PCI-compliant payment systems at scale, designing data-intensive
+              platforms, and optimizing infrastructure for performance and cost efficiency.
+            </p>
+            <p class="text-muted dark:text-slate-300 text-sm leading-relaxed mb-5">
+              At Lookuptax, he leads the architecture of a highly reliable, scalable validation engine designed to
+              handle global tax identity verification with precision and speed.
+            </p>
+            <a
+              href="https://www.linkedin.com/in/tkarun/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+                ><path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                ></path></svg
+              >
+              LinkedIn Profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Steps2 Widget ****************** -->
-<!-- 
+  <!-- 
   <Steps2
     title="Achievements"
     subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
@@ -180,7 +294,7 @@ const metadata = {
   />
 -->
   <!-- Features2 Widget ************** -->
-<!--
+  <!--
   <Features2
     title="Our locations"
     tagline="Find us"
@@ -214,13 +328,11 @@ const metadata = {
     items={[
       {
         title: 'Write to us',
-        description:
-          'Send us an email at support@lookuptax.com',
+        description: 'Send us an email at support@lookuptax.com',
         icon: 'tabler:messages',
-        
       },
-      
-    /* {
+
+      /* {
         title: 'Call us',
         description:
           'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
@@ -228,7 +340,5 @@ const metadata = {
         
       },*/
     ]}
-    
   />
-  
 </Layout>
