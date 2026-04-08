@@ -9,11 +9,44 @@ import { Image } from 'astro:assets';
 import abhilashImg from '~/assets/images/abhilash_john.jpg';
 import arunImg from '~/assets/images/arun_tk.jpg';
 const metadata = {
-  title: 'About',
+  title: 'About Us',
+  description:
+    'Learn about Lookuptax: a team of finance experts, technologists, and problem solvers making global Tax ID validation efficient, affordable, and secure. Meet the founders solving the Identity Gap in cross-border commerce.',
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Lookuptax',
+  url: 'https://www.lookuptax.com',
+  description: 'High-precision, API-first global tax identity validation systems.',
+  founders: [
+    {
+      '@type': 'Person',
+      name: 'Abhilash John Philip',
+      jobTitle: 'Co-Founder',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Lookuptax',
+      },
+      url: 'https://www.linkedin.com/in/abhilashjohnphilip/',
+    },
+    {
+      '@type': 'Person',
+      name: 'Arun Kumar TK',
+      jobTitle: 'Co-Founder',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Lookuptax',
+      },
+      url: 'https://www.linkedin.com/in/tkarun/',
+    },
+  ],
 };
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   <!-- Hero Widget ******************* -->
 
   <Hero
@@ -27,12 +60,13 @@ const metadata = {
   >
     <Fragment slot="title">
       You are in expert hands <br />
-      <span class="text-accent dark:text-white highlight">Building blocks for validating businesses</span>
+      <span class="text-accent dark:text-white highlight"> Global Tax ID Validation Infrastructure</span>
     </Fragment>
 
-    <Fragment slot="subtitle">
-      We are team of finance experts, technologist and problem solvers. Our mission is to make your Tax ID validation
-      Efficient, Affordable and Secure
+    <Fragment slot="subtitle"
+      >Lookuptax provides API-first tax ID validation for global businesses, helping companies verify tax identities,
+      reduce compliance risk, and prevent fraud. Built by experts in taxation and billing systems, Lookuptax is designed
+      to deliver accurate, real-time validation across multiple jurisdictions.
     </Fragment>
   </Hero>
 
